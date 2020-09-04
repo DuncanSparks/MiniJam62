@@ -53,6 +53,9 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	GameObject paintGlobs = null;
 
+	[SerializeField]
+	LayerMask collisionMask;
+
 	void Start()
 	{
 		camera = GetComponentInChildren<Camera>();
@@ -83,7 +86,11 @@ public class Player : MonoBehaviour
 			animator.SetFloat("Walking", 0);
 		}
 
-		onGround = Physics.Raycast(transform.position, Vector3.down, 4f);
+		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
+		if (onGround)
+		{
+			animator.SetBool("EndJump", true);
+		}
 		
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
@@ -91,7 +98,6 @@ public class Player : MonoBehaviour
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetBool("Attack", true);
-			//Attack();
 		}
 
 		if (Input.GetButtonDown("Jump") && onGround)
