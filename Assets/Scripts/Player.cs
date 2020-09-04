@@ -61,6 +61,9 @@ public class Player : MonoBehaviour
 
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
+
+		if (Input.GetButtonDown("Action"))
+			Controller.Singleton.Dialogue(new List<string>(){"Hello there", "How are you today", "This is a test"});
 	}
 
 
