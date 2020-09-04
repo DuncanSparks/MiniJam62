@@ -24,6 +24,8 @@ public class Controller : MonoBehaviour
 	[SerializeField]
 	GameObject dialogueObj = null;
 
+  public GameObject player = null;
+
 	// ======================================================
 
 	void Awake()
