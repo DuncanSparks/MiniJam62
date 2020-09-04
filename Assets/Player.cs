@@ -82,8 +82,8 @@ public class Player : MonoBehaviour
 
 	void RotateCamera(float movex, float movey)
 	{
-		cameraBase.transform.RotateAround(cameraBase.transform.position, new Vector3(0, 1, 0), -movex * CameraMouseRotationSpeed);
-		cameraXRot += movey * CameraMouseRotationSpeed;
+		cameraBase.transform.RotateAround(cameraBase.transform.position, new Vector3(0, 1, 0), movex * CameraMouseRotationSpeed);
+		cameraXRot += -movey * CameraMouseRotationSpeed;
 		cameraXRot = Mathf.Clamp(cameraXRot, CameraXRotMin, CameraXRotMax);
 		Vector3 rot = cameraPivot.transform.rotation.eulerAngles;
 		rot.x = cameraXRot;
