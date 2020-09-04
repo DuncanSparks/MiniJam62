@@ -54,13 +54,26 @@ public class Player : MonoBehaviour
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
+    if(animator.GetBool("InAttackState")) {
+      horizontal=0;
+      vertical=0;
+    }
+
 		if (horizontal != 0f || vertical != 0f)
-			animator.Play("Walk");
+			animator.SetFloat("Walking", 1);
 		else
-			animator.Play("Idle");
+			animator.SetFloat("Walking", 0);
 
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
+
+    if(Input.GetButtonDown("Fire1")) {
+      animator.SetBool("Attack", true);
+    }
+
+    if(Input.GetButtonDown("Jump")) {
+      
+    }
 	}
 
 
@@ -73,7 +86,9 @@ public class Player : MonoBehaviour
 
 		rigidbody.velocity = new Vector3(result.x, rigidbody.velocity.y, result.z);
 
-		modelRotation = Quaternion.LookRotation(target, Vector3.up);
+    if(horizontal!=0||vertical!=0) {
+      modelRotation = Quaternion.LookRotation(target, Vector3.up);
+    }
 		Quaternion newrot = Quaternion.Slerp(model.transform.rotation, modelRotation, RotationInterpolateSpeed * Time.deltaTime);
 		model.transform.rotation = newrot;
 

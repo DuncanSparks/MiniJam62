@@ -1,8 +1,11 @@
 fileFormatVersion: 2
-guid: 147817d49a7c14eaf8d3f43d71ddee4e
+guid: 45543eb24eb9a461e9a2613f42b7e71e
 ModelImporter:
   serializedVersion: 20101
   internalIDToNameTable:
+  - first:
+      74: 5053838811936765268
+    second: BucketChan|0Idle
   - first:
       74: -1995642297162244428
     second: BucketChan|Attack
@@ -13,9 +16,6 @@ ModelImporter:
       74: 7279638464747349924
     second: BucketChan|Hurt
   - first:
-      74: -2755376627380207417
-    second: BucketChan|Idle
-  - first:
       74: -8028255776493033287
     second: BucketChan|Run
   - first:
@@ -24,7 +24,32 @@ ModelImporter:
   - first:
       74: 8685487955951921292
     second: Paint.001|Attack
-  externalObjects: {}
+  externalObjects:
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Black
+    second: {fileID: 2100000, guid: b712e6ae8436c40cdb1a70b653fd78c0, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Eyes
+    second: {fileID: 2100000, guid: ecfd8c0b9a1294f7485b0fe9acfc5821, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Handle
+    second: {fileID: 2100000, guid: 3d8a4bbbb845c41598ff972be7e57d3d, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Material
+    second: {fileID: 2100000, guid: 4fd7a90226a5b45eeb23472f741af9ea, type: 2}
+  - first:
+      type: UnityEngine:Material
+      assembly: UnityEngine.CoreModule
+      name: Paint
+    second: {fileID: 2100000, guid: c2aa98343aa54411ca964b8e5cafc6a2, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -33,7 +58,7 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
-    resampleCurves: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
     rigImportErrors: 
@@ -44,7 +69,7 @@ ModelImporter:
     animationDoRetargetingWarnings: 0
     importAnimatedCustomProperties: 0
     importConstraints: 0
-    animationCompression: 0
+    animationCompression: 1
     animationRotationError: 0.5
     animationPositionError: 0.5
     animationScaleError: 0.5
