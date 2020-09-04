@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
 	float mouseX = 0f;
 	float mouseY = 0f;
 
+	bool onGround = false;
+
 	public enum PaintColor
 	{
 		Red,
@@ -79,6 +81,8 @@ public class Player : MonoBehaviour
 		{
 			animator.SetFloat("Walking", 0);
 		}
+
+		onGround = Physics.Raycast(transform.position, Vector3.down, 1f);
 		
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
@@ -89,15 +93,15 @@ public class Player : MonoBehaviour
 			//Attack();
 		}
 
-		if (Input.GetButtonDown("Jump"))
+		if (Input.GetButtonDown("Jump") && onGround)
 		{
-
+			Debug.Log("Jump");
 		}
 	
-		if (Input.GetButtonDown("Action"))
+		/*if (Input.GetButtonDown("Action"))
 		{
 			Controller.Singleton.Dialogue(new List<string>(){"Hello there", "How are you today", "This is a test"});
-		}
+		}*/
 	}
 
 
@@ -138,6 +142,7 @@ public class Player : MonoBehaviour
 			case PaintColor.Red:
 			{
 				var glob = Instantiate(paintGlobs, transform.position + model.transform.forward, model.transform.rotation);
+				Destroy(glob.gameObject, 3.0f);
 			} break;
 		}
 	}

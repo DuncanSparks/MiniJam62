@@ -17,7 +17,7 @@ public class PaintGlob : MonoBehaviour
 
     void Start()
     {
-        Invoke(nameof(DestroySelf), 3.0f);
+        Destroy(gameObject, 3.0f);
 
         transform.localRotation = Quaternion.AngleAxis(startAngle, Vector3.up);
         var rb = GetComponent<Rigidbody>();
@@ -42,13 +42,9 @@ public class PaintGlob : MonoBehaviour
     void DestroyAnimation()
     {
         var parts = Instantiate(particles, transform.position + new Vector3(0, 0.6f, 0), Quaternion.AngleAxis(-90f, new Vector3(1, 0, 0)));
+        Destroy(parts, 2.0f);
         GetComponent<Animator>().Play("PaintGlob_Destroy");
-        Invoke(nameof(DestroySelf), 1.0f);
         destroyed = true;
-    }
-
-    void DestroySelf()
-    {
-        Destroy(gameObject);
+        Destroy(gameObject, 1.0f);
     }
 }
