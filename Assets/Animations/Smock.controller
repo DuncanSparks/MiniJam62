@@ -37,10 +37,10 @@ AnimatorStateMachine:
   m_ChildStates:
   - serializedVersion: 1
     m_State: {fileID: 4437566265562175485}
-    m_Position: {x: 290, y: 270, z: 0}
+    m_Position: {x: 260, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3027368950089085211}
-    m_Position: {x: 550, y: 50, z: 0}
+    m_Position: {x: 520, y: 50, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 5415570178411212415}
     m_Position: {x: 300, y: -20, z: 0}
@@ -49,13 +49,16 @@ AnimatorStateMachine:
     m_Position: {x: 270, y: 160, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3546632298891385838}
-    m_Position: {x: 600, y: 290, z: 0}
+    m_Position: {x: 500, y: 270, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -8863564398091191184}
-    m_Position: {x: 640, y: 430, z: 0}
+    m_Position: {x: 510, y: 340, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 3740489154155495260}
-    m_Position: {x: 520, y: 160, z: 0}
+    m_Position: {x: 510, y: 160, z: 0}
+  - serializedVersion: 1
+    m_State: {fileID: -924789545209359746}
+    m_Position: {x: 545, y: 225, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
   m_EntryTransitions:
@@ -67,6 +70,32 @@ AnimatorStateMachine:
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
   m_DefaultState: {fileID: 3309335412255875563}
+--- !u!1102 &-924789545209359746
+AnimatorState:
+  serializedVersion: 5
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Smock_attack_2
+  m_Speed: 1
+  m_CycleOffset: 0
+  m_Transitions: []
+  m_StateMachineBehaviours: []
+  m_Position: {x: 50, y: 50, z: 0}
+  m_IKOnFeet: 0
+  m_WriteDefaultValues: 1
+  m_Mirror: 0
+  m_SpeedParameterActive: 0
+  m_MirrorParameterActive: 0
+  m_CycleOffsetParameterActive: 0
+  m_TimeParameterActive: 0
+  m_Motion: {fileID: 7400000, guid: b631d048a932d486c94d6b4837042101, type: 2}
+  m_Tag: 
+  m_SpeedParameter: 
+  m_MirrorParameter: 
+  m_CycleOffsetParameter: 
+  m_TimeParameter: 
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -149,7 +178,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: d5903963a831f0d40a96afc2444f23f9, type: 2}
+  m_Motion: {fileID: 7400000, guid: bfdd569df228e40f28a7229f1c6fc127, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
@@ -189,7 +218,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Walk
-  m_Speed: 1
+  m_Speed: 3
   m_CycleOffset: 0
   m_Transitions: []
   m_StateMachineBehaviours: []
@@ -201,7 +230,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: 1ee892b399192f240abfb5ae44cad2f7, type: 2}
+  m_Motion: {fileID: 7400000, guid: cbe744619f8f547df9dae04f24fc1cf7, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
