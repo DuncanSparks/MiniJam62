@@ -56,7 +56,10 @@ public class Player : MonoBehaviour
 	GameObject cameraBase = null;
 
 	[SerializeField]
-	GameObject paintGlobs = null;
+	GameObject paintGlobsRed = null;
+
+    [SerializeField]
+    GameObject paintGlobBlue = null;
 
 	[SerializeField]
 	LayerMask collisionMask;
@@ -172,13 +175,16 @@ public class Player : MonoBehaviour
 		{
 			case PaintColor.Red:
 			{
-				var glob = Instantiate(paintGlobs, transform.position + model.transform.forward, model.transform.rotation);
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                audioSource.PlayOneShot(paintSound);
+				var glob = Instantiate(paintGlobsRed, transform.position + model.transform.forward, model.transform.rotation);
 				Destroy(glob.gameObject, 3.0f);
 			} break;
 
 			case PaintColor.Blue:
 			{
-
+                var glob = Instantiate(paintGlobBlue, transform.position + model.transform.forward, model.transform.rotation);
+                Destroy(glob.gameObject, 3.0f);
 			} break;
 		}
 	}

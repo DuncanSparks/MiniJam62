@@ -15,6 +15,13 @@ public class PaintGlob : MonoBehaviour
     [SerializeField]
     GameObject particles = null;
 
+    public enum GlobColor
+    {
+        Red,
+        Blue,
+        Yellow
+    }
+
     void Start()
     {
         Destroy(gameObject, 3.0f);

@@ -173,11 +173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a766c4dec09f35458255525c7a2cbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  paintSound: {fileID: 0}
+  paintSound: {fileID: 8300000, guid: 4bd7f82417f8ff74eba49b2830c98d30, type: 3}
   model: {fileID: 7154406552991066619}
   cameraPivot: {fileID: 37996566983068316}
   cameraBase: {fileID: 37996567182780259}
-  paintGlobs: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+  paintGlobsRed: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+  paintGlobBlue: {fileID: 4160986337378563954, guid: b8d584018ddd4d949ad0e64a9e83db41, type: 3}
   collisionMask:
     serializedVersion: 2
     m_Bits: 55
