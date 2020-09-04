@@ -200,7 +200,7 @@ PrefabInstance:
     - target: {fileID: 37996566486471966, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: paintGlobs
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
 --- !u!1 &670939865

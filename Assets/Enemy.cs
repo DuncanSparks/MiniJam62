@@ -86,8 +86,7 @@ public class Enemy : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
-    {
+    void OnCollisionEnter(Collision other) {
         
     }
 }

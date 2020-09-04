@@ -72,7 +72,7 @@ public class Player : MonoBehaviour
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
-    attacking = animator.GetBool("InAttackState");
+        attacking = animator.GetBool("InAttackState");
 		if (attacking)
 		{
 			horizontal=0;
@@ -87,14 +87,6 @@ public class Player : MonoBehaviour
 		{
 			animator.SetFloat("Walking", 0);
 		}
-    bool grounded = onGround;
-		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
-		if (onGround)
-		{
-			animator.SetBool("EndJump", true);
-		} else {
-      animator.SetBool("EndJump", false);
-    }
 		
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
@@ -102,26 +94,35 @@ public class Player : MonoBehaviour
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetBool("Attack", true);
-      model.transform.rotation = modelRotation;
+            model.transform.rotation = modelRotation;
 		}
+
+		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
 
 		if (Input.GetButtonDown("Jump") && onGround && !attacking)
 		{
 			rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
 			animator.SetBool("StartJump", true);
 			animator.SetBool("EndJump", false);
+            animator.SetFloat("Jumping", 1);
 		}
 
-		if (rigidbody.velocity.y <= 0)
-		{
-			animator.SetFloat("Jumping", 1);
-		}
-		else
-		{
-			animator.SetFloat("Jumping", 0);
-		}
+        if(!onGround)
+        {
+            if (rigidbody.velocity.y < 0)
+            {
+                animator.SetFloat("Jumping", 2);
+            }
+            else
+            {
+                animator.SetFloat("Jumping", 1);
+            }
+        }
+        else
+        {
+            animator.SetFloat("Jumping", 0);
+        }
 			
-	
 		/*if (Input.GetButtonDown("Action"))
 		{
 			Controller.Singleton.Dialogue(new List<string>(){"Hello there", "How are you today", "This is a test"});
