@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
 	float mouseY = 0f;
 
 	bool onGround = false;
+	bool attacking = false;
 
 	public enum PaintColor
 	{
@@ -71,7 +72,8 @@ public class Player : MonoBehaviour
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
-		if (animator.GetBool("InAttackState"))
+    attacking = animator.GetBool("InAttackState");
+		if (attacking)
 		{
 			horizontal=0;
 			vertical=0;
@@ -85,12 +87,14 @@ public class Player : MonoBehaviour
 		{
 			animator.SetFloat("Walking", 0);
 		}
-
+    bool grounded = onGround;
 		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
 		if (onGround)
 		{
 			animator.SetBool("EndJump", true);
-		}
+		} else {
+      animator.SetBool("EndJump", false);
+    }
 		
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
@@ -98,15 +102,17 @@ public class Player : MonoBehaviour
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetBool("Attack", true);
+      model.transform.rotation = modelRotation;
 		}
 
-		if (Input.GetButtonDown("Jump") && onGround)
+		if (Input.GetButtonDown("Jump") && onGround && !attacking)
 		{
 			rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
 			animator.SetBool("StartJump", true);
+			animator.SetBool("EndJump", false);
 		}
 
-		if (rigidbody.velocity.y < 0)
+		if (rigidbody.velocity.y <= 0)
 		{
 			animator.SetFloat("Jumping", 1);
 		}
