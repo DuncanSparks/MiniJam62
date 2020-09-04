@@ -72,7 +72,6 @@ public class Player : MonoBehaviour
     if(Input.GetButtonDown("Jump")) {
       
     }
-    
 		if (Input.GetButtonDown("Action")) {
 			Controller.Singleton.Dialogue(new List<string>(){"Hello there", "How are you today", "This is a test"});
     }
