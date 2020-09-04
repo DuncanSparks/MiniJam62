@@ -47,6 +47,9 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	GameObject cameraBase = null;
 
+	[SerializeField]
+	GameObject paintGlobs = null;
+
 	void Start()
 	{
 		camera = GetComponentInChildren<Camera>();
@@ -83,6 +86,7 @@ public class Player : MonoBehaviour
 		if (Input.GetButtonDown("Fire1"))
 		{
 			animator.SetBool("Attack", true);
+			//Attack();
 		}
 
 		if (Input.GetButtonDown("Jump"))
@@ -106,7 +110,7 @@ public class Player : MonoBehaviour
 
 		rigidbody.velocity = new Vector3(result.x, rigidbody.velocity.y, result.z);
 
-		if (horizontal!=0||vertical!=0)
+		if (horizontal!=0 || vertical!=0)
 		{
 			modelRotation = Quaternion.LookRotation(target, Vector3.up);
 		}
@@ -127,13 +131,13 @@ public class Player : MonoBehaviour
 		cameraPivot.transform.rotation = Quaternion.Euler(rot);
 	}
 
-	void Attack()
+	public void Attack()
 	{
 		switch (currentColor)
 		{
 			case PaintColor.Red:
 			{
-
+				var glob = Instantiate(paintGlobs, transform.position + model.transform.forward, model.transform.rotation);
 			} break;
 		}
 	}

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 37996566486471966}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -79,6 +79,7 @@ MonoBehaviour:
   model: {fileID: 7154406552991066619}
   cameraPivot: {fileID: 37996566983068316}
   cameraBase: {fileID: 37996567182780259}
+  paintGlobs: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
 --- !u!1 &37996566964331235
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +244,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &3292307854514540156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7154406552991066619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: df2478cb1c0d5914083ea4c031727c26, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8036927570912957610
 PrefabInstance:
   m_ObjectHideFlags: 0
