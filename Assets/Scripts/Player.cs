@@ -24,6 +24,16 @@ public class Player : MonoBehaviour
 	float mouseX = 0f;
 	float mouseY = 0f;
 
+	public enum PaintColor
+	{
+		Red,
+		Yellow,
+		Blue,
+	}
+
+	PaintColor currentColor = PaintColor.Red;
+	public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
+
 	new Camera camera;
 	new Rigidbody rigidbody;
 	Animator animator;
@@ -36,6 +46,9 @@ public class Player : MonoBehaviour
 
 	[SerializeField]
 	GameObject cameraBase = null;
+
+	[SerializeField]
+	GameObject paintGlobs = null;
 
 	void Start()
 	{
@@ -52,29 +65,39 @@ public class Player : MonoBehaviour
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
-    if(animator.GetBool("InAttackState")) {
-      horizontal=0;
-      vertical=0;
-    }
+		if (animator.GetBool("InAttackState"))
+		{
+			horizontal=0;
+			vertical=0;
+		}
 
 		if (horizontal != 0f || vertical != 0f)
+		{
 			animator.SetFloat("Walking", 1);
+		}
 		else
+		{
 			animator.SetFloat("Walking", 0);
-
+		}
+		
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
 
-    if(Input.GetButtonDown("Fire1")) {
-      animator.SetBool("Attack", true);
-    }
+		if (Input.GetButtonDown("Fire1"))
+		{
+			animator.SetBool("Attack", true);
+			//Attack();
+		}
 
-    if(Input.GetButtonDown("Jump")) {
-      
-    }
-		if (Input.GetButtonDown("Action")) {
+		if (Input.GetButtonDown("Jump"))
+		{
+
+		}
+	
+		if (Input.GetButtonDown("Action"))
+		{
 			Controller.Singleton.Dialogue(new List<string>(){"Hello there", "How are you today", "This is a test"});
-    }
+		}
 	}
 
 
@@ -87,9 +110,11 @@ public class Player : MonoBehaviour
 
 		rigidbody.velocity = new Vector3(result.x, rigidbody.velocity.y, result.z);
 
-    if(horizontal!=0||vertical!=0) {
-      modelRotation = Quaternion.LookRotation(target, Vector3.up);
-    }
+		if (horizontal!=0 || vertical!=0)
+		{
+			modelRotation = Quaternion.LookRotation(target, Vector3.up);
+		}
+
 		Quaternion newrot = Quaternion.Slerp(model.transform.rotation, modelRotation, RotationInterpolateSpeed * Time.deltaTime);
 		model.transform.rotation = newrot;
 
@@ -104,5 +129,16 @@ public class Player : MonoBehaviour
 		Vector3 rot = cameraPivot.transform.rotation.eulerAngles;
 		rot.x = cameraXRot;
 		cameraPivot.transform.rotation = Quaternion.Euler(rot);
+	}
+
+	public void Attack()
+	{
+		switch (currentColor)
+		{
+			case PaintColor.Red:
+			{
+				var glob = Instantiate(paintGlobs, transform.position + model.transform.forward, model.transform.rotation);
+			} break;
+		}
 	}
 }
