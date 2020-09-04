@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	const float RotationInterpolateSpeed = 10.0f;
 
 	const float Speed = 12.0f;
+	const float JumpForce = 20.0f;
 
 	Quaternion modelRotation = Quaternion.identity;
 	float cameraXRot = 0.0f;
@@ -82,7 +83,7 @@ public class Player : MonoBehaviour
 			animator.SetFloat("Walking", 0);
 		}
 
-		onGround = Physics.Raycast(transform.position, Vector3.down, 1f);
+		onGround = Physics.Raycast(transform.position, Vector3.down, 4f);
 		
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
@@ -95,8 +96,19 @@ public class Player : MonoBehaviour
 
 		if (Input.GetButtonDown("Jump") && onGround)
 		{
-			Debug.Log("Jump");
+			rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+			animator.SetBool("StartJump", true);
 		}
+
+		if (rigidbody.velocity.y < 0)
+		{
+			animator.SetFloat("Jumping", 1);
+		}
+		else
+		{
+			animator.SetFloat("Jumping", 0);
+		}
+			
 	
 		/*if (Input.GetButtonDown("Action"))
 		{
