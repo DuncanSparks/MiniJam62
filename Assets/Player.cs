@@ -43,7 +43,7 @@ public class Player : MonoBehaviour
 	{
 		camera = GetComponentInChildren<Camera>();
 		rigidbody = GetComponent<Rigidbody>();
-		//animator = model.GetComponent<Animator>();
+		animator = model.GetComponent<Animator>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -54,10 +54,10 @@ public class Player : MonoBehaviour
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
-		/*if (horizontal != 0f || vertical != 0f)
+		if (horizontal != 0f || vertical != 0f)
 			animator.Play("Walk");
 		else
-			animator.Play("Idle");*/
+			animator.Play("Idle");
 
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
@@ -74,7 +74,7 @@ public class Player : MonoBehaviour
 		rigidbody.velocity = new Vector3(result.x, rigidbody.velocity.y, result.z);
 
 		modelRotation = Quaternion.LookRotation(target, Vector3.up);
-		Quaternion newrot = Quaternion.Slerp(model.transform.rotation, modelRotation * Quaternion.AngleAxis(180f, Vector3.up), RotationInterpolateSpeed * Time.deltaTime);
+		Quaternion newrot = Quaternion.Slerp(model.transform.rotation, modelRotation, RotationInterpolateSpeed * Time.deltaTime);
 		model.transform.rotation = newrot;
 
 		RotateCamera(mouseX, mouseY);
