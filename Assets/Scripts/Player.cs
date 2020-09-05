@@ -18,6 +18,8 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     float dashSpeed = 24.0f;
+    [SerializeField]
+    GameObject dashEffect;
 
 	Quaternion modelRotation = Quaternion.identity;
 	float cameraXRot = 0.0f;
@@ -139,6 +141,7 @@ public class Player : MonoBehaviour
 
         attacking = animator.GetBool("InAttackState");
         dashing = animator.GetBool("InDashState");
+        dashEffect.SetActive(dashing);
         hurt = animator.GetBool("InHurtState");
 		if (attacking || hurt || lockMovement)
 		{
