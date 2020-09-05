@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class GameUI : MonoBehaviour
 {
@@ -11,10 +12,16 @@ public class GameUI : MonoBehaviour
 	[SerializeField]
 	GameObject colorIndicator;
 
-	readonly Color[] colors = {
-		new Color(1, 0, 0),
-		new Color(0, 0, 1),
-		new Color(1, 1, 0)
+	[SerializeField]
+	GameObject colorText;
+
+	[SerializeField]
+	Color[] colors;
+
+	readonly string[] colorNames = {
+		"Red",
+		"Blue",
+		"Yellow"
 	};
 
 	void Awake()
@@ -32,5 +39,9 @@ public class GameUI : MonoBehaviour
     public void SetIndicatorColor(Player.PaintColor color)
 	{
 		colorIndicator.GetComponent<Image>().color = colors[(int)color];
+
+		var text = colorText.GetComponent<TextMeshProUGUI>();
+		text.color = colors[(int)color];
+		text.text = colorNames[(int)color];
 	}
 }
