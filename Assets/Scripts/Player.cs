@@ -117,7 +117,7 @@ public class Player : MonoBehaviour
     {
         float damage = 1;
         float knockback = 20;
-        Damage(damage, knockback*hitbox.transform.forward);
+        Damage(damage, -knockback*hitbox.transform.forward);
     }
 
     Vector3 knockback;
@@ -125,7 +125,7 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("Hurt", true);
         knockback = knockbackDirection;
-        modelRotation = Quaternion.LookRotation(knockback);
+        modelRotation = Quaternion.LookRotation(-knockback);
         model.transform.rotation = modelRotation;
         health = Mathf.Clamp(--health, 0, maxHealth);
     }

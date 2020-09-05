@@ -56,7 +56,7 @@ public class PaintGlob : MonoBehaviour
 
     void OnCollisionEnter(Collision coll)
     {
-        if (coll.gameObject.tag != "Player" && !destroyed)
+        if (!destroyed)
         {
             GetComponent<MeshCollider>().enabled = false;
             DestroyAnimation();
