@@ -31,11 +31,12 @@ public class Player : MonoBehaviour
 	public enum PaintColor
 	{
 		Red,
-		Yellow,
-		Blue,
+        Blue,
+		Yellow
 	}
 
-	PaintColor currentColor = PaintColor.Red;
+    [SerializeField]
+	PaintColor currentColor = PaintColor.Blue;
 	public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
 
 	new Camera camera;
@@ -171,7 +172,7 @@ public class Player : MonoBehaviour
 
 	public void Attack()
 	{
-		switch (currentColor)
+		/*switch (currentColor)
 		{
 			case PaintColor.Red:
 			{
@@ -186,6 +187,26 @@ public class Player : MonoBehaviour
                 var glob = Instantiate(paintGlobBlue, transform.position + model.transform.forward, model.transform.rotation);
                 Destroy(glob.gameObject, 3.0f);
 			} break;
-		}
+		}*/
+
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(paintSound);
+        GameObject obj;
+        switch (currentColor)
+        {
+            case PaintColor.Red:
+                obj = paintGlobsRed;
+                break;
+            case PaintColor.Blue:
+                obj = paintGlobBlue;
+                break;
+            default:
+                obj = paintGlobsRed;
+                break;
+        }
+
+        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, model.transform.rotation);
+        glob.GetComponentInChildren<PaintGlob>().Color = currentColor;
+        Destroy(glob.gameObject, 3.0f);
 	}
 }
