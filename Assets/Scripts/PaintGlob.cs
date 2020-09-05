@@ -13,6 +13,11 @@ public class PaintGlob : MonoBehaviour
     float speed = 10f;
 
     [SerializeField]
+    int damage = 1;
+
+    public int Damage { get => damage; }
+
+    [SerializeField]
     GameObject particles = null;
 
     Player.PaintColor color;
