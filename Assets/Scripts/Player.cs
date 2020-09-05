@@ -89,9 +89,32 @@ public class Player : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        animator.SetBool("Hurt", true);
+        if (other.gameObject.tag == "EnemyHitbox")
+        {
+            HitboxCollision(other.gameObject);
+        }
     }
 
+    void OnCollisionEnter(Collision other)
+    {
+        if (other.gameObject.tag == "EnemyHitbox")
+        {
+            HitboxCollision(other.gameObject);
+        }
+    }
+
+    void HitboxCollision(GameObject hitbox) {
+        float damage = 1;
+        float knockback = 20;
+        Damage(damage, knockback*hitbox.transform.forward);
+    }
+
+    Vector3 knockback;
+    void Damage(float amount, Vector3 knockbackDirection)
+    {
+        animator.SetBool("Hurt", true);
+        knockback = knockbackDirection;
+    }
 
 	void Update()
 	{
@@ -177,6 +200,8 @@ public class Player : MonoBehaviour
 		target = camera.transform.TransformDirection(target);
 		target.y = 0f;
 		Vector3 result = target * Speed;
+        
+        
 
 		rigidbody.velocity = new Vector3(result.x, rigidbody.velocity.y, result.z);
 

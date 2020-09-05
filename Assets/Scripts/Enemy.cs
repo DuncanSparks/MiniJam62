@@ -73,6 +73,7 @@ public class Enemy : MonoBehaviour
         if(attackTimer>attackTime)
         {
             attackTimer=0;
+            targetVelocity = Vector3.zero;
             animator.SetBool("Attack", true);
         }
     }
