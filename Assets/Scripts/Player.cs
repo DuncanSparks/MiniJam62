@@ -133,6 +133,7 @@ public class Player : MonoBehaviour
     void Damage(float amount, Vector3 knockbackDirection)
     {
         animator.SetBool("Hurt", true);
+        Controller.Singleton.ShowComicText("Splat", transform.position, camera);
         knockback = knockbackDirection;
         modelRotation = Quaternion.LookRotation(-knockback);
         model.transform.rotation = modelRotation;

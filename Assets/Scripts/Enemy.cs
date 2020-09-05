@@ -116,6 +116,7 @@ public class Enemy : MonoBehaviour
             dead = true;
             Destroy(gameObject, 1f);
         }
+        Controller.Singleton.ShowComicText("Splat", transform.position+Vector3.up*3, Camera.main);
     }
 
     void OnCollisionEnter(Collision other)
