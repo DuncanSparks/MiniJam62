@@ -132,9 +132,9 @@ MonoBehaviour:
   speed: 10
   damage: 1
   particles:
-  - {fileID: 8385332086020182284, guid: d4473e10dc835e7419053a496f1a5dc1, type: 3}
-  - {fileID: 8385332086020182284, guid: 0b933bfbdc6689b4c85b116ddddcc7b8, type: 3}
-  - {fileID: 8385332086020182284, guid: 8afae819244615c43aad70ed6138cfca, type: 3}
+  - {fileID: 6472448212748181173, guid: 05d4a07c65a165849bb8780cc105f40b, type: 3}
+  - {fileID: 3369701368492493358, guid: a76cbc2d27a94344799afb1aa35e0fa5, type: 3}
+  - {fileID: 1845277291938485029, guid: cdaea9a1261dbae49be616a12800a769, type: 3}
   parent: {fileID: 0}
 --- !u!95 &8750397931417055882
 Animator:
