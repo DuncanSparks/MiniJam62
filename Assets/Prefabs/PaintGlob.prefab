@@ -130,7 +130,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startAngle: 0
   speed: 10
-  particles: {fileID: 8385332086020182284, guid: d4473e10dc835e7419053a496f1a5dc1, type: 3}
+  damage: 1
+  particles:
+  - {fileID: 8385332086020182284, guid: d4473e10dc835e7419053a496f1a5dc1, type: 3}
+  - {fileID: 8385332086020182284, guid: 0b933bfbdc6689b4c85b116ddddcc7b8, type: 3}
+  - {fileID: 8385332086020182284, guid: 8afae819244615c43aad70ed6138cfca, type: 3}
+  parent: {fileID: 0}
 --- !u!95 &8750397931417055882
 Animator:
   serializedVersion: 3
