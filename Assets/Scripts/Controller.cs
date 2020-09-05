@@ -65,6 +65,6 @@ public class Controller : MonoBehaviour
 		obj.GetComponent<Canvas>().worldCamera = camera;
 		obj.GetComponent<BillboardFX>().camTransform = camera.transform;
 		obj.GetComponent<ComicText>().DisplayText(text);
-		Destroy(obj, 0.333f);
+		Destroy(obj, 0.5f);
 	}
 }
