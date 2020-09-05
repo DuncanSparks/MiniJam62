@@ -19,6 +19,8 @@ public class Controller : MonoBehaviour
 	bool dialogueOpen = false;
 	public bool DialogueOpen { get => dialogueOpen; set => dialogueOpen = value; }
 
+	int audioSourceIndex = 0;
+
 	// ======================================================
 
 	[SerializeField]
@@ -47,5 +49,15 @@ public class Controller : MonoBehaviour
 		dlgScript.DialogueText = text;
 		dlgScript.StartDialogue();
 		dialogueOpen = true;
+	}
+
+	public void PlaySoundOneShot(AudioClip sound, float pitch = 1f, float volume = 1f)
+	{
+		AudioSource source = GetComponents<AudioSource>()[audioSourceIndex];
+		source.clip = sound;
+		source.pitch = pitch;
+		source.volume = volume;
+		source.Play();
+		audioSourceIndex = (audioSourceIndex + 1) % 8;
 	}
 }

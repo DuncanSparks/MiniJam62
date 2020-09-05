@@ -267,8 +267,7 @@ public class Player : MonoBehaviour
 
 	public void Attack()
 	{
-        audioSource.pitch = Random.Range(0.9f, 1.1f);
-        audioSource.PlayOneShot(paintSound);
+		Controller.Singleton.PlaySoundOneShot(paintSound, Random.Range(0.9f, 1.1f));
         GameObject obj;
         switch (currentColor)
         {
