@@ -31,16 +31,21 @@ public class Player : MonoBehaviour
 	public enum PaintColor
 	{
 		Red,
-		Yellow,
-		Blue,
+        Blue,
+		Yellow
 	}
 
-	PaintColor currentColor = PaintColor.Red;
+    [SerializeField]
+	PaintColor currentColor = PaintColor.Blue;
 	public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
 
 	new Camera camera;
 	new Rigidbody rigidbody;
 	Animator animator;
+	AudioSource audioSource;
+
+	[SerializeField]
+	AudioClip paintSound;
 
 	[SerializeField]
 	GameObject model = null;
@@ -52,7 +57,10 @@ public class Player : MonoBehaviour
 	GameObject cameraBase = null;
 
 	[SerializeField]
-	GameObject paintGlobs = null;
+	GameObject paintGlobsRed = null;
+
+    [SerializeField]
+    GameObject paintGlobBlue = null;
 
 	[SerializeField]
 	LayerMask collisionMask;
@@ -62,6 +70,7 @@ public class Player : MonoBehaviour
 		camera = GetComponentInChildren<Camera>();
 		rigidbody = GetComponent<Rigidbody>();
 		animator = model.GetComponent<Animator>();
+		audioSource = GetComponent<AudioSource>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -101,13 +110,14 @@ public class Player : MonoBehaviour
 
 		if (Input.GetButtonDown("Jump") && onGround && !attacking)
 		{
+			animator.SetBool("EndJump", false);
 			rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
 			animator.SetBool("StartJump", true);
 			animator.SetBool("EndJump", false);
             animator.SetFloat("Jumping", 1);
 		}
 
-        if(!onGround)
+        if (!onGround)
         {
             if (rigidbody.velocity.y < 0)
             {
@@ -162,13 +172,41 @@ public class Player : MonoBehaviour
 
 	public void Attack()
 	{
-		switch (currentColor)
+		/*switch (currentColor)
 		{
 			case PaintColor.Red:
 			{
-				var glob = Instantiate(paintGlobs, transform.position + model.transform.forward, model.transform.rotation);
+                audioSource.pitch = Random.Range(0.9f, 1.1f);
+                audioSource.PlayOneShot(paintSound);
+				var glob = Instantiate(paintGlobsRed, transform.position + model.transform.forward, model.transform.rotation);
 				Destroy(glob.gameObject, 3.0f);
 			} break;
-		}
+
+			case PaintColor.Blue:
+			{
+                var glob = Instantiate(paintGlobBlue, transform.position + model.transform.forward, model.transform.rotation);
+                Destroy(glob.gameObject, 3.0f);
+			} break;
+		}*/
+
+        audioSource.pitch = Random.Range(0.9f, 1.1f);
+        audioSource.PlayOneShot(paintSound);
+        GameObject obj;
+        switch (currentColor)
+        {
+            case PaintColor.Red:
+                obj = paintGlobsRed;
+                break;
+            case PaintColor.Blue:
+                obj = paintGlobBlue;
+                break;
+            default:
+                obj = paintGlobsRed;
+                break;
+        }
+
+        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, model.transform.rotation);
+        glob.GetComponentInChildren<PaintGlob>().Color = currentColor;
+        Destroy(glob.gameObject, 3.0f);
 	}
 }

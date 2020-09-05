@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 3854978849463437663}
   - component: {fileID: 8750397931417055882}
   - component: {fileID: 7755562377187364202}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: PaintGlob
   m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}

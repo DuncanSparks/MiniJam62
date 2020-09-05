@@ -15,6 +15,9 @@ public class PaintGlob : MonoBehaviour
     [SerializeField]
     GameObject particles = null;
 
+    Player.PaintColor color;
+    public Player.PaintColor Color { get => color; set => color = value; }
+
     void Start()
     {
         Destroy(gameObject, 3.0f);
@@ -22,7 +25,11 @@ public class PaintGlob : MonoBehaviour
         transform.localRotation = Quaternion.AngleAxis(startAngle, Vector3.up);
         var rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward * speed, ForceMode.Impulse);
-        rb.AddForce(Vector3.up * (speed / 2f), ForceMode.Impulse);
+        if (color == Player.PaintColor.Red)
+        {
+            rb.AddForce(Vector3.up * (speed / 2f), ForceMode.Impulse);
+        }
+        
         transform.localRotation *= Quaternion.AngleAxis(180f, Vector3.up);
     }
 
