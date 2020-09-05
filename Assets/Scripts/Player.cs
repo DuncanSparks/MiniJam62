@@ -127,6 +127,7 @@ public class Player : MonoBehaviour
         if (Input.GetButtonDown("Fire2") && !attacking && !hurt)
         {
             currentColor = (PaintColor)(((int)currentColor + 1) % 3);
+            GameUI.Singleton.SetIndicatorColor(currentColor);
            
             Material[] mats = modelMaterials.materials;
             mats[1] = colorMaterials[(int)currentColor];
