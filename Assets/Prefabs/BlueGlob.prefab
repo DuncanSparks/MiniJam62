@@ -28,7 +28,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6878891257994388592}
-  - {fileID: 4608376201929098210}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -37,7 +36,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 5547642913419762072}
+    m_TransformParent: {fileID: 6878891257994388592}
     m_Modifications:
     - target: {fileID: 1842270660545608493, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
       propertyPath: m_Name
@@ -53,7 +52,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 2.16
+      value: -0.013059702
       objectReference: {fileID: 0}
     - target: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
       propertyPath: m_LocalRotation.x
@@ -73,7 +72,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -87,13 +86,20 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.05
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.005330491
+      objectReference: {fileID: 0}
+    - target: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.05
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
---- !u!4 &4608376201929098210 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 8283773248801483261, guid: 8ea65fa82d54c47458349e1c3da0e79a, type: 3}
-  m_PrefabInstance: {fileID: 5548965101432416799}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7891327497542306232
 PrefabInstance:
   m_ObjectHideFlags: 0
