@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 483012940}
   m_LocalRotation: {x: 0.18839283, y: 0.49075973, z: -0.8468609, w: 0.080557756}
-  m_LocalPosition: {x: 0.007199993, y: 0.035324965, z: -0.012111877}
+  m_LocalPosition: {x: 0.00705, y: 0.03556, z: -0.01174}
   m_LocalScale: {x: 0.62777245, y: 0.627772, z: 0.6277716}
   m_Children:
   - {fileID: 1097543993}
@@ -347,6 +347,7 @@ MonoBehaviour:
   cameraBase: {fileID: 37996567182780259}
   paintGlobsRed: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
   paintGlobBlue: {fileID: 5626490137473254086, guid: 723cf628ad35b6041b99e4b4ccfb6293, type: 3}
+  paintGlobsYellow: {fileID: 3934334724175409610, guid: 0c937fad005c7d94085910649681a901, type: 3}
   collisionMask:
     serializedVersion: 2
     m_Bits: 55

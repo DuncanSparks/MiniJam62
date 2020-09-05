@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
 	AudioSource audioSource;
 
     SkinnedMeshRenderer modelMaterials;
+    MeshRenderer bucketMaterials;
 
     [SerializeField]
     Material[] colorMaterials;
@@ -66,6 +67,9 @@ public class Player : MonoBehaviour
     [SerializeField]
     GameObject paintGlobBlue = null;
 
+    [SerializeField]
+    GameObject paintGlobsYellow = null;
+
 	[SerializeField]
 	LayerMask collisionMask;
 
@@ -76,6 +80,7 @@ public class Player : MonoBehaviour
 		animator = model.GetComponent<Animator>();
 		audioSource = GetComponent<AudioSource>();
         modelMaterials = GetComponentInChildren<SkinnedMeshRenderer>();
+        bucketMaterials = GetComponentInChildren<MeshRenderer>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -89,8 +94,8 @@ public class Player : MonoBehaviour
         attacking = animator.GetBool("InAttackState");
 		if (attacking)
 		{
-			horizontal=0;
-			vertical=0;
+			horizontal = 0;
+			vertical = 0;
 		}
 
 		if (horizontal != 0f || vertical != 0f)
@@ -111,13 +116,17 @@ public class Player : MonoBehaviour
             model.transform.rotation = modelRotation;
 		}
 
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire2") && !attacking)
         {
             currentColor = (PaintColor)(((int)currentColor + 1) % 3);
            
             Material[] mats = modelMaterials.materials;
             mats[1] = colorMaterials[(int)currentColor];
             modelMaterials.materials = mats;
+
+            Material[] mats2 = bucketMaterials.materials;
+            mats2[1] = colorMaterials[(int)currentColor];
+            bucketMaterials.materials = mats2;
         }
 
 		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
@@ -186,23 +195,6 @@ public class Player : MonoBehaviour
 
 	public void Attack()
 	{
-		/*switch (currentColor)
-		{
-			case PaintColor.Red:
-			{
-                audioSource.pitch = Random.Range(0.9f, 1.1f);
-                audioSource.PlayOneShot(paintSound);
-				var glob = Instantiate(paintGlobsRed, transform.position + model.transform.forward, model.transform.rotation);
-				Destroy(glob.gameObject, 3.0f);
-			} break;
-
-			case PaintColor.Blue:
-			{
-                var glob = Instantiate(paintGlobBlue, transform.position + model.transform.forward, model.transform.rotation);
-                Destroy(glob.gameObject, 3.0f);
-			} break;
-		}*/
-
         audioSource.pitch = Random.Range(0.9f, 1.1f);
         audioSource.PlayOneShot(paintSound);
         GameObject obj;
@@ -214,13 +206,21 @@ public class Player : MonoBehaviour
             case PaintColor.Blue:
                 obj = paintGlobBlue;
                 break;
+            case PaintColor.Yellow:
+                obj = paintGlobsYellow;
+                break;
             default:
                 obj = paintGlobsRed;
                 break;
         }
 
         var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, model.transform.rotation);
-        glob.GetComponentInChildren<PaintGlob>().Color = currentColor;
+
+        foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
+        {
+            comp.Color = currentColor;
+        }
+
         Destroy(glob.gameObject, 3.0f);
 	}
 }
