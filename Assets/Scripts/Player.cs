@@ -25,9 +25,15 @@ public class Player : MonoBehaviour
 	float mouseX = 0f;
 	float mouseY = 0f;
 
+    const int maxHealth = 4;
+    int health = maxHealth;
+
 	bool onGround = false;
 	bool attacking = false;
     bool hurt = false;
+
+    bool lockMovement = false;
+    public bool LockMovement { get => lockMovement; set => lockMovement = value; }
 
 	public enum PaintColor
 	{
@@ -114,16 +120,19 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("Hurt", true);
         knockback = knockbackDirection;
+        health = Mathf.Clamp(--health, 0, maxHealth);
     }
 
 	void Update()
 	{
+        GameUI.Singleton.SetHealth(health, maxHealth);
+
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
         attacking = animator.GetBool("InAttackState");
         hurt = animator.GetBool("InHurtState");
-		if (attacking || hurt)
+		if (attacking || hurt || lockMovement)
 		{
 			horizontal = 0;
 			vertical = 0;
@@ -141,13 +150,13 @@ public class Player : MonoBehaviour
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
 
-		if (Input.GetButtonDown("Fire1"))
+		if (Input.GetButtonDown("Fire1") && !hurt && !lockMovement)
 		{
 			animator.SetBool("Attack", true);
             model.transform.rotation = modelRotation;
 		}
 
-        if (Input.GetButtonDown("Fire2") && !attacking && !hurt)
+        if (Input.GetButtonDown("Fire2") && !attacking && !hurt && !lockMovement)
         {
             currentColor = (PaintColor)(((int)currentColor + 1) % 3);
             GameUI.Singleton.SetIndicatorColor(currentColor);
@@ -163,7 +172,7 @@ public class Player : MonoBehaviour
 
 		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
 
-		if (Input.GetButtonDown("Jump") && onGround && !attacking && !hurt)
+		if (Input.GetButtonDown("Jump") && onGround && !attacking && !hurt && !lockMovement)
 		{
 			animator.SetBool("EndJump", false);
 			rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);

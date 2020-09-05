@@ -297,6 +297,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c768595166c85498a271ec74869b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthbar: {fileID: 907809619851483511}
   colorIndicator: {fileID: 4238289738495273054}
   colorText: {fileID: 5839033350143738707}
   colors:

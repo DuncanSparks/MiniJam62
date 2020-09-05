@@ -10,6 +10,9 @@ public class GameUI : MonoBehaviour
 	public static GameUI Singleton { get => singleton; set => singleton = value; }
 
 	[SerializeField]
+	GameObject healthbar;
+
+	[SerializeField]
 	GameObject colorIndicator;
 
 	[SerializeField]
@@ -34,6 +37,11 @@ public class GameUI : MonoBehaviour
 		{
 			Destroy(gameObject);
 		}
+	}
+
+	public void SetHealth(int health, int maxhealth)
+	{
+		healthbar.GetComponent<Image>().fillAmount = (float)health / (float)maxhealth;
 	}
 
     public void SetIndicatorColor(Player.PaintColor color)

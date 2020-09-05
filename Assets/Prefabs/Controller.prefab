@@ -44,3 +44,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObj: {fileID: 5802298194489472121, guid: 2e7cab9fc64bb4b4e817afd850e8b811, type: 3}
+  player: {fileID: 0}
