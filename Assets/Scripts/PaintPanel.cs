@@ -13,6 +13,8 @@ public class PaintPanel : MonoBehaviour
 	[SerializeField]
 	Player.PaintColor requiredAnyColor;
 
+	public Player.PaintColor RequiredAnyColor { get => requiredAnyColor; }
+
 	[Space(50)]
 	[SerializeField]
 	AudioClip paintSound;
@@ -24,6 +26,8 @@ public class PaintPanel : MonoBehaviour
 	Material[] colorMaterials;
 
 	int currentColor = -1;
+	public int CurrentColor { get => currentColor; }
+
 	bool painted = false;
 
     void Start()
