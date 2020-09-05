@@ -202,7 +202,9 @@ public class Player : MonoBehaviour
 		target.y = 0f;
 		Vector3 result = target * Speed;
         
-        
+        if(animator.GetBool("InHurtState")) {
+            result = knockback;
+        }
 
 		rigidbody.velocity = new Vector3(result.x, rigidbody.velocity.y, result.z);
 
