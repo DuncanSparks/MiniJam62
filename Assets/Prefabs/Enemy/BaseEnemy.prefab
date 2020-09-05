@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 4459500239616789099}
   - component: {fileID: 4459500239616789098}
   - component: {fileID: 4459500239616789097}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: BaseEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -51,7 +51,10 @@ MonoBehaviour:
   minimumFollowDistance: 3.5
   maximumFollowDistance: 20
   speed: 4
+  projectile: {fileID: 0}
+  projectileSpawnLocation: {fileID: 0}
   attackTime: 0.2
+  color: 0
 --- !u!54 &4459500239616789097
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -78,7 +81,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4459500239719143406}
   - component: {fileID: 701156736017908865}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -124,7 +127,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6934565477257101898}
   - component: {fileID: 6934565477257101897}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: AttackHitbox
   m_TagString: EnemyHitbox
   m_Icon: {fileID: 0}

@@ -22,6 +22,7 @@ public class Player : MonoBehaviour
     GameObject dashEffect;
 
 	Quaternion modelRotation = Quaternion.identity;
+	Quaternion aimRotation = Quaternion.identity;
 	float cameraXRot = 0.0f;
 
 	float horizontal = 0.0f;
@@ -85,6 +86,9 @@ public class Player : MonoBehaviour
 
 	[SerializeField]
 	LayerMask collisionMask;
+
+    [SerializeField]
+    bool redMouseAim, blueMouseAim, yellowMouseAim;
 
 	void Start()
 	{
@@ -171,7 +175,7 @@ public class Player : MonoBehaviour
 		if (Input.GetButtonDown("Fire1") && !hurt && !lockMovement)
 		{
 			animator.SetBool("Attack", true);
-            model.transform.rotation = modelRotation;
+            Aim();
 		}
 
         if (Input.GetButtonDown("Fire2") && !attacking && !hurt && !lockMovement)
@@ -215,11 +219,56 @@ public class Player : MonoBehaviour
             animator.SetFloat("Jumping", 0);
         }
 			
-		/*if (Input.GetButtonDown("Action"))
+		/*if (Input.GetButtonDown("Action"))a
 		{
 			Controller.Singleton.Dialogue(new List<string>(){"Hello there", "How are you today", "This is a test"});
 		}*/
 	}
+
+    void Aim()
+    {
+        bool mouseAim = false;
+        switch (currentColor)
+        {
+            case PaintColor.Red:
+                mouseAim = redMouseAim;
+                break;
+            case PaintColor.Blue:
+                mouseAim = blueMouseAim;
+                break;
+            case PaintColor.Yellow:
+                mouseAim = yellowMouseAim;
+                break;
+        }
+        if (mouseAim) 
+        {
+            MouseAim();
+        }
+        else
+        {
+            DirectionAim();
+        }
+    }
+
+    void DirectionAim()
+    {
+        model.transform.rotation = modelRotation;
+        aimRotation = modelRotation;
+    }
+
+    void MouseAim()
+    {
+        Vector3 aim = camera.transform.forward;
+        if (aim.y<0 && onGround)
+        {
+            aim.y = 0;
+        }
+        aimRotation = Quaternion.LookRotation(aim);
+        aim.y=0;
+        modelRotation = Quaternion.LookRotation(aim);
+        model.transform.rotation = modelRotation;
+        horizontal = 0; vertical = 0;
+    }
 
 
 	void FixedUpdate()
@@ -288,7 +337,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, model.transform.rotation);
+        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, aimRotation);
 
         foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
         {
