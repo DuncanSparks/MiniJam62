@@ -7,7 +7,7 @@ public class Controller : MonoBehaviour
 	bool destroyThis = false;
 
 	static Controller singleton = null;
-	public static Controller Singleton { get => singleton; }
+	public static Controller Singleton { get => singleton; set => singleton = value; }
 
 	bool dialogueOpen = false;
 	public bool DialogueOpen { get => dialogueOpen; set => dialogueOpen = value; }
@@ -28,8 +28,8 @@ public class Controller : MonoBehaviour
 
 	void Awake()
 	{
-		if (singleton == null)
-			singleton = this;
+		if (Singleton == null)
+			Singleton = this;
 		else
 			Destroy(gameObject);
 

@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
     void Damage(float amount, Vector3 knockbackDirection)
     {
         animator.SetBool("Hurt", true);
-        Controller.Singleton.ShowComicText("Splat", transform.position, camera);
+        Controller.Singleton.ShowComicText("Splat", transform.position + new Vector3(0, 0.5f, 0), camera);
         knockback = knockbackDirection;
         modelRotation = Quaternion.LookRotation(-knockback);
         model.transform.rotation = modelRotation;
@@ -163,7 +163,7 @@ public class Player : MonoBehaviour
             if (!dashing && Input.GetButtonDown("Fire3"))
             {
                 Controller.Singleton.PlaySoundOneShot(dashSound, Random.Range(0.95f, 1.05f));
-                Controller.Singleton.ShowComicText("whoosh", transform.position + new Vector3(0, 0.5f, 0), camera);
+                Controller.Singleton.ShowComicText("Whoosh", transform.position + new Vector3(0, 0.5f, 0), camera);
                 Dash();
             }
         }

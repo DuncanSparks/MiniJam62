@@ -5,8 +5,15 @@ using UnityEngine;
 public class PaintPanel : MonoBehaviour
 {
 	[SerializeField]
-	Player.PaintColor panelColor;
+	Player.PaintColor panelStartColor;
 
+	[SerializeField]
+	bool anyColor = false;
+
+	[SerializeField]
+	Player.PaintColor requiredAnyColor;
+
+	[Space(50)]
 	[SerializeField]
 	AudioClip paintSound;
 
@@ -16,19 +23,14 @@ public class PaintPanel : MonoBehaviour
 	[SerializeField]
 	Material[] colorMaterials;
 
-	readonly string[] colorNames = {
-		"Red",
-		"Blue",
-		"Yellow"
-	};
-
+	int currentColor = -1;
 	bool painted = false;
 
     void Start()
     {
         foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
 		{
-			sprite.color = colors[(int)panelColor];
+			sprite.color = anyColor ? Color.white : colors[(int)panelStartColor];
 		}
     }
 
@@ -36,10 +38,26 @@ public class PaintPanel : MonoBehaviour
 	{
 		if (collider.gameObject.tag == "PlayerProjectile")
 		{
-			if (!painted && collider.gameObject.GetComponentInParent<PaintGlob>().Color == panelColor)
+			MeshRenderer mesh = GetComponent<MeshRenderer>();
+			if (anyColor)
 			{
-				Controller.Singleton.PlaySoundOneShot(paintSound, Random.Range(0.9f, 1.1f));
-				GetComponent<MeshRenderer>().material = colorMaterials[(int)panelColor];
+				int colorIndex = (int)collider.gameObject.GetComponentInParent<PaintGlob>().Color;
+				if (colorIndex != currentColor)
+				{
+					Controller.Singleton.PlaySoundOneShot(paintSound, Random.Range(0.9f, 1.1f), 0.6f);
+					mesh.material = colorMaterials[colorIndex];
+					foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+					{
+						sprite.color = colors[colorIndex];
+					}
+
+					currentColor = colorIndex;
+				}
+			}
+			else if (!painted && collider.gameObject.GetComponentInParent<PaintGlob>().Color == panelStartColor)
+			{
+				Controller.Singleton.PlaySoundOneShot(paintSound, Random.Range(0.9f, 1.1f), 0.6f);
+				mesh.material = colorMaterials[(int)panelStartColor];
 				painted = true;
 			}
 		}

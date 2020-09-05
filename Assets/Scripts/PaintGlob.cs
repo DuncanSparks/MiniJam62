@@ -23,6 +23,9 @@ public class PaintGlob : MonoBehaviour
     [SerializeField]
     GameObject parent;
 
+	[SerializeField]
+	AudioClip[] landSounds;
+
     Player.PaintColor color;
     public Player.PaintColor Color { get => color; set => color = value; }
 
@@ -48,7 +51,7 @@ public class PaintGlob : MonoBehaviour
 
         if (color != Player.PaintColor.Blue)
         {
-            rb.AddForce(Vector3.up * (speed / (color == Player.PaintColor.Yellow ? Random.Range(4f, 5f) : 2f)), ForceMode.Impulse);
+            rb.AddForce(Vector3.up * (speed / (color == Player.PaintColor.Yellow ? Random.Range(4f, 5f) : Random.Range(1.5f, 2.5f))), ForceMode.Impulse);
         }
         
         transform.localRotation *= Quaternion.AngleAxis(180f, Vector3.up);
@@ -65,6 +68,7 @@ public class PaintGlob : MonoBehaviour
 
     void DestroyAnimation()
     {
+		Controller.Singleton.PlaySoundOneShot(landSounds[Random.Range(0, landSounds.Length)], Random.Range(0.95f, 1.05f), 0.25f);
         var parts = Instantiate(particles[(int)color], transform.position + new Vector3(0, 0.6f, 0), Quaternion.AngleAxis(-90f, new Vector3(1, 0, 0)));
         Destroy(parts, 2.0f);
         GetComponentInChildren<Animator>().Play("PaintGlob_Destroy");
