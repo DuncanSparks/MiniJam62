@@ -18,7 +18,10 @@ public class PaintGlob : MonoBehaviour
     public int Damage { get => damage; }
 
     [SerializeField]
-    GameObject particles = null;
+    GameObject[] particles;
+
+    [SerializeField]
+    GameObject parent;
 
     Player.PaintColor color;
     public Player.PaintColor Color { get => color; set => color = value; }
@@ -28,19 +31,27 @@ public class PaintGlob : MonoBehaviour
         Destroy(gameObject, 3.0f);
 
         transform.localRotation = Quaternion.AngleAxis(startAngle, Vector3.up);
-        var rb = GetComponent<Rigidbody>();
-        rb.AddForce(transform.forward * speed, ForceMode.Impulse);
-        if (color == Player.PaintColor.Red)
+        if (color == Player.PaintColor.Yellow)
         {
-            rb.AddForce(Vector3.up * (speed / 2f), ForceMode.Impulse);
+            transform.localRotation = Quaternion.Euler(90f, transform.localRotation.y, transform.localRotation.z);
+        }
+
+        var rb = GetComponent<Rigidbody>();
+        if (color != Player.PaintColor.Yellow)
+        {
+            rb.AddForce(transform.forward * speed, ForceMode.Impulse);
+        }
+        else
+        {
+            rb.AddForce(-(parent.transform.position - transform.position).normalized * 2f, ForceMode.Impulse);
+        }
+
+        if (color != Player.PaintColor.Blue)
+        {
+            rb.AddForce(Vector3.up * (speed / (color == Player.PaintColor.Yellow ? Random.Range(4f, 5f) : 2f)), ForceMode.Impulse);
         }
         
         transform.localRotation *= Quaternion.AngleAxis(180f, Vector3.up);
-    }
-
-    void Update()
-    {
-
     }
 
     void OnCollisionEnter(Collision coll)
@@ -54,7 +65,7 @@ public class PaintGlob : MonoBehaviour
 
     void DestroyAnimation()
     {
-        var parts = Instantiate(particles, transform.position + new Vector3(0, 0.6f, 0), Quaternion.AngleAxis(-90f, new Vector3(1, 0, 0)));
+        var parts = Instantiate(particles[(int)color], transform.position + new Vector3(0, 0.6f, 0), Quaternion.AngleAxis(-90f, new Vector3(1, 0, 0)));
         Destroy(parts, 2.0f);
         GetComponent<Animator>().Play("PaintGlob_Destroy");
         destroyed = true;

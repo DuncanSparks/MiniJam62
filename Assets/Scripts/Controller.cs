@@ -24,7 +24,7 @@ public class Controller : MonoBehaviour
 	[SerializeField]
 	GameObject dialogueObj = null;
 
-  public GameObject player = null;
+	public GameObject player = null;
 
 	// ======================================================
 
