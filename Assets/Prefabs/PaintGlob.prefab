@@ -140,7 +140,6 @@ MonoBehaviour:
   landSounds:
   - {fileID: 8300000, guid: 00beb96259c719741ba766779e78b732, type: 3}
   - {fileID: 8300000, guid: 876f512026cb7c84386babcef31c4c04, type: 3}
-  - {fileID: 8300000, guid: 97c3f9ce1244cc049ae1360a54256fb5, type: 3}
 --- !u!95 &8750397931417055882
 Animator:
   serializedVersion: 3

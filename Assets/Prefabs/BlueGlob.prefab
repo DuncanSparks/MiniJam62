@@ -54,6 +54,9 @@ MonoBehaviour:
   - {fileID: 3369701368492493358, guid: a76cbc2d27a94344799afb1aa35e0fa5, type: 3}
   - {fileID: 1845277291938485029, guid: cdaea9a1261dbae49be616a12800a769, type: 3}
   parent: {fileID: 0}
+  landSounds:
+  - {fileID: 8300000, guid: 00beb96259c719741ba766779e78b732, type: 3}
+  - {fileID: 8300000, guid: 876f512026cb7c84386babcef31c4c04, type: 3}
 --- !u!54 &3577115255670928113
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -81,7 +84,7 @@ GameObject:
   - component: {fileID: 5547642913419762072}
   m_Layer: 0
   m_Name: BlueGlob
-  m_TagString: Untagged
+  m_TagString: PlayerProjectile
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
