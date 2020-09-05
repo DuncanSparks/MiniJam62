@@ -337,7 +337,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8a766c4dec09f35458255525c7a2cbe0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currentColor: 1
+  colorMaterials:
+  - {fileID: 2100000, guid: c2aa98343aa54411ca964b8e5cafc6a2, type: 2}
+  - {fileID: 2100000, guid: 3ac9aadb7e23d724f8e212c8002d0b12, type: 2}
+  - {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
   paintSound: {fileID: 8300000, guid: 4bd7f82417f8ff74eba49b2830c98d30, type: 3}
   model: {fileID: 7154406552991066619}
   cameraPivot: {fileID: 37996566983068316}
@@ -646,6 +649,10 @@ PrefabInstance:
       propertyPath: m_Layer
       value: 8
       objectReference: {fileID: 0}
+    - target: {fileID: 5742066667910392887, guid: adfd8259198f8c34caa58a972e250ac0, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: c2aa98343aa54411ca964b8e5cafc6a2, type: 2}
     - target: {fileID: 5938724639856412012, guid: adfd8259198f8c34caa58a972e250ac0, type: 3}
       propertyPath: m_Layer
       value: 8

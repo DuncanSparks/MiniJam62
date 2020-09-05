@@ -47,6 +47,7 @@ public class PaintGlob : MonoBehaviour
     {
         if (coll.gameObject.tag != "Player" && !destroyed)
         {
+            GetComponent<MeshCollider>().enabled = false;
             DestroyAnimation();
         }
     }

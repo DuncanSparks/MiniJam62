@@ -35,14 +35,18 @@ public class Player : MonoBehaviour
 		Yellow
 	}
 
-    [SerializeField]
-	PaintColor currentColor = PaintColor.Blue;
+	PaintColor currentColor = PaintColor.Red;
 	public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
 
 	new Camera camera;
 	new Rigidbody rigidbody;
 	Animator animator;
 	AudioSource audioSource;
+
+    SkinnedMeshRenderer modelMaterials;
+
+    [SerializeField]
+    Material[] colorMaterials;
 
 	[SerializeField]
 	AudioClip paintSound;
@@ -71,6 +75,7 @@ public class Player : MonoBehaviour
 		rigidbody = GetComponent<Rigidbody>();
 		animator = model.GetComponent<Animator>();
 		audioSource = GetComponent<AudioSource>();
+        modelMaterials = GetComponentInChildren<SkinnedMeshRenderer>();
 
 		Cursor.lockState = CursorLockMode.Locked;
 	}
@@ -105,6 +110,15 @@ public class Player : MonoBehaviour
 			animator.SetBool("Attack", true);
             model.transform.rotation = modelRotation;
 		}
+
+        if (Input.GetButtonDown("Fire2"))
+        {
+            currentColor = (PaintColor)(((int)currentColor + 1) % 3);
+           
+            Material[] mats = modelMaterials.materials;
+            mats[1] = colorMaterials[(int)currentColor];
+            modelMaterials.materials = mats;
+        }
 
 		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
 
