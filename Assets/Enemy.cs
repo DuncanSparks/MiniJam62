@@ -110,9 +110,9 @@ public class Enemy : MonoBehaviour
         if(other.gameObject.tag=="PlayerProjectile")
         {
             PaintGlob paintGlob = other.gameObject.GetComponent<PaintGlob>();
-            float damage = 1; //TODO: Get from paintGlob
+            float damage = paintGlob.Damage;
             float knockback = 20; //TODO: get from paintGlob
-            Damage(damage, knockback*other.gameObject.transform.forward);
+            Damage(damage, -knockback*other.gameObject.transform.forward);
         }
     }
 }
