@@ -8,13 +8,6 @@ public class Controller : MonoBehaviour
 
 	static Controller singleton = null;
 	public static Controller Singleton { get => singleton; }
-	Controller()
-	{
-		if (singleton == null)
-			singleton = this;
-		else
-			destroyThis = true;
-	}
 
 	bool dialogueOpen = false;
 	public bool DialogueOpen { get => dialogueOpen; set => dialogueOpen = value; }
@@ -32,7 +25,9 @@ public class Controller : MonoBehaviour
 
 	void Awake()
 	{
-		if (destroyThis)
+		if (singleton == null)
+			singleton = this;
+		else
 			Destroy(gameObject);
 
 		DontDestroyOnLoad(gameObject);
