@@ -52,7 +52,7 @@ ModelImporter:
       type: UnityEngine:Material
       assembly: UnityEngine.CoreModule
       name: Paint.001
-    second: {fileID: 2100000, guid: c2aa98343aa54411ca964b8e5cafc6a2, type: 2}
+    second: {fileID: 2100000, guid: 3ac9aadb7e23d724f8e212c8002d0b12, type: 2}
   materials:
     materialImportMode: 1
     materialName: 0
@@ -260,6 +260,35 @@ ModelImporter:
       internalID: 0
       firstFrame: 0
       lastFrame: 9
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: TubeDog|Attack
+      takeName: TubeDog|Attack
+      internalID: 0
+      firstFrame: 0
+      lastFrame: 19
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
