@@ -98,6 +98,10 @@ PrefabInstance:
       propertyPath: speed
       value: 30
       objectReference: {fileID: 0}
+    - target: {fileID: 3854978849463437663, guid: 424ffbb26e397b646957187b99134cd2, type: 3}
+      propertyPath: damage
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 4160986337378563954, guid: 424ffbb26e397b646957187b99134cd2, type: 3}
       propertyPath: m_Name
       value: PaintGlob
