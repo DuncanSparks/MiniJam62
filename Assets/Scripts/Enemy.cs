@@ -24,6 +24,17 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     Transform projectileSpawnLocation;
     
+	[SerializeField]
+	AudioClip attackSound;
+
+	[SerializeField]
+	float attackSoundPitch = 1, attackSoundVolume = 1;
+
+	[SerializeField]
+	AudioClip deathSound;
+
+	[SerializeField]
+	float deathSoundPitch = 1, deathSoundVolume = 1;
 
     float health;
     Quaternion modelRotation = Quaternion.identity;
@@ -87,6 +98,10 @@ public class Enemy : MonoBehaviour
 
     public void SpawnAttack()
     {
+		if (attackSound)
+		{
+			Controller.Singleton.PlaySoundOneShot(attackSound, attackSoundPitch, attackSoundVolume);
+		}
         var glob = Instantiate(projectile, projectileSpawnLocation.position, model.transform.rotation);
         foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
         {
@@ -112,6 +127,7 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("Hurt", true);
         } else {
+			Controller.Singleton.PlaySoundOneShot(deathSound, deathSoundPitch, deathSoundVolume);
             animator.SetBool("Die", true);
             dead = true;
             Destroy(gameObject, 1f);

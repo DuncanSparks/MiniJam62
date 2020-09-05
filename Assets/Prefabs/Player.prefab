@@ -247,6 +247,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: 3ac9aadb7e23d724f8e212c8002d0b12, type: 2}
   - {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
   dashSound: {fileID: 8300000, guid: 4e246312621ffd74c8c275006ff02aa6, type: 3}
+  damageSound: {fileID: 8300000, guid: 81fb8a4df0962fb439eb740e9b831ab2, type: 3}
   paintSound: {fileID: 8300000, guid: 4bd7f82417f8ff74eba49b2830c98d30, type: 3}
   model: {fileID: 7154406552991066619}
   cameraPivot: {fileID: 37996566983068316}
@@ -257,6 +258,9 @@ MonoBehaviour:
   collisionMask:
     serializedVersion: 2
     m_Bits: 55
+  redMouseAim: 0
+  blueMouseAim: 0
+  yellowMouseAim: 0
 --- !u!1 &37996566964331235
 GameObject:
   m_ObjectHideFlags: 0

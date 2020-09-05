@@ -69,6 +69,9 @@ public class Player : MonoBehaviour
     AudioClip dashSound;
 
     [SerializeField]
+    AudioClip damageSound;
+
+    [SerializeField]
     AudioClip paintSound;
 
     [SerializeField]
@@ -134,6 +137,7 @@ public class Player : MonoBehaviour
     Vector3 knockback;
     void Damage(float amount, Vector3 knockbackDirection)
     {
+        Controller.Singleton.PlaySoundOneShot(damageSound, Random.Range(0.95f, 1.05f), 0.75f);
         animator.SetBool("Hurt", true);
         Controller.Singleton.ShowComicText("Splat", transform.position + new Vector3(0, 0.5f, 0), camera);
         knockback = knockbackDirection;

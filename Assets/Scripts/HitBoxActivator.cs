@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class HitBoxActivator : MonoBehaviour
 {
+	// BRIAN WHY IS YOUR SCRIPT SO DAMN CLAUSTROPHOBIA INDUCING AAAAGH
+	[SerializeField]
+	AudioClip attackSound;
+
     [SerializeField]
     GameObject hitBox;
     Animator animator;
     public void Activate()
     {
+		Controller.Singleton.PlaySoundOneShot(attackSound, Random.Range(0.95f, 1.05f), 0.75f);
         hitBox.SetActive(true);
     }
     public void Deactivate()

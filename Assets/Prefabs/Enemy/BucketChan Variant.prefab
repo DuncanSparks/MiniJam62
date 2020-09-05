@@ -1,13 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!33 &8561823669621605517
-MeshFilter:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4806252108826218218}
-  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!23 &8190762677696709840
 MeshRenderer:
   m_ObjectHideFlags: 0
@@ -49,6 +41,14 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!33 &8561823669621605517
+MeshFilter:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4806252108826218218}
+  m_Mesh: {fileID: 10207, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!95 &5382459477753936723
 Animator:
   serializedVersion: 3
@@ -80,6 +80,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9b43dbebd5b454bae6eaa5a2d81298, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  attackSound: {fileID: 8300000, guid: 29e8ec32109301843b7c2d7345aca9ff, type: 3}
   hitBox: {fileID: 4806252108826218218}
 --- !u!1001 &2490414021247224993
 PrefabInstance:
@@ -92,6 +93,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: BucketChan Variant
       objectReference: {fileID: 0}
+    - target: {fileID: 4459500239616789098, guid: 07ca8175c40084f5d98060fd634c1af3, type: 3}
+      propertyPath: attackSoundPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459500239616789098, guid: 07ca8175c40084f5d98060fd634c1af3, type: 3}
+      propertyPath: deathSoundPitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4459500239616789098, guid: 07ca8175c40084f5d98060fd634c1af3, type: 3}
+      propertyPath: deathSound
+      value: 
+      objectReference: {fileID: 8300000, guid: 72a1e8e1835cfc34fab34dceabb244ec, type: 3}
     - target: {fileID: 4459500239616789099, guid: 07ca8175c40084f5d98060fd634c1af3, type: 3}
       propertyPath: m_LocalPosition.x
       value: -8.864023
