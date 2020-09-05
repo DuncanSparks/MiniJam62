@@ -43,7 +43,7 @@ public class PaintGlob : MonoBehaviour
         }
         else
         {
-            rb.AddForce(-(parent.transform.position - transform.position).normalized * 2f, ForceMode.Impulse);
+            rb.AddForce(-(parent.transform.position - transform.position).normalized * 3f, ForceMode.Impulse);
         }
 
         if (color != Player.PaintColor.Blue)

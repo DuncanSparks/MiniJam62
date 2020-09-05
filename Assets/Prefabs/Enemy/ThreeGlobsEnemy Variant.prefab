@@ -1,0 +1,125 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!135 &8710984110222373452
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7230880841478063266}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.021720711
+  m_Center: {x: 0, y: 0, z: 0.0044002053}
+--- !u!135 &3934978317395629973
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847533816415359611}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.021720711
+  m_Center: {x: 0, y: 0, z: 0.0044002053}
+--- !u!135 &194356402267758102
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5847533816984505156}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.021720711
+  m_Center: {x: 0, y: 0, z: 0.0044002053}
+--- !u!1001 &1842619044377239809
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5239042358137074554, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_TagString
+      value: EnemyHitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239042358557518405, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_TagString
+      value: EnemyHitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 4.21
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Name
+      value: ThreeGlobsEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064465748549952931, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_TagString
+      value: EnemyHitbox
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+--- !u!1 &7230880841478063266 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9064465748549952931, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+  m_PrefabInstance: {fileID: 1842619044377239809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5847533816415359611 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5239042358137074554, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+  m_PrefabInstance: {fileID: 1842619044377239809}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &5847533816984505156 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5239042358557518405, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+  m_PrefabInstance: {fileID: 1842619044377239809}
+  m_PrefabAsset: {fileID: 0}
