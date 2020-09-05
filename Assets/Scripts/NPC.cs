@@ -5,7 +5,7 @@ using UnityEngine;
 public class NPC : MonoBehaviour
 {
     [System.Serializable]
-	class DialogueSet
+	class DialogueSetArray
 	{
 		public string[] array;
 	}
@@ -14,22 +14,19 @@ public class NPC : MonoBehaviour
     string npcName;
 
     [SerializeField]
-    DialogueSet[] dialogue;
+    DialogueSetArray[] dialogue;
 
     int dialogueSet = 0;
+    public int DialogueSet { get => dialogueSet; set => dialogueSet = value; }
 
     bool playerInRange = false;
 
-    void Start()
-    {
-        
-    }
-
     void Update()
     {
-        if (Input.GetButtonDown("Action") && playerInRange)
+        if (Input.GetButtonDown("Action") && playerInRange && !Controller.Singleton.player.GetComponent<Player>().LockMovement)
         {
-            Controller.Singleton.Dialogue(dialogue[dialogueSet].array);
+            Controller.Singleton.player.GetComponent<Player>().LockMovement = true;
+            Controller.Singleton.Dialogue(dialogue[dialogueSet].array, this);
         }
     }
 
@@ -48,4 +45,6 @@ public class NPC : MonoBehaviour
             playerInRange = false;
         }
     }
+
+    public int NumSets { get => dialogue.Length; }
 }

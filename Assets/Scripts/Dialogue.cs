@@ -7,12 +7,15 @@ using TMPro;
 public class Dialogue : MonoBehaviour
 {	
 	string[] dialogueText;
+	public string[] DialogueText { set => dialogueText = value; }
+
 	int dialoguePage = 0;
 	float visibleCharacters = 0;
 
 	bool rollText = false;
 
-	public string[] DialogueText { set => dialogueText = value; }
+	NPC host = null;
+	public NPC Host { set => host = value; }
 
 	TextMeshProUGUI text;
 	Image textbox;
@@ -45,6 +48,8 @@ public class Dialogue : MonoBehaviour
 					else
 					{
 						Controller.Singleton.DialogueOpen = false;
+						Controller.Singleton.player.GetComponent<Player>().LockMovement = false;
+						host.DialogueSet = Mathf.Min(++host.DialogueSet, host.NumSets - 1);
 						Destroy(gameObject);
 					}
 				}

@@ -32,6 +32,9 @@ public class Player : MonoBehaviour
 	bool attacking = false;
     bool hurt = false;
 
+    bool lockMovement = false;
+    public bool LockMovement { get => lockMovement; set => lockMovement = value; }
+
 	public enum PaintColor
 	{
 		Red,
@@ -129,7 +132,7 @@ public class Player : MonoBehaviour
 
         attacking = animator.GetBool("InAttackState");
         hurt = animator.GetBool("InHurtState");
-		if (attacking || hurt)
+		if (attacking || hurt || lockMovement)
 		{
 			horizontal = 0;
 			vertical = 0;
@@ -147,13 +150,13 @@ public class Player : MonoBehaviour
 		mouseX = Input.GetAxis("Mouse X");
 		mouseY = Input.GetAxis("Mouse Y");
 
-		if (Input.GetButtonDown("Fire1"))
+		if (Input.GetButtonDown("Fire1") && !hurt && !lockMovement)
 		{
 			animator.SetBool("Attack", true);
             model.transform.rotation = modelRotation;
 		}
 
-        if (Input.GetButtonDown("Fire2") && !attacking && !hurt)
+        if (Input.GetButtonDown("Fire2") && !attacking && !hurt && !lockMovement)
         {
             currentColor = (PaintColor)(((int)currentColor + 1) % 3);
             GameUI.Singleton.SetIndicatorColor(currentColor);
@@ -169,7 +172,7 @@ public class Player : MonoBehaviour
 
 		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
 
-		if (Input.GetButtonDown("Jump") && onGround && !attacking && !hurt)
+		if (Input.GetButtonDown("Jump") && onGround && !attacking && !hurt && !lockMovement)
 		{
 			animator.SetBool("EndJump", false);
 			rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);

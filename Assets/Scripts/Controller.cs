@@ -36,13 +36,14 @@ public class Controller : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
-	public void Dialogue(string[] text)
+	public void Dialogue(string[] text, NPC host)
 	{
 		if (dialogueOpen)
 			return;
 
 		var dlg = Instantiate(dialogueObj, Vector3.zero, Quaternion.identity);
 		Dialogue dlgScript = dlg.GetComponent<Dialogue>();
+		dlgScript.Host = host;
 		dlgScript.DialogueText = text;
 		dlgScript.StartDialogue();
 		dialogueOpen = true;
