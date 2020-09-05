@@ -27,6 +27,7 @@ public class Player : MonoBehaviour
 
 	bool onGround = false;
 	bool attacking = false;
+    bool hurt = false;
 
 	public enum PaintColor
 	{
@@ -86,13 +87,20 @@ public class Player : MonoBehaviour
 	}
 
 
+    void OnTriggerEnter(Collider other)
+    {
+        animator.SetBool("Hurt", true);
+    }
+
+
 	void Update()
 	{
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
         attacking = animator.GetBool("InAttackState");
-		if (attacking)
+        hurt = animator.GetBool("InHurtState");
+		if (attacking || hurt)
 		{
 			horizontal = 0;
 			vertical = 0;
@@ -116,7 +124,7 @@ public class Player : MonoBehaviour
             model.transform.rotation = modelRotation;
 		}
 
-        if (Input.GetButtonDown("Fire2") && !attacking)
+        if (Input.GetButtonDown("Fire2") && !attacking && !hurt)
         {
             currentColor = (PaintColor)(((int)currentColor + 1) % 3);
            
@@ -131,7 +139,7 @@ public class Player : MonoBehaviour
 
 		onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
 
-		if (Input.GetButtonDown("Jump") && onGround && !attacking)
+		if (Input.GetButtonDown("Jump") && onGround && !attacking && !hurt)
 		{
 			animator.SetBool("EndJump", false);
 			rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
@@ -142,7 +150,7 @@ public class Player : MonoBehaviour
 
         if (!onGround)
         {
-            if (rigidbody.velocity.y < 0)
+            if (rigidbody.velocity.y <= 0)
             {
                 animator.SetFloat("Jumping", 2);
             }
