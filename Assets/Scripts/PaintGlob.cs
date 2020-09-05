@@ -58,7 +58,7 @@ public class PaintGlob : MonoBehaviour
     {
         if (!destroyed)
         {
-            GetComponent<MeshCollider>().enabled = false;
+            GetComponentInChildren<MeshCollider>().enabled = false;
             DestroyAnimation();
         }
     }
@@ -67,7 +67,7 @@ public class PaintGlob : MonoBehaviour
     {
         var parts = Instantiate(particles[(int)color], transform.position + new Vector3(0, 0.6f, 0), Quaternion.AngleAxis(-90f, new Vector3(1, 0, 0)));
         Destroy(parts, 2.0f);
-        GetComponent<Animator>().Play("PaintGlob_Destroy");
+        GetComponentInChildren<Animator>().Play("PaintGlob_Destroy");
         destroyed = true;
         Destroy(gameObject, 1.0f);
     }
