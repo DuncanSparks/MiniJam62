@@ -19,6 +19,11 @@ public class Enemy : MonoBehaviour
     float maximumFollowDistance;
     [SerializeField]
     float speed;
+    [SerializeField]
+    GameObject projectile;
+    [SerializeField]
+    Transform projectileSpawnLocation;
+    
 
     float health;
     Quaternion modelRotation = Quaternion.identity;
@@ -78,9 +83,16 @@ public class Enemy : MonoBehaviour
         }
     }
 
-    void SpawnAttack()
-    {
+    public Player.PaintColor color;
 
+    public void SpawnAttack()
+    {
+        var glob = Instantiate(projectile, projectileSpawnLocation.position, model.transform.rotation);
+        foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
+        {
+            comp.Color = color;
+        }
+        Destroy(glob.gameObject, 3.0f);
     }
 
     void FixedUpdate()

@@ -16,6 +16,9 @@ public class Player : MonoBehaviour
 	const float Speed = 12.0f;
 	const float JumpForce = 20.0f;
 
+    [SerializeField]
+    float dashSpeed = 24.0f;
+
 	Quaternion modelRotation = Quaternion.identity;
 	float cameraXRot = 0.0f;
 
@@ -30,6 +33,7 @@ public class Player : MonoBehaviour
 
 	bool onGround = false;
 	bool attacking = false;
+	bool dashing = false;
     bool hurt = false;
 
     bool lockMovement = false;
@@ -109,7 +113,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    void HitboxCollision(GameObject hitbox) {
+    void HitboxCollision(GameObject hitbox)
+    {
         float damage = 1;
         float knockback = 20;
         Damage(damage, knockback*hitbox.transform.forward);
@@ -120,6 +125,8 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("Hurt", true);
         knockback = knockbackDirection;
+        modelRotation = Quaternion.LookRotation(knockback);
+        model.transform.rotation = modelRotation;
         health = Mathf.Clamp(--health, 0, maxHealth);
     }
 
@@ -131,12 +138,20 @@ public class Player : MonoBehaviour
 		vertical = Input.GetAxisRaw("Vertical");
 
         attacking = animator.GetBool("InAttackState");
+        dashing = animator.GetBool("InDashState");
         hurt = animator.GetBool("InHurtState");
 		if (attacking || hurt || lockMovement)
 		{
 			horizontal = 0;
 			vertical = 0;
 		}
+        else
+        {
+            if(!dashing&&Input.GetButtonDown("Fire3"))
+            {
+                Dash();
+            }
+        }
 
 		if (horizontal != 0f || vertical != 0f)
 		{
@@ -211,16 +226,21 @@ public class Player : MonoBehaviour
 		target.y = 0f;
 		Vector3 result = target * Speed;
         
-        if(animator.GetBool("InHurtState")) {
+        if(hurt||dashing)
+        {
             result = knockback;
         }
-
-		rigidbody.velocity = new Vector3(result.x, rigidbody.velocity.y, result.z);
-
-		if (horizontal!=0 || vertical!=0)
+        else if (horizontal != 0 || vertical != 0)
 		{
 			modelRotation = Quaternion.LookRotation(target, Vector3.up);
 		}
+
+        if(!dashing)
+        {
+            result.y = rigidbody.velocity.y;
+        }
+		rigidbody.velocity = result;
+
 
 		Quaternion newrot = Quaternion.Slerp(model.transform.rotation, modelRotation, RotationInterpolateSpeed * Time.deltaTime);
 		model.transform.rotation = newrot;
@@ -237,6 +257,13 @@ public class Player : MonoBehaviour
 		rot.x = cameraXRot;
 		cameraPivot.transform.rotation = Quaternion.Euler(rot);
 	}
+
+    void Dash() 
+    {
+        animator.SetBool("Dash", true);
+        model.transform.rotation = modelRotation;
+        knockback = model.transform.forward * dashSpeed;
+    }
 
 	public void Attack()
 	{
