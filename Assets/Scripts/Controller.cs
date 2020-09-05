@@ -19,6 +19,9 @@ public class Controller : MonoBehaviour
 	[SerializeField]
 	GameObject dialogueObj = null;
 
+	[SerializeField]
+	GameObject comicTextObj = null;
+
 	public GameObject player = null;
 
 	// ======================================================
@@ -54,5 +57,14 @@ public class Controller : MonoBehaviour
 		source.volume = volume;
 		source.Play();
 		audioSourceIndex = (audioSourceIndex + 1) % 8;
+	}
+
+	public void ShowComicText(string text, Vector3 position, Camera camera)
+	{
+		var obj = Instantiate(comicTextObj, position, Quaternion.identity);
+		obj.GetComponent<Canvas>().worldCamera = camera;
+		obj.GetComponent<BillboardFX>().camTransform = camera.transform;
+		obj.GetComponent<ComicText>().DisplayText(text);
+		Destroy(obj, 0.333f);
 	}
 }

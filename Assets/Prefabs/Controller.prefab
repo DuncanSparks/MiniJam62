@@ -52,6 +52,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   dialogueObj: {fileID: 5802298194489472121, guid: 2e7cab9fc64bb4b4e817afd850e8b811, type: 3}
+  comicTextObj: {fileID: 794535908776294603, guid: 4f9bbf69befc4c84788ebabd7fc7b1ae, type: 3}
   player: {fileID: 0}
 --- !u!82 &723207019604243528
 AudioSource:
