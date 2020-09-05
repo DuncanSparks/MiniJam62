@@ -39,6 +39,8 @@ public class Player : MonoBehaviour
     bool dashing = false;
     bool hurt = false;
 
+    bool globalMouseAim = true;
+
     bool lockMovement = false;
     public bool LockMovement { get => lockMovement; set => lockMovement = value; }
 
@@ -161,9 +163,15 @@ public class Player : MonoBehaviour
             if (!dashing && Input.GetButtonDown("Fire3"))
             {
                 Controller.Singleton.PlaySoundOneShot(dashSound, Random.Range(0.95f, 1.05f));
-                Controller.Singleton.ShowComicText("whoosh", transform.position, camera);
+                Controller.Singleton.ShowComicText("whoosh", transform.position + new Vector3(0, 0.5f, 0), camera);
                 Dash();
             }
+        }
+
+        if (Input.GetButtonDown("AimMode"))
+        {
+            globalMouseAim ^= true;
+            GameUI.Singleton.SetAimMode(globalMouseAim);
         }
 
 		if (horizontal != 0f || vertical != 0f)
@@ -232,20 +240,7 @@ public class Player : MonoBehaviour
 
     void Aim()
     {
-        bool mouseAim = false;
-        switch (currentColor)
-        {
-            case PaintColor.Red:
-                mouseAim = redMouseAim;
-                break;
-            case PaintColor.Blue:
-                mouseAim = blueMouseAim;
-                break;
-            case PaintColor.Yellow:
-                mouseAim = yellowMouseAim;
-                break;
-        }
-        if (mouseAim) 
+        if (globalMouseAim) 
         {
             MouseAim();
         }

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7394c05a04248984fb00eaeabc596308
+guid: 0a281458fb549b24ca44db4d4ff9d46d
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -9,7 +9,7 @@ TrueTypeFontImporter:
   characterPadding: 1
   includeFontData: 1
   fontNames:
-  - a Aha Wow
+  - Canted FX
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0
