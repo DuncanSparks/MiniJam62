@@ -10,6 +10,12 @@ public class GameUI : MonoBehaviour
 	public static GameUI Singleton { get => singleton; set => singleton = value; }
 
 	[SerializeField]
+	AudioClip colorSound;
+
+	[SerializeField]
+	AudioClip modeSound;
+
+	[SerializeField]
 	GameObject healthbar;
 
 	[SerializeField]
@@ -17,6 +23,9 @@ public class GameUI : MonoBehaviour
 
 	[SerializeField]
 	GameObject colorText;
+
+	[SerializeField]
+	GameObject aimModeText;
 
 	[SerializeField]
 	Color[] colors;
@@ -46,10 +55,17 @@ public class GameUI : MonoBehaviour
 
     public void SetIndicatorColor(Player.PaintColor color)
 	{
-		colorIndicator.GetComponent<Image>().color = colors[(int)color];
+		Controller.Singleton.PlaySoundOneShot(colorSound, 1f, 0.4f);
 
+		colorIndicator.GetComponent<Image>().color = colors[(int)color];
 		var text = colorText.GetComponent<TextMeshProUGUI>();
 		text.color = colors[(int)color];
 		text.text = colorNames[(int)color];
+	}
+
+	public void SetAimMode(bool mouse)
+	{
+		Controller.Singleton.PlaySoundOneShot(modeSound);
+		aimModeText.GetComponent<TextMeshProUGUI>().text = $"Aim mode: {(mouse ? "Mouse" : "Direction")}";
 	}
 }
