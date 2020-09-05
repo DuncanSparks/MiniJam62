@@ -6,13 +6,13 @@ using TMPro;
 
 public class Dialogue : MonoBehaviour
 {	
-	List<string> dialogueText = new List<string>();
+	string[] dialogueText;
 	int dialoguePage = 0;
 	float visibleCharacters = 0;
 
 	bool rollText = false;
 
-	public List<string> DialogueText { set => dialogueText = value; }
+	public string[] DialogueText { set => dialogueText = value; }
 
 	TextMeshProUGUI text;
 	Image textbox;
@@ -36,7 +36,7 @@ public class Dialogue : MonoBehaviour
 					visibleCharacters = dialogueText[dialoguePage].Length;
 				else
 				{
-					if (dialoguePage < dialogueText.Count - 1)
+					if (dialoguePage < dialogueText.Length - 1)
 					{
 						visibleCharacters = 0;
 						dialoguePage++;

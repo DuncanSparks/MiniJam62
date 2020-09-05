@@ -36,7 +36,7 @@ public class Controller : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
-	public void Dialogue(List<string> text)
+	public void Dialogue(string[] text)
 	{
 		if (dialogueOpen)
 			return;

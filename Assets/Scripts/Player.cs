@@ -25,6 +25,9 @@ public class Player : MonoBehaviour
 	float mouseX = 0f;
 	float mouseY = 0f;
 
+    const int maxHealth = 4;
+    int health = maxHealth;
+
 	bool onGround = false;
 	bool attacking = false;
     bool hurt = false;
@@ -114,10 +117,13 @@ public class Player : MonoBehaviour
     {
         animator.SetBool("Hurt", true);
         knockback = knockbackDirection;
+        health = Mathf.Clamp(--health, 0, maxHealth);
     }
 
 	void Update()
 	{
+        GameUI.Singleton.SetHealth(health, maxHealth);
+
 		horizontal = Input.GetAxisRaw("Horizontal");
 		vertical = Input.GetAxisRaw("Vertical");
 
