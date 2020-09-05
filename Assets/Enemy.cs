@@ -33,6 +33,7 @@ public class Enemy : MonoBehaviour
     {
 		rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
+        health = maxHealth;
     }
 
     // Update is called once per frame
@@ -44,16 +45,20 @@ public class Enemy : MonoBehaviour
             Vector3 diff = target.transform.position - transform.position;
             diff.y=0;
             float distance = diff.magnitude;
-            if(distance>minimumFollowDistance && distance <maximumFollowDistance) {
+            if(distance>minimumFollowDistance && distance <maximumFollowDistance)
+            {
                 //normalizing manually to avoid recalculating magnitude in .normalized
                 targetVelocity = diff/distance*speed;
                 animator.SetFloat("Walking", 1);
                 modelRotation = Quaternion.LookRotation(targetVelocity);
-            } else {
+            }
+            else
+            {
                 targetVelocity = Vector3.zero;
                 animator.SetFloat("Walking", 0);
             }
-            if(distance<attackRange) {
+            if(distance<attackRange)
+            {
                 AttackUpdate();
             }
         }
@@ -62,31 +67,52 @@ public class Enemy : MonoBehaviour
     float attackTimer;
     [SerializeField]
     float attackTime;
-    void AttackUpdate() {
+    void AttackUpdate()
+    {
         attackTimer += Time.deltaTime;
-        if(attackTimer>attackTime) {
+        if(attackTimer>attackTime)
+        {
             attackTimer=0;
             animator.SetBool("Attack", true);
         }
     }
 
-    void SpawnAttack() {
+    void SpawnAttack()
+    {
 
     }
 
-    void FixedUpdate() {
+    void FixedUpdate()
+    {
         velocity = Vector3.Lerp(velocity, targetVelocity, MotionInterpolateSpeed*Time.deltaTime);
         velocity.y = rigidbody.velocity.y;
         rigidbody.velocity = velocity;
         model.transform.rotation = Quaternion.Slerp(model.transform.rotation, modelRotation, RotationInterpolateSpeed * Time.deltaTime);
     }
-
-    void Damage()
+    bool dead = false;
+    void Damage(float amount, Vector3 knockbackDirection)
     {
-        
+        if(dead)return;
+        health -= amount;
+        targetVelocity = velocity = knockbackDirection;
+        if(health>0)
+        {
+            animator.SetBool("Hurt", true);
+        } else {
+            animator.SetBool("Die", true);
+            dead = true;
+            Destroy(gameObject, 1f);
+        }
     }
 
-    void OnCollisionEnter(Collision other) {
-        
+    void OnCollisionEnter(Collision other)
+    {
+        if(other.gameObject.tag=="PlayerProjectile")
+        {
+            PaintGlob paintGlob = other.gameObject.GetComponent<PaintGlob>();
+            float damage = 1; //TODO: Get from paintGlob
+            float knockback = 20; //TODO: get from paintGlob
+            Damage(damage, knockback*other.gameObject.transform.forward);
+        }
     }
 }
