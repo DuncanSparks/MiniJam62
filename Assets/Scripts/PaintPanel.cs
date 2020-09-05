@@ -12,6 +12,7 @@ public class PaintPanel : MonoBehaviour
 
 	[SerializeField]
 	Player.PaintColor requiredAnyColor;
+	Player.PaintColor lastRequiredAnyColor;
 
 	public Player.PaintColor RequiredAnyColor { get => requiredAnyColor; }
 
@@ -36,6 +37,24 @@ public class PaintPanel : MonoBehaviour
 		{
 			sprite.color = anyColor ? Color.white : colors[(int)panelStartColor];
 		}
+    }
+
+    void UpdateChildColors()
+    {
+        Color color = colors[(int)requiredAnyColor];
+        if(color == null)return;
+        foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.color = color;
+        }
+    }
+
+    void OnValidate() {
+        if(lastRequiredAnyColor != requiredAnyColor)
+        {
+            UpdateChildColors();
+        }
+        lastRequiredAnyColor = requiredAnyColor;
     }
 
     void OnTriggerEnter(Collider collider)
