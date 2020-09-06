@@ -60,6 +60,15 @@ public class Controller : MonoBehaviour
         }
     }
 
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.F11))
+		{
+			Screen.fullScreenMode = Screen.fullScreenMode == FullScreenMode.Windowed ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+			//Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+		}
+	}
+
     public void Dialogue(string[] text, float pitch, NPC host)
     {
         if (dialogueOpen)
