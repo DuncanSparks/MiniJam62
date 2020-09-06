@@ -80,6 +80,9 @@ public class Player : MonoBehaviour
 	[SerializeField]
 	AudioClip jumpSound;
 
+	[SerializeField]
+	AudioClip landSound;
+
     [SerializeField]
     AudioClip dashSound;
 
