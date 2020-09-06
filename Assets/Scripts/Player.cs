@@ -145,11 +145,11 @@ public class Player : MonoBehaviour
         ModelRotation = Quaternion.LookRotation(-knockback);
         model.transform.rotation = ModelRotation;
         health = Mathf.Clamp(--health, 0, maxHealth);
+        GameUI.Singleton.SetHealth(health, maxHealth);
     }
 
     void Update()
     {
-        GameUI.Singleton.SetHealth(health, maxHealth);
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
@@ -323,7 +323,9 @@ public class Player : MonoBehaviour
         mats[1] = colorMaterials[(int)currentColor];
         modelMaterials.materials = mats;
 
+        if(bucketMaterials==null)return;
         Material[] mats2 = bucketMaterials.materials;
+        if(mats2.Length==0)return;
         mats2[1] = colorMaterials[(int)currentColor];
         bucketMaterials.materials = mats2;
     }

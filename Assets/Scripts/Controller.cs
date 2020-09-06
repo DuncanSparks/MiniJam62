@@ -93,7 +93,7 @@ public class Controller : MonoBehaviour
 	public void ChangeScene(string scene, string locationObject)
 	{
 		player.GetComponent<Player>().LockMovement = true;
-		GameUI.Singleton.Transition(true, playSound: true);
+    GameUI.Singleton.Transition(true, playSound: true);
 		targetLocationObject = locationObject;
 		targetScene = scene;
 		Invoke(nameof(ChangeScene2), 0.8f);
