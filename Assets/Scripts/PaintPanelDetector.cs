@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PaintPanelDetector : MonoBehaviour
 {
-    [SerializeField]
+    // [SerializeField]
     PaintPanel[] targetPanels;
 
     [Space(20)]
@@ -12,6 +12,10 @@ public class PaintPanelDetector : MonoBehaviour
     Event conditionsMetEvent;
 
     bool conditionsMet = false;
+
+    void Start() {
+        targetPanels = GetComponentsInChildren<PaintPanel>();
+    }
 
     void Update()
     {

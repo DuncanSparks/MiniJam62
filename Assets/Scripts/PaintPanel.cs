@@ -9,6 +9,11 @@ public class PaintPanel : MonoBehaviour
 
 	[SerializeField]
 	bool anyColor = false;
+    [SerializeField]
+    bool displayTargetColor = false;
+    [SerializeField]
+    bool displayOnly = false;
+    bool lastDipslayOnly = false;
 
 	[SerializeField]
 	Player.PaintColor requiredAnyColor;
@@ -31,12 +36,23 @@ public class PaintPanel : MonoBehaviour
 
 	bool painted = false;
 
+    SpriteRenderer[] sprites;
+
     void Start()
     {
-        foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
-		{
-			sprite.color = anyColor ? Color.white : colors[(int)panelStartColor];
-		}
+        sprites = GetComponentsInChildren<SpriteRenderer>();
+        if (!displayTargetColor)
+        {
+            Color color =  anyColor ? Color.white : colors[(int)panelStartColor];
+            SetChildColors(color);
+        }
+    }
+
+    void SetChildColors(Color color) {
+        foreach (var sprite in sprites)
+        {
+            sprite.color = color;
+        }
     }
 
     void UpdateChildColors()
@@ -47,10 +63,19 @@ public class PaintPanel : MonoBehaviour
         {
             sprite.color = color;
         }
+        if(displayOnly)
+        {
+			MeshRenderer mesh = GetComponent<MeshRenderer>();
+            mesh.material = colorMaterials[(int)requiredAnyColor];
+        }
     }
 
     void OnValidate() {
         if(lastRequiredAnyColor != requiredAnyColor)
+        {
+            UpdateChildColors();
+        }
+        if(lastDipslayOnly != displayOnly)
         {
             UpdateChildColors();
         }
@@ -69,11 +94,20 @@ public class PaintPanel : MonoBehaviour
 				{
 					Controller.Singleton.PlaySoundOneShot(paintSound, Random.Range(0.9f, 1.1f), 0.6f);
 					mesh.material = colorMaterials[colorIndex];
-					foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
-					{
-						sprite.color = colors[colorIndex];
-					}
-
+                    Color color = color = colors[colorIndex];
+                    if (displayTargetColor)
+                    {
+                        int requiredIndex = (int)requiredAnyColor;
+                        // color = colorIndex == requiredIndex ? Color.clear : colors[requiredIndex];
+                        foreach (var sprite in sprites)
+                        {
+                            sprite.gameObject.SetActive(requiredIndex != colorIndex);
+                        }
+                    }
+                    else
+                    {
+                        SetChildColors(color);
+                    }
 					currentColor = colorIndex;
 				}
 			}
