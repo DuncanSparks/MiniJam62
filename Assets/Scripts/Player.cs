@@ -288,6 +288,9 @@ public class Player : MonoBehaviour
         Vector3 target = new Vector3(horizontal, 0f, vertical);
         target = camera.transform.TransformDirection(target);
         target.y = 0f;
+        if (horizontal != 0 || vertical != 0) {
+          target.Normalize();
+        }
         Vector3 result = target * Speed;
         
         if(hurt||dashing)
