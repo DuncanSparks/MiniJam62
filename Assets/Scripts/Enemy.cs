@@ -44,6 +44,10 @@ public class Enemy : MonoBehaviour
     Vector3 velocity = Vector3.zero;
     Vector3 targetVelocity = Vector3.zero;
 
+	[Space(20)]
+    [SerializeField]
+    Event deathEvent;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -145,4 +149,9 @@ public class Enemy : MonoBehaviour
           Controller.Singleton.ShowComicText("Splat", other.gameObject.transform.position, Camera.main);
         }
     }
+
+	void OnDestroy()
+	{
+		deathEvent.Invoke();
+	}
 }
