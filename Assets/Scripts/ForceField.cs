@@ -4,21 +4,20 @@ using UnityEngine;
 
 public class ForceField : MonoBehaviour
 {
-	ParticleSystem particles;
-	new BoxCollider collider;
-	AudioSource sound;
+	bool disabled = false;
 
-	void Start()
+    public void DisableForceField(bool playSound)
 	{
-		particles = GetComponentInChildren<ParticleSystem>();
-		collider = GetComponent<BoxCollider>();
-		sound = GetComponent<AudioSource>();
-	}
+		if (!disabled)
+		{
+			GetComponentInChildren<ParticleSystem>().Stop();
+			GetComponent<BoxCollider>().enabled = false;
+			if (playSound)
+			{
+				GetComponent<AudioSource>().Play();
+			}
 
-    public void DisableForceField()
-	{
-		particles.Stop();
-		collider.enabled = false;
-		sound.Play();
+			disabled = true;
+		}
 	}
 }

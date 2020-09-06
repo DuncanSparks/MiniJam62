@@ -15,6 +15,8 @@ public class Controller : MonoBehaviour
 
     int audioSourceIndex = 0;
 
+	Dictionary<string, bool> clearedScenes = new Dictionary<string, bool>(){};
+
     // ======================================================
 
 	[SerializeField]
@@ -67,6 +69,16 @@ public class Controller : MonoBehaviour
 			Screen.fullScreenMode = Screen.fullScreenMode == FullScreenMode.Windowed ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
 			//Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
 		}
+	}
+
+	public void AddClearedScene(string name)
+	{
+		clearedScenes.Add(name, true);
+	}
+
+	public bool IsSceneCleared(string name)
+	{
+		return clearedScenes.ContainsKey(name);
 	}
 
     public void Dialogue(string[] text, float pitch, NPC host)
