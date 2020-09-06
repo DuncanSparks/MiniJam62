@@ -11,6 +11,7 @@ public class Dialogue : MonoBehaviour
 
 	int dialoguePage = 0;
 	float visibleCharacters = 0;
+	int flooredVisibleCharacters = 0;
 
 	bool rollText = false;
 
@@ -19,6 +20,17 @@ public class Dialogue : MonoBehaviour
 
 	TextMeshProUGUI text;
 	Image textbox;
+
+	[SerializeField]
+	AudioClip advanceSound;
+
+	[SerializeField]
+	AudioClip[] textSounds;
+
+	float soundPitch = 1f;
+	public float SoundPitch { set => soundPitch = value; }
+
+	float pitchVariance = 0.02f;
 	
 	void Start()
 	{
@@ -32,15 +44,23 @@ public class Dialogue : MonoBehaviour
 		{
 			visibleCharacters = Mathf.Clamp(visibleCharacters + 25f * Time.deltaTime, 0, dialogueText[dialoguePage].Length);
 			text.maxVisibleCharacters = Mathf.RoundToInt(visibleCharacters);
+			flooredVisibleCharacters = Mathf.FloorToInt(visibleCharacters);
+			if (flooredVisibleCharacters % 2 == 0 && flooredVisibleCharacters < dialogueText[dialoguePage].Length)
+			{
+				Controller.Singleton.PlaySoundOneShot(textSounds[Random.Range(0, textSounds.Length)], soundPitch + Random.Range(-pitchVariance, pitchVariance), 0.05f);
+			}
 
 			if (Input.GetButtonDown("Action"))
 			{
 				if (visibleCharacters < dialogueText[dialoguePage].Length)
+				{
 					visibleCharacters = dialogueText[dialoguePage].Length;
+				}
 				else
 				{
 					if (dialoguePage < dialogueText.Length - 1)
 					{
+						//Controller.Singleton.PlaySoundOneShot(advanceSound, Random.Range(0.98f, 1.02f), 0.7f);
 						visibleCharacters = 0;
 						dialoguePage++;
 						text.text = dialogueText[dialoguePage];

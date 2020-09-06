@@ -76,7 +76,7 @@ public class TitleScreen : MonoBehaviour
 
     void ClickStart2()
     {
-        Controller.Singleton.ChangeScene(startScene.name, "Start");
+        Controller.Singleton.ChangeScene(startScene.name, "StartEntrance");
     }
 
     public void ClickCredits()

@@ -16,6 +16,10 @@ public class NPC : MonoBehaviour
     [SerializeField]
     string npcName;
 
+	[Range(0, 2)]
+	[SerializeField]
+	float textSoundPitch = 1f;
+
     [SerializeField]
     DialogueSetArray[] dialogue;
 
@@ -48,7 +52,7 @@ public class NPC : MonoBehaviour
         {
 			interactIndicator.enabled = false;
             Controller.Singleton.player.GetComponent<Player>().LockMovement = true;
-            Controller.Singleton.Dialogue(dialogue[dialogueSet].array, this);
+            Controller.Singleton.Dialogue(dialogue[dialogueSet].array, textSoundPitch, this);
         }
 
         targetRotation = startRotation;

@@ -1090,7 +1090,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d46cebba207d00a4ba59fc3fdf8a1a63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startScene: {fileID: 102900000, guid: 537381165223734469c567ad010b6fc5, type: 3}
+  startScene: {fileID: 102900000, guid: cec1931d53aca4808af5700e84418f8a, type: 3}
   introSound: {fileID: 8300000, guid: 2e4b35cedc852594594c6cb8eab8afb9, type: 3}
   hoverSound: {fileID: 8300000, guid: 97c3f9ce1244cc049ae1360a54256fb5, type: 3}
   clickSound: {fileID: 8300000, guid: 4720db5d6c812814497dd5314d6c2a05, type: 3}

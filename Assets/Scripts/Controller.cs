@@ -60,13 +60,14 @@ public class Controller : MonoBehaviour
         }
     }
 
-    public void Dialogue(string[] text, NPC host)
+    public void Dialogue(string[] text, float pitch, NPC host)
     {
         if (dialogueOpen)
             return;
 
         var dlg = Instantiate(dialogueObj, Vector3.zero, Quaternion.identity);
         Dialogue dlgScript = dlg.GetComponent<Dialogue>();
+		dlgScript.SoundPitch = pitch;
         dlgScript.Host = host;
         dlgScript.DialogueText = text;
         dlgScript.StartDialogue();
