@@ -6,7 +6,7 @@ public class Player : MonoBehaviour
 {
     const float CameraMouseRotationSpeed = 12f;
     const float CameraControllerRotationSpeed = 3.0f;
-    const float CameraXRotMin = -40.0f;
+    const float CameraXRotMin = -26.0f;
     const float CameraXRotMax = 30.0f;
 
     const float DirectionInterpolateSpeed = 1.0f;
