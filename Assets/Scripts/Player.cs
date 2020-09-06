@@ -324,13 +324,14 @@ public class Player : MonoBehaviour
 
     public void UpdateColorInfo()
     {
+        if (modelMaterials == null)return;
         Material[] mats = modelMaterials.materials;
         mats[1] = colorMaterials[(int)currentColor];
         modelMaterials.materials = mats;
 
-        if(bucketMaterials==null)return;
+        if (bucketMaterials == null)return;
         Material[] mats2 = bucketMaterials.materials;
-        if(mats2.Length==0)return;
+        if (mats2.Length ==0 )return;
         mats2[1] = colorMaterials[(int)currentColor];
         bucketMaterials.materials = mats2;
     }
