@@ -22,6 +22,9 @@ public class Player : MonoBehaviour
     GameObject dashEffect;
 
 	Quaternion modelRotation = Quaternion.identity;
+    public Quaternion ModelRotation { get => modelRotation; set => modelRotation = value; }
+    public Quaternion AimRotation { get => aimRotation; set => aimRotation = value; }
+    
 	Quaternion aimRotation = Quaternion.identity;
 	float cameraXRot = 0.0f;
 
@@ -54,7 +57,7 @@ public class Player : MonoBehaviour
     PaintColor currentColor = PaintColor.Red;
     public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
 
-    new Camera camera;
+	new Camera camera;
     new Rigidbody rigidbody;
     Animator animator;
     AudioSource audioSource;
@@ -138,8 +141,8 @@ public class Player : MonoBehaviour
         animator.SetBool("Hurt", true);
         Controller.Singleton.ShowComicText("Splat", transform.position + new Vector3(0, 0.5f, 0), camera);
         knockback = knockbackDirection;
-        modelRotation = Quaternion.LookRotation(-knockback);
-        model.transform.rotation = modelRotation;
+        ModelRotation = Quaternion.LookRotation(-knockback);
+        model.transform.rotation = ModelRotation;
         health = Mathf.Clamp(--health, 0, maxHealth);
     }
 
@@ -243,8 +246,8 @@ public class Player : MonoBehaviour
 
     void DirectionAim()
     {
-        model.transform.rotation = modelRotation;
-        aimRotation = modelRotation;
+        model.transform.rotation = ModelRotation;
+        AimRotation = ModelRotation;
     }
 
     void MouseAim()
@@ -254,10 +257,10 @@ public class Player : MonoBehaviour
         {
             aim.y = 0;
         }
-        aimRotation = Quaternion.LookRotation(aim);
+        AimRotation = Quaternion.LookRotation(aim);
         aim.y=0;
-        modelRotation = Quaternion.LookRotation(aim);
-        model.transform.rotation = modelRotation;
+        ModelRotation = Quaternion.LookRotation(aim);
+        model.transform.rotation = ModelRotation;
         horizontal = 0; vertical = 0;
     }
 
@@ -275,7 +278,7 @@ public class Player : MonoBehaviour
         }
         else if (horizontal != 0 || vertical != 0)
         {
-            modelRotation = Quaternion.LookRotation(target, Vector3.up);
+            ModelRotation = Quaternion.LookRotation(target, Vector3.up);
         }
 
         if(!dashing)
@@ -285,7 +288,7 @@ public class Player : MonoBehaviour
         rigidbody.velocity = result;
 
 
-        Quaternion newrot = Quaternion.Slerp(model.transform.rotation, modelRotation, RotationInterpolateSpeed * Time.deltaTime);
+        Quaternion newrot = Quaternion.Slerp(model.transform.rotation, ModelRotation, RotationInterpolateSpeed * Time.deltaTime);
         model.transform.rotation = newrot;
 
         RotateCamera(mouseX, mouseY);
@@ -304,7 +307,7 @@ public class Player : MonoBehaviour
     void Dash() 
     {
         animator.SetBool("Dash", true);
-        model.transform.rotation = modelRotation;
+        model.transform.rotation = ModelRotation;
         knockback = model.transform.forward * dashSpeed;
     }
 
@@ -339,7 +342,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, aimRotation);
+        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, AimRotation);
 
         foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
         {
