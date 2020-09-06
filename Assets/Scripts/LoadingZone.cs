@@ -9,16 +9,13 @@ public class LoadingZone : MonoBehaviour
     Object targetScene;
 
     [SerializeField]
-    Vector3 targetPosition;
-
-    [SerializeField]
-    Vector3 targetRotation;
+    string targetLocationObject;
 
     void OnTriggerEnter(Collider collider)
     {
         if (collider.gameObject.tag == "Player")
         {
-            Controller.Singleton.ChangeScene(targetScene.name, targetPosition, targetRotation);
+            Controller.Singleton.ChangeScene(targetScene.name, targetLocationObject);
         }
     }
 }

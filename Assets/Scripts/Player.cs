@@ -17,16 +17,19 @@ public class Player : MonoBehaviour
     const float JumpForce = 20.0f;
 
     [SerializeField]
+    float respawnY = -20f;
+
+    [SerializeField]
     float dashSpeed = 24.0f;
     [SerializeField]
     GameObject dashEffect;
 
-	Quaternion modelRotation = Quaternion.identity;
+    Quaternion modelRotation = Quaternion.identity;
     public Quaternion ModelRotation { get => modelRotation; set => modelRotation = value; }
     public Quaternion AimRotation { get => aimRotation; set => aimRotation = value; }
     
-	Quaternion aimRotation = Quaternion.identity;
-	float cameraXRot = 0.0f;
+    Quaternion aimRotation = Quaternion.identity;
+    float cameraXRot = 0.0f;
 
     float horizontal = 0.0f;
     float vertical = 0.0f;
@@ -57,7 +60,7 @@ public class Player : MonoBehaviour
     PaintColor currentColor = PaintColor.Red;
     public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
 
-	new Camera camera;
+    new Camera camera;
     new Rigidbody rigidbody;
     Animator animator;
     AudioSource audioSource;
@@ -106,8 +109,6 @@ public class Player : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         modelMaterials = GetComponentInChildren<SkinnedMeshRenderer>();
         bucketMaterials = GetComponentInChildren<MeshRenderer>();
-
-        Cursor.lockState = CursorLockMode.Locked;
     }
 
 
@@ -178,23 +179,23 @@ public class Player : MonoBehaviour
             GameUI.Singleton.SetAimMode(globalMouseAim);
         }
 
-		if (horizontal != 0f || vertical != 0f)
-		{
-			animator.SetFloat("Walking", 1);
-		}
-		else
-		{
-			animator.SetFloat("Walking", 0);
-		}
-		
-		mouseX = Input.GetAxis("Mouse X");
-		mouseY = Input.GetAxis("Mouse Y");
+        if (horizontal != 0f || vertical != 0f)
+        {
+            animator.SetFloat("Walking", 1);
+        }
+        else
+        {
+            animator.SetFloat("Walking", 0);
+        }
+        
+        mouseX = Input.GetAxis("Mouse X");
+        mouseY = Input.GetAxis("Mouse Y");
 
-		if (Input.GetButtonDown("Fire1") && !hurt && !lockMovement)
-		{
-			animator.SetBool("Attack", true);
+        if (Input.GetButtonDown("Fire1") && !hurt && !lockMovement)
+        {
+            animator.SetBool("Attack", true);
             Aim();
-		}
+        }
 
         if (Input.GetButtonDown("Fire2") && !attacking && !hurt && !lockMovement)
         {
@@ -229,8 +230,13 @@ public class Player : MonoBehaviour
         else
         {
             animator.SetFloat("Jumping", 0);
-        }			
-	}
+        }
+
+        if (transform.position.y < respawnY)
+        {
+            Controller.Singleton.Respawn();
+        }
+    }
 
     void Aim()
     {
@@ -265,12 +271,12 @@ public class Player : MonoBehaviour
     }
 
 
-	void FixedUpdate()
-	{
-		Vector3 target = new Vector3(horizontal, 0f, vertical);
-		target = camera.transform.TransformDirection(target);
-		target.y = 0f;
-		Vector3 result = target * Speed;
+    void FixedUpdate()
+    {
+        Vector3 target = new Vector3(horizontal, 0f, vertical);
+        target = camera.transform.TransformDirection(target);
+        target.y = 0f;
+        Vector3 result = target * Speed;
         
         if(hurt||dashing)
         {
