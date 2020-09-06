@@ -18,4 +18,8 @@ public class LoadingZone : MonoBehaviour
             Controller.Singleton.ChangeScene(targetScene.name, targetLocationObject);
         }
     }
+
+    public void ChangeScene() {
+        Controller.Singleton.ChangeScene(targetScene.name, targetLocationObject);
+    }
 }

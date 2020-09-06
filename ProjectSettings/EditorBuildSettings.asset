@@ -24,15 +24,21 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/0-2StudioCutScene.unity
     guid: 0834f6367a110482c973d5802ede302a
   - enabled: 1
-    path: Assets/Scenes/Game/0-3WhiteForrest.unity
+    path: Assets/Scenes/Game/1-2Run.unity
     guid: 082c04f8987914d1fa2ad92354bfa098
   - enabled: 1
-    path: Assets/Scenes/Game/1-0StartArea.unity
+    path: Assets/Scenes/Game/1-3Redsy.unity
+    guid: ef7032a6b1261452194f28e1a0742221
+  - enabled: 1
+    path: Assets/Scenes/Game/1-5Forrest.unity
+    guid: 7747d7b2bb84749748dc0fa3bdd8f7b6
+  - enabled: 1
+    path: Assets/Scenes/Game/9-0StartArea.unity
     guid: 4e0d51ef832a24879b8dfe37d514e212
   - enabled: 1
-    path: Assets/Scenes/Game/1-1StartArea.unity
+    path: Assets/Scenes/Game/9-1StartArea.unity
     guid: 57aacbc595b1f401c81ed4875d36f44c
   - enabled: 1
-    path: Assets/Scenes/Game/1-2BuckFight.unity
+    path: Assets/Scenes/Game/9-2BuckFight.unity
     guid: 0255a661ea6f14ed4857cf518852cf9a
   m_configObjects: {}
