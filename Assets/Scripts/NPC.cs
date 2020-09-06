@@ -31,8 +31,13 @@ public class NPC : MonoBehaviour
     Quaternion startRotation;
     Quaternion targetRotation;
 
+	SpriteRenderer interactIndicator;
+
     void Start()
     {
+		interactIndicator = GetComponentInChildren<SpriteRenderer>();
+		interactIndicator.enabled = false;
+
         if (!model) model = transform.GetChild(0);
         startRotation = model.transform.rotation;
     }
@@ -41,9 +46,11 @@ public class NPC : MonoBehaviour
     {
         if (Input.GetButtonDown("Action") && playerInRange && !Controller.Singleton.player.GetComponent<Player>().LockMovement)
         {
+			interactIndicator.enabled = false;
             Controller.Singleton.player.GetComponent<Player>().LockMovement = true;
             Controller.Singleton.Dialogue(dialogue[dialogueSet].array, this);
         }
+
         targetRotation = startRotation;
         if (playerInRange)
         {
@@ -63,6 +70,7 @@ public class NPC : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
+			interactIndicator.enabled = true;
             playerInRange = true;
         }
     }
@@ -71,9 +79,16 @@ public class NPC : MonoBehaviour
     {
         if (collider.gameObject.tag == "Player")
         {
+			interactIndicator.enabled = false;
             playerInRange = false;
         }
     }
 
-    public int NumSets { get => dialogue.Length; }
+	public void EndDialogue()
+	{
+		dialogueSet = Mathf.Min(++dialogueSet, dialogue.Length - 1);
+		interactIndicator.enabled = true;
+	}
+
+    //public int NumSets { get => dialogue.Length; }
 }

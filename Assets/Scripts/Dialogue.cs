@@ -49,7 +49,7 @@ public class Dialogue : MonoBehaviour
 					{
 						Controller.Singleton.DialogueOpen = false;
 						Controller.Singleton.player.GetComponent<Player>().LockMovement = false;
-						host.DialogueSet = Mathf.Min(++host.DialogueSet, host.NumSets - 1);
+						host.EndDialogue();
 						Destroy(gameObject);
 					}
 				}
