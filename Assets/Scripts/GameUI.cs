@@ -51,6 +51,9 @@ public class GameUI : MonoBehaviour
         "Yellow"
     };
 
+    Player.PaintColor currentColor = Player.PaintColor.Red;
+    public Player.PaintColor CurrentColor { get => currentColor; }
+
     void Awake()
     {
         if (Singleton == null)
@@ -78,6 +81,7 @@ public class GameUI : MonoBehaviour
         var text = colorText.GetComponent<TextMeshProUGUI>();
         text.color = colors[(int)color];
         text.text = colorNames[(int)color];
+        currentColor = color;
     }
 
     public void SetAimMode(bool mouse)

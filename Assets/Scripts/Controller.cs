@@ -94,8 +94,11 @@ public class Controller : MonoBehaviour
 		player.transform.position = targetScenePosition;
 		//GameUI.Singleton.Fade(Color.black, 1f, false);
 		GameUI.Singleton.Transition(false);
-		player.GetComponent<Player>().LockMovement = true;
-		Invoke(nameof(ChangeScene4), 1.0f);
+		var pl = player.GetComponent<Player>();
+		pl.GetComponent<Player>().LockMovement = true;
+		pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
+		pl.UpdateColorInfo();
+		Invoke(nameof(ChangeScene4), 0.4f);
 	}
 
 	void ChangeScene4()

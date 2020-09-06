@@ -198,13 +198,7 @@ public class Player : MonoBehaviour
             currentColor = (PaintColor)(((int)currentColor + 1) % 3);
             GameUI.Singleton.SetIndicatorColor(currentColor);
            
-            Material[] mats = modelMaterials.materials;
-            mats[1] = colorMaterials[(int)currentColor];
-            modelMaterials.materials = mats;
-
-            Material[] mats2 = bucketMaterials.materials;
-            mats2[1] = colorMaterials[(int)currentColor];
-            bucketMaterials.materials = mats2;
+            UpdateColorInfo();
         }
 
         onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
@@ -233,10 +227,6 @@ public class Player : MonoBehaviour
         {
             animator.SetFloat("Jumping", 0);
         }			
-		/*if (Input.GetButtonDown("Action"))a
-		{
-			Controller.Singleton.Dialogue(new List<string>(){"Hello there", "How are you today", "This is a test"});
-		}*/
 	}
 
     void Aim()
@@ -316,6 +306,17 @@ public class Player : MonoBehaviour
         animator.SetBool("Dash", true);
         model.transform.rotation = modelRotation;
         knockback = model.transform.forward * dashSpeed;
+    }
+
+    public void UpdateColorInfo()
+    {
+        Material[] mats = modelMaterials.materials;
+        mats[1] = colorMaterials[(int)currentColor];
+        modelMaterials.materials = mats;
+
+        Material[] mats2 = bucketMaterials.materials;
+        mats2[1] = colorMaterials[(int)currentColor];
+        bucketMaterials.materials = mats2;
     }
 
     public void Attack()
