@@ -41,6 +41,13 @@ public class Controller : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
+	void Start()
+	{
+		targetScenePosition = player.transform.position;
+		targetSceneRotation = player.transform.rotation.eulerAngles;
+		Cursor.lockState = CursorLockMode.Locked;
+	}
+
 	public void Dialogue(string[] text, NPC host)
 	{
 		if (dialogueOpen)
