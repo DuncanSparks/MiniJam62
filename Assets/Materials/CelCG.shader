@@ -31,15 +31,20 @@ Shader "Custom/Cel"
 
         Pass
         {
+			Tags { "LightMode" = "ForwardBase" }
+
             CGPROGRAM
             #pragma vertex vert
             #pragma fragment frag
             // make fog work
             #pragma multi_compile_fog
+			
 
             #include "UnityCG.cginc"
 			#include "Lighting.cginc"
 			#include "AutoLight.cginc"
+			
+			#pragma multi_compile_fwdbase
 
             struct appdata
             {
@@ -53,12 +58,13 @@ Shader "Custom/Cel"
             {
                 float2 uv : TEXCOORD0;
                 UNITY_FOG_COORDS(1)
-                float4 vertex : SV_POSITION;
+                float4 pos : SV_POSITION;
 
 				float3 worldNormal : NORMAL;
 				float3 viewDir : TEXCOORD1;
 
-				SHADOW_COORDS(2)
+				//SHADOW_COORDS(2)
+				LIGHTING_COORDS(2, 3)
             };
 
             sampler2D _BaseTex;
@@ -67,15 +73,16 @@ Shader "Custom/Cel"
             v2f vert (appdata v)
             {
                 v2f o;
-                o.vertex = UnityObjectToClipPos(v.vertex);
+                o.pos = UnityObjectToClipPos(v.vertex);
 
                 o.uv = TRANSFORM_TEX(v.uv, _BaseTex);
-                UNITY_TRANSFER_FOG(o,o.vertex);
+                UNITY_TRANSFER_FOG(o,o.pos);
 
 				o.worldNormal = UnityObjectToWorldNormal(v.normal);
 				o.viewDir = WorldSpaceViewDir(v.vertex);
 
-				TRANSFER_SHADOW(o)
+				//TRANSFER_SHADOW(o);
+				TRANSFER_VERTEX_TO_FRAGMENT(o);
 
                 return o;
             }
@@ -110,7 +117,7 @@ Shader "Custom/Cel"
 				float shade_value = smoothstep(_ShadeThreshold - _ShadeSoftness, _ShadeThreshold + _ShadeSoftness, NdotL);
 				diffuse = lerp(shade, base, shade_value);
 
-				float shadow_value = smoothstep(_ShadowThreshold - _ShadowSoftness, _ShadowThreshold + _ShadowSoftness, SHADOW_ATTENUATION(i));
+				float shadow_value = smoothstep(_ShadowThreshold - _ShadowSoftness, _ShadowThreshold + _ShadowSoftness, LIGHT_ATTENUATION(i));
 				shade_value = min(shade_value, shadow_value);
 				diffuse = lerp(shade, base, shade_value);
 				is_lit = step(_ShadowThreshold, shade_value);
@@ -120,4 +127,6 @@ Shader "Custom/Cel"
             ENDCG
         }
     }
+
+	Fallback "VertexLit"
 }

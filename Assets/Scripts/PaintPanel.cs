@@ -33,6 +33,9 @@ public class PaintPanel : MonoBehaviour
 
 	bool painted = false;
 
+	bool canBePainted = true;
+	public bool CanBePainted { set => canBePainted = value; }
+
     SpriteRenderer[] sprites;
 
     void Start()
@@ -81,7 +84,7 @@ public class PaintPanel : MonoBehaviour
 
     void OnTriggerEnter(Collider collider)
 	{
-		if (collider.gameObject.tag == "PlayerProjectile")
+		if (canBePainted)
 		{
 			MeshRenderer mesh = GetComponent<MeshRenderer>();
 			if (anyColor)

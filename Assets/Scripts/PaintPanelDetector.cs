@@ -34,6 +34,11 @@ public class PaintPanelDetector : MonoBehaviour
             if (satisfied)
             {
                 conditionsMet = true;
+                foreach (PaintPanel panel in targetPanels)
+                {
+                    panel.CanBePainted = false;
+                }
+
                 conditionsMetEvent.Invoke();
             }
         }
