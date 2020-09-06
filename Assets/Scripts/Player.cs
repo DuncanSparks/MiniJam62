@@ -214,7 +214,8 @@ public class Player : MonoBehaviour
             UpdateColorInfo();
         }
 
-        onGround = Physics.Raycast(transform.position, Vector3.down, 1.2f, collisionMask);
+        RaycastHit hit;
+        onGround = Physics.SphereCast(transform.position, 0.5f, Vector3.down, out hit, 1.2f, collisionMask);
 
         if (Input.GetButtonDown("Jump") && onGround && !attacking && !hurt && !lockMovement)
         {
