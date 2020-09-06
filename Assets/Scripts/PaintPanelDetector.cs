@@ -43,4 +43,14 @@ public class PaintPanelDetector : MonoBehaviour
             }
         }
     }
+
+	public void SolveAllPanels()
+	{
+		conditionsMet = true;
+		foreach (PaintPanel panel in GetComponentsInChildren<PaintPanel>())
+		{
+			panel.Solve();
+			panel.CanBePainted = false;
+		}
+	}
 }
