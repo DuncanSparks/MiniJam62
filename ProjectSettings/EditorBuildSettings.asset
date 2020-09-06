@@ -14,33 +14,45 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/Puzzle1.unity
     guid: 537381165223734469c567ad010b6fc5
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
-    path: Assets/Scenes/Game/Puzzle2.unity
-    guid: f497a1d7db2523d4da7fc5b14111093f
-  - enabled: 1
-    path: Assets/Scenes/Game/0-0HomeLife.unity
+    path: Assets/Scenes/Game/0Intro/0-0HomeLife.unity
     guid: cec1931d53aca4808af5700e84418f8a
   - enabled: 1
-    path: Assets/Scenes/Game/0-1BlankStudio.unity
+    path: Assets/Scenes/Game/0Intro/0-1BlankStudio.unity
     guid: 8a6c8cf29aa1648efa0ffed58d434f93
   - enabled: 1
-    path: Assets/Scenes/Game/0-2StudioCutScene.unity
+    path: Assets/Scenes/Game/0Intro/0-2StudioCutScene.unity
     guid: 0834f6367a110482c973d5802ede302a
   - enabled: 1
-    path: Assets/Scenes/Game/1-1WhiteForrest.unity
+    path: Assets/Scenes/Game/1CanvasLand/1-1WhiteForrest.unity
     guid: 51ff334f3d63442ac80b3a0efe472424
   - enabled: 1
-    path: Assets/Scenes/Game/1-2Run.unity
+    path: Assets/Scenes/Game/1CanvasLand/1-2Run.unity
     guid: 082c04f8987914d1fa2ad92354bfa098
   - enabled: 1
-    path: Assets/Scenes/Game/1-3Redsy.unity
+    path: Assets/Scenes/Game/1CanvasLand/1-3Redsy.unity
     guid: ef7032a6b1261452194f28e1a0742221
   - enabled: 1
-    path: Assets/Scenes/Game/1-4BucketGet.unity
+    path: Assets/Scenes/Game/1CanvasLand/1-4BucketGet.unity
     guid: a1aaffc1459cf4ee6afc6add15ded5fc
   - enabled: 1
-    path: Assets/Scenes/Game/1-5Forrest.unity
+    path: Assets/Scenes/Game/1CanvasLand/1-5Forrest.unity
+    guid: 7c2d49f57a1e049f98bc4471557176c7
+  - enabled: 1
+    path: Assets/Scenes/Game/2-1hub.unity
     guid: 7747d7b2bb84749748dc0fa3bdd8f7b6
+  - enabled: 1
+    path: Assets/Scenes/Game/3-1Red.unity
+    guid: 965f83c528ada4fa2a4cf515530c1a00
+  - enabled: 1
+    path: Assets/Scenes/Game/4-1Blue.unity
+    guid: beca8473012bf485d98d95ef2c479e85
+  - enabled: 1
+    path: Assets/Scenes/Game/5-1Yellow.unity
+    guid: c24c5cfe98c7846c4856b7a292da3717
   - enabled: 1
     path: Assets/Scenes/Game/9-0StartArea.unity
     guid: 4e0d51ef832a24879b8dfe37d514e212
