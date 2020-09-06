@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
@@ -23,6 +24,9 @@ public class Controller : MonoBehaviour
 	GameObject comicTextObj = null;
 
 	public GameObject player = null;
+
+	string targetScene;
+	Vector3 targetScenePosition;
 
 	// ======================================================
 
@@ -66,5 +70,39 @@ public class Controller : MonoBehaviour
 		obj.GetComponent<BillboardFX>().camTransform = camera.transform;
 		obj.GetComponent<ComicText>().DisplayText(text);
 		Destroy(obj, 0.5f);
+	}
+
+	public void ChangeScene(string scene, Vector3 position)
+	{
+		player.GetComponent<Player>().LockMovement = true;
+		//GameUI.Singleton.Fade(Color.black, 1f, true);
+		GameUI.Singleton.Transition(true);
+		targetScene = scene;
+		targetScenePosition = position;
+		Invoke(nameof(ChangeScene2), 0.8f);
+	}
+
+	void ChangeScene2()
+	{
+		SceneManager.LoadScene(targetScene);
+		Invoke(nameof(ChangeScene3), 0.02f);
+	}
+
+	void ChangeScene3()
+	{
+		player = FindObjectOfType<Player>().gameObject;
+		player.transform.position = targetScenePosition;
+		//GameUI.Singleton.Fade(Color.black, 1f, false);
+		GameUI.Singleton.Transition(false);
+		var pl = player.GetComponent<Player>();
+		pl.GetComponent<Player>().LockMovement = true;
+		pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
+		pl.UpdateColorInfo();
+		Invoke(nameof(ChangeScene4), 0.4f);
+	}
+
+	void ChangeScene4()
+	{
+		player.GetComponent<Player>().LockMovement = false;
 	}
 }

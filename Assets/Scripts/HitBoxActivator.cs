@@ -8,12 +8,15 @@ public class HitBoxActivator : MonoBehaviour
 	[SerializeField]
 	AudioClip attackSound;
 
+	[SerializeField]
+	float attackSoundVolume = 1f;
+
     [SerializeField]
     GameObject hitBox;
     Animator animator;
     public void Activate()
     {
-		Controller.Singleton.PlaySoundOneShot(attackSound, Random.Range(0.95f, 1.05f), 0.75f);
+		Controller.Singleton.PlaySoundOneShot(attackSound, Random.Range(0.95f, 1.05f), attackSoundVolume);
         hitBox.SetActive(true);
     }
     public void Deactivate()

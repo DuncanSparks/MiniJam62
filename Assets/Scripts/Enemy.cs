@@ -28,13 +28,13 @@ public class Enemy : MonoBehaviour
 	AudioClip attackSound;
 
 	[SerializeField]
-	float attackSoundPitch = 1, attackSoundVolume = 1;
+	float attackSoundVolume = 1;
 
 	[SerializeField]
 	AudioClip deathSound;
 
 	[SerializeField]
-	float deathSoundPitch = 1, deathSoundVolume = 1;
+	float deathSoundVolume = 1;
 
     float health;
     Quaternion modelRotation = Quaternion.identity;
@@ -100,7 +100,7 @@ public class Enemy : MonoBehaviour
     {
 		if (attackSound)
 		{
-			Controller.Singleton.PlaySoundOneShot(attackSound, attackSoundPitch, attackSoundVolume);
+			Controller.Singleton.PlaySoundOneShot(attackSound, Random.Range(0.95f, 1.05f), attackSoundVolume);
 		}
         var glob = Instantiate(projectile, projectileSpawnLocation.position, model.transform.rotation);
         foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
@@ -127,7 +127,7 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("Hurt", true);
         } else {
-			Controller.Singleton.PlaySoundOneShot(deathSound, deathSoundPitch, deathSoundVolume);
+			Controller.Singleton.PlaySoundOneShot(deathSound, Random.Range(0.95f, 1.05f), deathSoundVolume);
             animator.SetBool("Die", true);
             dead = true;
             Destroy(gameObject, 1f);
