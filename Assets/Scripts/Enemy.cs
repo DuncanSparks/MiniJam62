@@ -132,7 +132,6 @@ public class Enemy : MonoBehaviour
             dead = true;
             Destroy(gameObject, 1f);
         }
-        Controller.Singleton.ShowComicText("Splat", transform.position + Vector3.up, Camera.main);
     }
 
     void OnCollisionEnter(Collision other)
@@ -143,6 +142,7 @@ public class Enemy : MonoBehaviour
             float damage = paintGlob.Damage;
             float knockback = 20; //TODO: get from paintGlob
             Damage(damage, -knockback*other.gameObject.transform.forward);
+          Controller.Singleton.ShowComicText("Splat", other.gameObject.transform.position, Camera.main);
         }
     }
 }

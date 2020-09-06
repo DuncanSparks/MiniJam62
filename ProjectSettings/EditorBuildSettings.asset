@@ -12,12 +12,12 @@ EditorBuildSettings:
     path: Assets/Scenes/PictureMatchTest.unity
     guid: 537381165223734469c567ad010b6fc5
   - enabled: 1
-    path: Assets/Scenes/Game/0-0StartArea.unity
+    path: Assets/Scenes/Game/1-0StartArea.unity
     guid: 4e0d51ef832a24879b8dfe37d514e212
   - enabled: 1
-    path: Assets/Scenes/Game/0-1StartArea.unity
+    path: Assets/Scenes/Game/1-1StartArea.unity
     guid: 57aacbc595b1f401c81ed4875d36f44c
   - enabled: 1
-    path: Assets/Scenes/Game/0-2BuckFight.unity
+    path: Assets/Scenes/Game/1-2BuckFight.unity
     guid: 0255a661ea6f14ed4857cf518852cf9a
   m_configObjects: {}
