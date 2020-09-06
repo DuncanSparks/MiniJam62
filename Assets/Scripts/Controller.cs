@@ -26,8 +26,9 @@ public class Controller : MonoBehaviour
 	public GameObject player = null;
 
 	string targetScene;
+	string targetLocationObject;
 	Vector3 targetScenePosition;
-	Vector3 targetSceneRotation;
+	Quaternion targetSceneRotation;
 
 	// ======================================================
 
@@ -44,7 +45,7 @@ public class Controller : MonoBehaviour
 	void Start()
 	{
 		targetScenePosition = player.transform.position;
-		targetSceneRotation = player.transform.rotation.eulerAngles;
+		targetSceneRotation = player.transform.rotation;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 
@@ -84,20 +85,17 @@ public class Controller : MonoBehaviour
 	{
 		var pl = player.GetComponent<Player>();
 		player.transform.position = targetScenePosition;
-		Quaternion rot = Quaternion.Euler(targetSceneRotation);
-		player.transform.rotation = rot;
-		pl.ModelRotation = rot;
-		pl.AimRotation = rot;
+		player.transform.rotation = targetSceneRotation;
+		pl.ModelRotation = targetSceneRotation;
+		pl.AimRotation = targetSceneRotation;
 	}
 
-	public void ChangeScene(string scene, Vector3 position, Vector3 rotation)
+	public void ChangeScene(string scene, string locationObject)
 	{
 		player.GetComponent<Player>().LockMovement = true;
-		//GameUI.Singleton.Fade(Color.black, 1f, true);
 		GameUI.Singleton.Transition(true, playSound: true);
+		targetLocationObject = locationObject;
 		targetScene = scene;
-		targetScenePosition = position;
-		targetSceneRotation = rotation;
 		Invoke(nameof(ChangeScene2), 0.8f);
 	}
 
@@ -109,14 +107,16 @@ public class Controller : MonoBehaviour
 
 	void ChangeScene3()
 	{
+		GameObject obj = GameObject.Find(targetLocationObject);
+		targetScenePosition = obj.transform.position;
+		targetSceneRotation = obj.transform.rotation;
+
 		player = FindObjectOfType<Player>().gameObject;
 		var pl = player.GetComponent<Player>();
 		player.transform.position = targetScenePosition;
-		Quaternion rot = Quaternion.Euler(targetSceneRotation);
-		player.transform.rotation = rot;
-		pl.ModelRotation = rot;
-		pl.AimRotation = rot;
-		//GameUI.Singleton.Fade(Color.black, 1f, false);
+		player.transform.rotation = targetSceneRotation;
+		pl.ModelRotation = targetSceneRotation;
+		pl.AimRotation = targetSceneRotation;
 		GameUI.Singleton.Transition(false, playSound: true);
 		pl.GetComponent<Player>().LockMovement = true;
 		pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
