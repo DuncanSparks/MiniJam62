@@ -50,6 +50,9 @@ public class Player : MonoBehaviour
     bool lockMovement = false;
     public bool LockMovement { get => lockMovement; set => lockMovement = value; }
 
+	bool respawning = false;
+	public bool Respawning { get => respawning; set => respawning = value; }
+
     public enum PaintColor
     {
         Red,
@@ -233,9 +236,10 @@ public class Player : MonoBehaviour
             animator.SetFloat("Jumping", 0);
         }
 
-        if (transform.position.y < respawnY)
+        if (!respawning && transform.position.y < respawnY)
         {
             Controller.Singleton.Respawn();
+			respawning = true;
         }
     }
 

@@ -14,6 +14,6 @@ public class PlayerModel : MonoBehaviour
 
 	public void PlayWalkSound()
 	{
-		Controller.Singleton.PlaySoundOneShot(walkSound, Random.Range(0.96f, 1.04f), 0.5f);
+		Controller.Singleton.PlaySoundOneShot(walkSound, Random.Range(0.96f, 1.04f), 0.3f);
 	}
 }

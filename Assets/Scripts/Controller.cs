@@ -29,7 +29,7 @@ public class Controller : MonoBehaviour
     public GameObject player = null;
 
     string targetScene;
-    string targetLocationObject;
+    string targetLocationObject = string.Empty;
     Vector3 targetScenePosition;
     Quaternion targetSceneRotation;
 
@@ -51,7 +51,7 @@ public class Controller : MonoBehaviour
     void Start()
     {
 		AudioListener.volume = masterVolume;
-		
+
         if (!onTitleScreen)
         {
             targetScenePosition = player.transform.position;
@@ -94,11 +94,12 @@ public class Controller : MonoBehaviour
 
     public void Respawn()
     {
-        var pl = player.GetComponent<Player>();
+        /*var pl = player.GetComponent<Player>();
         player.transform.position = targetScenePosition;
         player.transform.rotation = targetSceneRotation;
         pl.ModelRotation = targetSceneRotation;
-        pl.AimRotation = targetSceneRotation;
+        pl.AimRotation = targetSceneRotation;*/
+		ChangeScene(SceneManager.GetActiveScene().name, targetLocationObject);
     }
 
     public void ChangeScene(string scene, string locationObject)
@@ -127,10 +128,13 @@ public class Controller : MonoBehaviour
             GameUI.Singleton.EnableUI(true);
         }
         
-        GameObject obj = GameObject.Find(targetLocationObject);
-        targetScenePosition = obj.transform.position;
-        targetSceneRotation = obj.transform.rotation;
-
+		if (targetLocationObject != string.Empty)
+		{
+			GameObject obj = GameObject.Find(targetLocationObject);
+        	targetScenePosition = obj.transform.position;
+       		targetSceneRotation = obj.transform.rotation;
+		}
+        
         player = FindObjectOfType<Player>().gameObject;
         var pl = player.GetComponent<Player>();
         player.transform.position = targetScenePosition;
@@ -146,7 +150,13 @@ public class Controller : MonoBehaviour
 
     void ChangeScene4()
     {
-        player.GetComponent<Player>().LockMovement = false;
+		var pl = player.GetComponent<Player>();
+        pl.LockMovement = false;
+		if (pl.Respawning)
+		{
+			pl.Respawning = false;
+		}
+
         if (onTitleScreen)
         {
             Cursor.lockState = CursorLockMode.Locked;
