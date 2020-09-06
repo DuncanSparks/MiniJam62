@@ -1071,15 +1071,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2497807577973971093, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: 19.56
+      value: 11.403
       objectReference: {fileID: 0}
     - target: {fileID: 2497807577973971093, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: -78.31
+      value: -74.542
       objectReference: {fileID: 0}
     - target: {fileID: 2497807577973971093, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: -183.535
+      value: -197.719
       objectReference: {fileID: 0}
     - target: {fileID: 3756519567983730951, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1099,15 +1099,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3756519567983730951, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -24.688
+      value: -44.774
       objectReference: {fileID: 0}
     - target: {fileID: 3756519567983730951, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.y
-      value: 51.272
+      value: 27.858
       objectReference: {fileID: 0}
     - target: {fileID: 3756519567983730951, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 37.485
+      value: 51.158
       objectReference: {fileID: 0}
     - target: {fileID: 4566920799859295870, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalRotation.x
@@ -1190,7 +1190,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 324765040}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 7.231, y: 0, z: 0}
 --- !u!81 &592745529
 AudioListener:
   m_ObjectHideFlags: 0
@@ -1881,7 +1881,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1606039933662450413, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -7.91
+      value: -9.46
       objectReference: {fileID: 0}
     - target: {fileID: 3398162200732126815, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
       propertyPath: targetScene
@@ -2233,8 +2233,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca4b0f2bf318fb45857fa80f143d60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: {fileID: 102900000, guid: cec1931d53aca4808af5700e84418f8a, type: 3}
-  targetLocationObject: NorthEntrance
+  targetScene: {fileID: 102900000, guid: 082c04f8987914d1fa2ad92354bfa098, type: 3}
+  targetLocationObject: Player
 --- !u!135 &1132135817
 SphereCollider:
   m_ObjectHideFlags: 0
@@ -2950,7 +2950,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37996566486471961, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1
+      value: -13.33
       objectReference: {fileID: 0}
     - target: {fileID: 37996566486471961, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalPosition.z

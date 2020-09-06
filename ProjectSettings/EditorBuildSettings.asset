@@ -24,6 +24,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/0-2StudioCutScene.unity
     guid: 0834f6367a110482c973d5802ede302a
   - enabled: 1
+    path: Assets/Scenes/Game/0-3WhiteForrest.unity
+    guid: 082c04f8987914d1fa2ad92354bfa098
+  - enabled: 1
     path: Assets/Scenes/Game/1-0StartArea.unity
     guid: 4e0d51ef832a24879b8dfe37d514e212
   - enabled: 1
