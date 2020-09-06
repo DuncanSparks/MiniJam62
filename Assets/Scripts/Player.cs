@@ -63,13 +63,15 @@ public class Player : MonoBehaviour
     new Camera camera;
     new Rigidbody rigidbody;
     Animator animator;
-    AudioSource audioSource;
 
     SkinnedMeshRenderer modelMaterials;
     MeshRenderer bucketMaterials;
 
     [SerializeField]
     Material[] colorMaterials;
+
+	[SerializeField]
+	AudioClip jumpSound;
 
     [SerializeField]
     AudioClip dashSound;
@@ -106,11 +108,9 @@ public class Player : MonoBehaviour
         camera = GetComponentInChildren<Camera>();
         rigidbody = GetComponent<Rigidbody>();
         animator = model.GetComponent<Animator>();
-        audioSource = GetComponent<AudioSource>();
         modelMaterials = GetComponentInChildren<SkinnedMeshRenderer>();
         bucketMaterials = GetComponentInChildren<MeshRenderer>();
     }
-
 
     void OnTriggerEnter(Collider other)
     {
@@ -209,6 +209,7 @@ public class Player : MonoBehaviour
 
         if (Input.GetButtonDown("Jump") && onGround && !attacking && !hurt && !lockMovement)
         {
+			Controller.Singleton.PlaySoundOneShot(jumpSound, Random.Range(0.95f, 1.05f), 0.6f);
             animator.SetBool("EndJump", false);
             rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
             animator.SetBool("StartJump", true);

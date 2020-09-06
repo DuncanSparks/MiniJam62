@@ -329,6 +329,7 @@ MonoBehaviour:
   - {fileID: 2100000, guid: c2aa98343aa54411ca964b8e5cafc6a2, type: 2}
   - {fileID: 2100000, guid: 3ac9aadb7e23d724f8e212c8002d0b12, type: 2}
   - {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
+  jumpSound: {fileID: 8300000, guid: 769f8d80a817de449a66454d6feb6085, type: 3}
   dashSound: {fileID: 8300000, guid: 4e246312621ffd74c8c275006ff02aa6, type: 3}
   damageSound: {fileID: 8300000, guid: 81fb8a4df0962fb439eb740e9b831ab2, type: 3}
   paintSound: {fileID: 8300000, guid: 4bd7f82417f8ff74eba49b2830c98d30, type: 3}
@@ -517,6 +518,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: df2478cb1c0d5914083ea4c031727c26, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  walkSound: {fileID: 8300000, guid: 613cdf27ca1ba0548a942484ad0016bc, type: 3}
 --- !u!1001 &437538648
 PrefabInstance:
   m_ObjectHideFlags: 0

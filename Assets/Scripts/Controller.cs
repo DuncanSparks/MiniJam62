@@ -17,6 +17,9 @@ public class Controller : MonoBehaviour
 
     // ======================================================
 
+	[SerializeField]
+	float masterVolume = 1f;
+
     [SerializeField]
     GameObject dialogueObj = null;
 
@@ -47,6 +50,8 @@ public class Controller : MonoBehaviour
 
     void Start()
     {
+		AudioListener.volume = masterVolume;
+		
         if (!onTitleScreen)
         {
             targetScenePosition = player.transform.position;
