@@ -61,8 +61,7 @@ public class Player : MonoBehaviour
     }
 
 	[SerializeField]
-	bool canAttack = false;
-	public bool CanAttack { get => canAttack; set => canAttack = value; }
+	bool canAttack = true;
 
     PaintColor currentColor = PaintColor.Red;
     public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
