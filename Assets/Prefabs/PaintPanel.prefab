@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3104196003710548047}
   - component: {fileID: 6276400310695214117}
   - component: {fileID: 8254044299246801520}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: PaintPanel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -112,7 +112,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9c3dfd2f4c362054d93de3d2c87cdb64, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  panelStartColor: 0
   anyColor: 0
   displayTargetColor: 0
   displayOnly: 0
@@ -136,7 +135,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3104196004035250857}
   - component: {fileID: 3104196004035250856}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: linearGradient
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -218,7 +217,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3104196004266856048}
   - component: {fileID: 3104196004266856051}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: linearGradient (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -300,7 +299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3104196004268239526}
   - component: {fileID: 3104196004268239193}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: linearGradient (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -382,7 +381,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3104196004555156307}
   - component: {fileID: 3104196004555156306}
-  m_Layer: 0
+  m_Layer: 13
   m_Name: linearGradient (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

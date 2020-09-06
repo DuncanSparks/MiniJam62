@@ -73,11 +73,21 @@ public class Controller : MonoBehaviour
 		Destroy(obj, 0.5f);
 	}
 
+	public void Respawn()
+	{
+		var pl = player.GetComponent<Player>();
+		player.transform.position = targetScenePosition;
+		Quaternion rot = Quaternion.Euler(targetSceneRotation);
+		player.transform.rotation = rot;
+		pl.ModelRotation = rot;
+		pl.AimRotation = rot;
+	}
+
 	public void ChangeScene(string scene, Vector3 position, Vector3 rotation)
 	{
 		player.GetComponent<Player>().LockMovement = true;
 		//GameUI.Singleton.Fade(Color.black, 1f, true);
-		GameUI.Singleton.Transition(true);
+		GameUI.Singleton.Transition(true, playSound: true);
 		targetScene = scene;
 		targetScenePosition = position;
 		targetSceneRotation = rotation;
@@ -100,7 +110,7 @@ public class Controller : MonoBehaviour
 		pl.ModelRotation = rot;
 		pl.AimRotation = rot;
 		//GameUI.Singleton.Fade(Color.black, 1f, false);
-		GameUI.Singleton.Transition(false);
+		GameUI.Singleton.Transition(false, playSound: true);
 		pl.GetComponent<Player>().LockMovement = true;
 		pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
 		pl.UpdateColorInfo();

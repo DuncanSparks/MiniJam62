@@ -33,15 +33,9 @@ public class PaintPanelDetector : MonoBehaviour
 
             if (satisfied)
             {
-                Debug.Log("CONDITIONS MET");
                 conditionsMet = true;
                 conditionsMetEvent.Invoke();
             }
         }
-    }
-
-    public void Test()
-    {
-        Debug.Log("CONDITIONS MET PART TWO");
     }
 }

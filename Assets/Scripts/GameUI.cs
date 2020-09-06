@@ -98,9 +98,13 @@ public class GameUI : MonoBehaviour
         animator.Play(fadeout ? "Fadeout" : "Fadein");
     }
 
-    public void Transition(bool fadeout)
+    public void Transition(bool fadeout, bool playSound)
     {
-        Controller.Singleton.PlaySoundOneShot(fadeout ? transitionSoundOut : transitionSoundIn, volume: 0.38f);
+        if (playSound)
+        {
+            Controller.Singleton.PlaySoundOneShot(fadeout ? transitionSoundOut : transitionSoundIn, volume: 0.38f);
+        }
+
         GetComponent<Animator>().Play(fadeout ? "TransitionOut" : "TransitionIn");
     }
 }
