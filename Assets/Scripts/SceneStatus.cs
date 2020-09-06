@@ -18,6 +18,7 @@ public class SceneStatus : MonoBehaviour
 
 	public void ClearScene()
 	{
+		GetComponent<AudioSource>().Play();
 		Controller.Singleton.AddClearedScene(SceneManager.GetActiveScene().name);
 	}
 }

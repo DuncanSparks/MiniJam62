@@ -6,17 +6,12 @@ public class ForceField : MonoBehaviour
 {
 	bool disabled = false;
 
-    public void DisableForceField(bool playSound)
+    public void DisableForceField()
 	{
 		if (!disabled)
 		{
 			GetComponentInChildren<ParticleSystem>().Stop();
 			GetComponent<BoxCollider>().enabled = false;
-			if (playSound)
-			{
-				GetComponent<AudioSource>().Play();
-			}
-
 			disabled = true;
 		}
 	}
