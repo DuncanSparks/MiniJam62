@@ -122,9 +122,12 @@ public class Controller : MonoBehaviour
             GameUI.Singleton.EnableUI(true);
         }
         
-        GameObject obj = GameObject.Find(targetLocationObject);
-        targetScenePosition = obj.transform.position;
-        targetSceneRotation = obj.transform.rotation;
+        if (targetLocationObject != "")
+        {
+            GameObject obj = GameObject.Find(targetLocationObject);
+            targetScenePosition = obj.transform.position;
+            targetSceneRotation = obj.transform.rotation;
+        }
 
         player = FindObjectOfType<Player>().gameObject;
         var pl = player.GetComponent<Player>();

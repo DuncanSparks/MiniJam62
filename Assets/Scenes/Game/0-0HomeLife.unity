@@ -1053,7 +1053,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 483012940, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 37996566486471961, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalPosition.x
@@ -2722,6 +2722,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2146599246}
     m_Modifications:
+    - target: {fileID: 2244054674105570878, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -4.24
+      objectReference: {fileID: 0}
     - target: {fileID: 2244054674916621450, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: m_Name
       value: NorthExit
@@ -2736,7 +2740,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2244054674916621451, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 13.3
+      value: 13.52
       objectReference: {fileID: 0}
     - target: {fileID: 2244054674916621451, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: m_LocalRotation.x
