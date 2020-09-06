@@ -831,7 +831,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.00061035156, y: 0.0020751953}
+  m_AnchoredPosition: {x: 0.061767578, y: -39}
   m_SizeDelta: {x: -0.123535156, y: -0.4124756}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &898878573
@@ -854,24 +854,22 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Smock''s Block
-
-    Developed by:
+  m_text: '<color=red>Brian Dizon:</color> : Programming, level design, enemy models
 
 
-    <color=red>Brian D:</color> :
-    Programming, level design, enemy models, Music(?)
+    <color=#0010ff>Duncan
+    Sparks:</color> Programming, UI, Player/Environment Models, Sound
 
 
-    <color=red>Duncan Sparks:</color>
-    Programming, UI, Player/Environment Models, Sound
+    <color=#fa9000>Riley
+    Park:</color>  Particle Design
 
 
-    <color=red>Riley Park:</color> 
-    Particle Design
+    <color=red>Rami Shreim:</color> Title Artwork
 
 
-    <color=red>Rami Shreim:</color> Title Artwork'
+    Music
+    by <color=#0010ff>Eric Matyas</color> - www.soundimage.org'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca3468d32533809428101892ed5bd88a, type: 2}
   m_sharedMaterial: {fileID: 5156315957910898866, guid: ca3468d32533809428101892ed5bd88a, type: 2}
@@ -1091,6 +1089,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startScene: {fileID: 102900000, guid: cec1931d53aca4808af5700e84418f8a, type: 3}
+  titleMusic: {fileID: 8300000, guid: 635cbe51632e6f74b9750b80dc75205b, type: 3}
   introSound: {fileID: 8300000, guid: 2e4b35cedc852594594c6cb8eab8afb9, type: 3}
   hoverSound: {fileID: 8300000, guid: 97c3f9ce1244cc049ae1360a54256fb5, type: 3}
   clickSound: {fileID: 8300000, guid: 4720db5d6c812814497dd5314d6c2a05, type: 3}

@@ -35,6 +35,9 @@ public class Controller : MonoBehaviour
     Vector3 targetScenePosition;
     Quaternion targetSceneRotation;
 
+	AudioSource music;
+	bool musicStarted = false;
+
     [SerializeField]
     bool onTitleScreen = false;
 
@@ -60,6 +63,8 @@ public class Controller : MonoBehaviour
             targetSceneRotation = player.transform.rotation;
             Cursor.lockState = CursorLockMode.Locked;
         }
+
+		music = GetComponents<AudioSource>()[8];
     }
 
 	void Update()
@@ -69,6 +74,23 @@ public class Controller : MonoBehaviour
 			Screen.fullScreenMode = Screen.fullScreenMode == FullScreenMode.Windowed ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
 			//Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
 		}
+
+		if (musicStarted && !music.isPlaying)
+		{
+			music.time = 7.626f;
+			music.Play();
+		}
+	}
+
+	public void PlayMusic(AudioClip mus)
+	{
+		music.clip = mus;
+		music.Play();
+	}
+
+	public void StopMusic()
+	{
+		music.Stop();
 	}
 
 	public void AddClearedScene(string name)

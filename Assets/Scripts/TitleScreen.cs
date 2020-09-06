@@ -9,6 +9,9 @@ public class TitleScreen : MonoBehaviour
     Object startScene;
 
     [SerializeField]
+    AudioClip titleMusic;
+
+    [SerializeField]
     AudioClip introSound;
 
     [SerializeField]
@@ -52,6 +55,7 @@ public class TitleScreen : MonoBehaviour
     void Fadein2()
     {
         ActivateButtons(true);
+        Controller.Singleton.PlayMusic(titleMusic);
     }
 
     void ActivateButtons(bool activate)
@@ -76,6 +80,7 @@ public class TitleScreen : MonoBehaviour
 
     void ClickStart2()
     {
+        Controller.Singleton.StopMusic();
         Controller.Singleton.ChangeScene(startScene.name, "StartEntrance");
     }
 
