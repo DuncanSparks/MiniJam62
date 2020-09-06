@@ -60,6 +60,10 @@ public class Player : MonoBehaviour
         Yellow
     }
 
+	[SerializeField]
+	bool canAttack = false;
+	public bool CanAttack { get => canAttack; set => canAttack = value; }
+
     PaintColor currentColor = PaintColor.Red;
     public PaintColor CurrentColor { set => currentColor = value; get => currentColor; }
 
@@ -176,7 +180,7 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetButtonDown("AimMode"))
+        if (canAttack && Input.GetButtonDown("AimMode"))
         {
             globalMouseAim ^= true;
             GameUI.Singleton.SetAimMode(globalMouseAim);
@@ -194,13 +198,13 @@ public class Player : MonoBehaviour
         mouseX = Input.GetAxis("Mouse X");
         mouseY = Input.GetAxis("Mouse Y");
 
-        if (Input.GetButtonDown("Fire1") && !hurt && !lockMovement)
+        if (canAttack && Input.GetButtonDown("Fire1") && !hurt && !lockMovement)
         {
             animator.SetBool("Attack", true);
             Aim();
         }
 
-        if (Input.GetButtonDown("Fire2") && !attacking && !hurt && !lockMovement)
+        if (canAttack && Input.GetButtonDown("Fire2") && !attacking && !hurt && !lockMovement)
         {
             currentColor = (PaintColor)(((int)currentColor + 1) % 3);
             GameUI.Singleton.SetIndicatorColor(currentColor);

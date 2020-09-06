@@ -37,6 +37,15 @@ public class NPC : MonoBehaviour
 
 	SpriteRenderer interactIndicator;
 
+	[SerializeField]
+	bool isTransition = false;
+
+	[SerializeField]
+	Object targetScene;
+
+	[SerializeField]
+	string targetLocationObject;
+
     void Start()
     {
 		interactIndicator = GetComponentInChildren<SpriteRenderer>();
@@ -50,9 +59,16 @@ public class NPC : MonoBehaviour
     {
         if (Input.GetButtonDown("Action") && playerInRange && !Controller.Singleton.player.GetComponent<Player>().LockMovement)
         {
-			interactIndicator.enabled = false;
-            Controller.Singleton.player.GetComponent<Player>().LockMovement = true;
-            Controller.Singleton.Dialogue(dialogue[dialogueSet].array, textSoundPitch, this);
+			if (!isTransition)
+			{
+				interactIndicator.enabled = false;
+            	Controller.Singleton.player.GetComponent<Player>().LockMovement = true;
+            	Controller.Singleton.Dialogue(dialogue[dialogueSet].array, textSoundPitch, this);
+			}
+			else
+			{
+				Controller.Singleton.ChangeScene(targetScene.name, targetLocationObject);
+			}
         }
 
         targetRotation = startRotation;

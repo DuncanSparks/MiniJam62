@@ -32,6 +32,7 @@ public class Controller : MonoBehaviour
     string targetLocationObject = string.Empty;
     Vector3 targetScenePosition;
     Quaternion targetSceneRotation;
+	bool playerCanAttack = false;
 
     [SerializeField]
     bool onTitleScreen = false;
@@ -107,7 +108,9 @@ public class Controller : MonoBehaviour
     {
         if (!onTitleScreen)
         {
-            player.GetComponent<Player>().LockMovement = true;
+			var pl = player.GetComponent<Player>();
+            pl.LockMovement = true;
+			playerCanAttack = pl.CanAttack;
         }
         
         GameUI.Singleton.Transition(true, playSound: true);
@@ -138,6 +141,7 @@ public class Controller : MonoBehaviour
         
         player = FindObjectOfType<Player>().gameObject;
         var pl = player.GetComponent<Player>();
+		pl.CanAttack = playerCanAttack;
         player.transform.position = targetScenePosition;
         player.transform.rotation = targetSceneRotation;
         pl.ModelRotation = targetSceneRotation;
