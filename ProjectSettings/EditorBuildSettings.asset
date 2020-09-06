@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Game/0-1StartArea.unity
     guid: 57aacbc595b1f401c81ed4875d36f44c
+  - enabled: 1
+    path: Assets/Scenes/Game/0-2BuckFight.unity
+    guid: 0255a661ea6f14ed4857cf518852cf9a
   m_configObjects: {}

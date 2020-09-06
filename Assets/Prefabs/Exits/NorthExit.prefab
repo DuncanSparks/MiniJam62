@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2244054674105570878}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NorthEntrance
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -23,13 +23,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2244054674105570817}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1, z: -2.28}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
+  m_LocalPosition: {x: 0, y: 1, z: -2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2244054674916621451}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
 --- !u!1 &2244054674916621450
 GameObject:
   m_ObjectHideFlags: 0
@@ -39,7 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2244054674916621451}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: NorthExit
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -73,9 +73,13 @@ PrefabInstance:
       propertyPath: m_Name
       value: Exit
       objectReference: {fileID: 0}
+    - target: {fileID: 3235452313857425088, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     - target: {fileID: 3235452313857425089, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.43
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3235452313857425089, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
       propertyPath: m_LocalPosition.y
@@ -116,6 +120,30 @@ PrefabInstance:
     - target: {fileID: 3235452313857425089, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235452314902092312, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3235452314902092315, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: d0ab67396925c45bc8f44fca97a4420f, type: 2}
+    - target: {fileID: 4134724795415800256, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
+      propertyPath: targetScene
+      value: 
+      objectReference: {fileID: 102900000, guid: 57aacbc595b1f401c81ed4875d36f44c, type: 3}
+    - target: {fileID: 4134724795415800256, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
+      propertyPath: targetLocationObject
+      value: SouthEntrance
+      objectReference: {fileID: 0}
+    - target: {fileID: 4134724795415800259, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 8765256413135420540, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72b39c2c35e214af985a80916c3cfc6b, type: 3}
