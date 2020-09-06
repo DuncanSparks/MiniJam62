@@ -114,6 +114,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panelStartColor: 0
   anyColor: 0
+  displayTargetColor: 0
+  displayOnly: 0
   requiredAnyColor: 0
   paintSound: {fileID: 8300000, guid: 4720db5d6c812814497dd5314d6c2a05, type: 3}
   colors:
