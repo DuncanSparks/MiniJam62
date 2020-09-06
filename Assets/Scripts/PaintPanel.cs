@@ -5,9 +5,6 @@ using UnityEngine;
 public class PaintPanel : MonoBehaviour
 {
 	[SerializeField]
-	Player.PaintColor panelStartColor;
-
-	[SerializeField]
 	bool anyColor = false;
     [SerializeField]
     bool displayTargetColor = false;
@@ -43,7 +40,7 @@ public class PaintPanel : MonoBehaviour
         sprites = GetComponentsInChildren<SpriteRenderer>();
         if (!displayTargetColor)
         {
-            Color color =  anyColor ? Color.white : colors[(int)panelStartColor];
+            Color color =  anyColor ? Color.white : colors[(int)requiredAnyColor];
             SetChildColors(color);
         }
     }
@@ -95,27 +92,28 @@ public class PaintPanel : MonoBehaviour
 					Controller.Singleton.PlaySoundOneShot(paintSound, Random.Range(0.9f, 1.1f), 0.6f);
 					mesh.material = colorMaterials[colorIndex];
                     Color color = color = colors[colorIndex];
-                    if (displayTargetColor)
+                    int requiredIndex = (int)requiredAnyColor;
+                    // color = colorIndex == requiredIndex ? Color.clear : colors[requiredIndex];
+                    foreach (var sprite in sprites)
                     {
-                        int requiredIndex = (int)requiredAnyColor;
-                        // color = colorIndex == requiredIndex ? Color.clear : colors[requiredIndex];
-                        foreach (var sprite in sprites)
-                        {
-                            sprite.gameObject.SetActive(requiredIndex != colorIndex);
-                        }
+                        sprite.gameObject.SetActive(requiredIndex != colorIndex);
                     }
-                    else
+                    if(!displayTargetColor)
                     {
                         SetChildColors(color);
                     }
 					currentColor = colorIndex;
 				}
 			}
-			else if (!painted && collider.gameObject.GetComponentInParent<PaintGlob>().Color == panelStartColor)
+			else if (!painted && collider.gameObject.GetComponentInParent<PaintGlob>().Color == requiredAnyColor)
 			{
 				Controller.Singleton.PlaySoundOneShot(paintSound, Random.Range(0.9f, 1.1f), 0.6f);
-				mesh.material = colorMaterials[(int)panelStartColor];
+				mesh.material = colorMaterials[(int)requiredAnyColor];
 				painted = true;
+                foreach (var sprite in sprites)
+                {
+                    sprite.gameObject.SetActive(false);
+                }
 			}
 		}
 	}
