@@ -5,127 +5,147 @@ using UnityEngine.SceneManagement;
 
 public class Controller : MonoBehaviour
 {
-	bool destroyThis = false;
+    bool destroyThis = false;
 
-	static Controller singleton = null;
-	public static Controller Singleton { get => singleton; set => singleton = value; }
+    static Controller singleton = null;
+    public static Controller Singleton { get => singleton; set => singleton = value; }
 
-	bool dialogueOpen = false;
-	public bool DialogueOpen { get => dialogueOpen; set => dialogueOpen = value; }
+    bool dialogueOpen = false;
+    public bool DialogueOpen { get => dialogueOpen; set => dialogueOpen = value; }
 
-	int audioSourceIndex = 0;
+    int audioSourceIndex = 0;
 
-	// ======================================================
+    // ======================================================
 
-	[SerializeField]
-	GameObject dialogueObj = null;
+    [SerializeField]
+    GameObject dialogueObj = null;
 
-	[SerializeField]
-	GameObject comicTextObj = null;
+    [SerializeField]
+    GameObject comicTextObj = null;
 
-	public GameObject player = null;
+    public GameObject player = null;
 
-	string targetScene;
-	string targetLocationObject;
-	Vector3 targetScenePosition;
-	Quaternion targetSceneRotation;
+    string targetScene;
+    string targetLocationObject;
+    Vector3 targetScenePosition;
+    Quaternion targetSceneRotation;
 
-	// ======================================================
+    [SerializeField]
+    bool onTitleScreen = false;
 
-	void Awake()
-	{
-		if (Singleton == null)
-			Singleton = this;
-		else
-			Destroy(gameObject);
+    // ======================================================
 
-		DontDestroyOnLoad(gameObject);
-	}
+    void Awake()
+    {
+        if (Singleton == null)
+            Singleton = this;
+        else
+            Destroy(gameObject);
 
-	void Start()
-	{
-		targetScenePosition = player.transform.position;
-		targetSceneRotation = player.transform.rotation;
-		Cursor.lockState = CursorLockMode.Locked;
-	}
+        DontDestroyOnLoad(gameObject);
+    }
 
-	public void Dialogue(string[] text, NPC host)
-	{
-		if (dialogueOpen)
-			return;
+    void Start()
+    {
+        if (!onTitleScreen)
+        {
+            targetScenePosition = player.transform.position;
+            targetSceneRotation = player.transform.rotation;
+            Cursor.lockState = CursorLockMode.Locked;
+        }
+    }
 
-		var dlg = Instantiate(dialogueObj, Vector3.zero, Quaternion.identity);
-		Dialogue dlgScript = dlg.GetComponent<Dialogue>();
-		dlgScript.Host = host;
-		dlgScript.DialogueText = text;
-		dlgScript.StartDialogue();
-		dialogueOpen = true;
-	}
+    public void Dialogue(string[] text, NPC host)
+    {
+        if (dialogueOpen)
+            return;
 
-	public void PlaySoundOneShot(AudioClip sound, float pitch = 1f, float volume = 1f)
-	{
-		AudioSource source = GetComponents<AudioSource>()[audioSourceIndex];
-		source.clip = sound;
-		source.pitch = pitch;
-		source.volume = volume;
-		source.Play();
-		audioSourceIndex = (audioSourceIndex + 1) % 8;
-	}
+        var dlg = Instantiate(dialogueObj, Vector3.zero, Quaternion.identity);
+        Dialogue dlgScript = dlg.GetComponent<Dialogue>();
+        dlgScript.Host = host;
+        dlgScript.DialogueText = text;
+        dlgScript.StartDialogue();
+        dialogueOpen = true;
+    }
 
-	public void ShowComicText(string text, Vector3 position, Camera camera)
-	{
-		var obj = Instantiate(comicTextObj, position, Quaternion.identity);
-		obj.GetComponent<Canvas>().worldCamera = camera;
-		obj.GetComponent<BillboardFX>().camTransform = camera.transform;
-		obj.GetComponent<ComicText>().DisplayText(text);
-		Destroy(obj, 0.5f);
-	}
+    public void PlaySoundOneShot(AudioClip sound, float pitch = 1f, float volume = 1f)
+    {
+        AudioSource source = GetComponents<AudioSource>()[audioSourceIndex];
+        source.clip = sound;
+        source.pitch = pitch;
+        source.volume = volume;
+        source.Play();
+        audioSourceIndex = (audioSourceIndex + 1) % 8;
+    }
 
-	public void Respawn()
-	{
-		var pl = player.GetComponent<Player>();
-		player.transform.position = targetScenePosition;
-		player.transform.rotation = targetSceneRotation;
-		pl.ModelRotation = targetSceneRotation;
-		pl.AimRotation = targetSceneRotation;
-	}
+    public void ShowComicText(string text, Vector3 position, Camera camera)
+    {
+        var obj = Instantiate(comicTextObj, position, Quaternion.identity);
+        obj.GetComponent<Canvas>().worldCamera = camera;
+        obj.GetComponent<BillboardFX>().camTransform = camera.transform;
+        obj.GetComponent<ComicText>().DisplayText(text);
+        Destroy(obj, 0.5f);
+    }
 
-	public void ChangeScene(string scene, string locationObject)
-	{
-		player.GetComponent<Player>().LockMovement = true;
-    GameUI.Singleton.Transition(true, playSound: true);
-		targetLocationObject = locationObject;
-		targetScene = scene;
-		Invoke(nameof(ChangeScene2), 0.8f);
-	}
+    public void Respawn()
+    {
+        var pl = player.GetComponent<Player>();
+        player.transform.position = targetScenePosition;
+        player.transform.rotation = targetSceneRotation;
+        pl.ModelRotation = targetSceneRotation;
+        pl.AimRotation = targetSceneRotation;
+    }
 
-	void ChangeScene2()
-	{
-		SceneManager.LoadScene(targetScene);
-		Invoke(nameof(ChangeScene3), 0.02f);
-	}
+    public void ChangeScene(string scene, string locationObject)
+    {
+        if (!onTitleScreen)
+        {
+            player.GetComponent<Player>().LockMovement = true;
+        }
+        
+        GameUI.Singleton.Transition(true, playSound: true);
+        targetLocationObject = locationObject;
+        targetScene = scene;
+        Invoke(nameof(ChangeScene2), 0.8f);
+    }
 
-	void ChangeScene3()
-	{
-		GameObject obj = GameObject.Find(targetLocationObject);
-		targetScenePosition = obj.transform.position;
-		targetSceneRotation = obj.transform.rotation;
+    void ChangeScene2()
+    {
+        SceneManager.LoadScene(targetScene);
+        Invoke(nameof(ChangeScene3), 0.02f);
+    }
 
-		player = FindObjectOfType<Player>().gameObject;
-		var pl = player.GetComponent<Player>();
-		player.transform.position = targetScenePosition;
-		player.transform.rotation = targetSceneRotation;
-		pl.ModelRotation = targetSceneRotation;
-		pl.AimRotation = targetSceneRotation;
-		GameUI.Singleton.Transition(false, playSound: true);
-		pl.GetComponent<Player>().LockMovement = true;
-		pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
-		pl.UpdateColorInfo();
-		Invoke(nameof(ChangeScene4), 0.4f);
-	}
+    void ChangeScene3()
+    {
+        if (onTitleScreen)
+        {
+            GameUI.Singleton.EnableUI(true);
+        }
+        
+        GameObject obj = GameObject.Find(targetLocationObject);
+        targetScenePosition = obj.transform.position;
+        targetSceneRotation = obj.transform.rotation;
 
-	void ChangeScene4()
-	{
-		player.GetComponent<Player>().LockMovement = false;
-	}
+        player = FindObjectOfType<Player>().gameObject;
+        var pl = player.GetComponent<Player>();
+        player.transform.position = targetScenePosition;
+        player.transform.rotation = targetSceneRotation;
+        pl.ModelRotation = targetSceneRotation;
+        pl.AimRotation = targetSceneRotation;
+        GameUI.Singleton.Transition(false, playSound: true);
+        pl.GetComponent<Player>().LockMovement = true;
+        pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
+        pl.UpdateColorInfo();
+        Invoke(nameof(ChangeScene4), 0.4f);
+    }
+
+    void ChangeScene4()
+    {
+        player.GetComponent<Player>().LockMovement = false;
+        if (onTitleScreen)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            onTitleScreen = false;
+        }
+    }
 }

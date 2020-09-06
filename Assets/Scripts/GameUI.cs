@@ -10,6 +10,9 @@ public class GameUI : MonoBehaviour
     public static GameUI Singleton { get => singleton; set => singleton = value; }
 
     [SerializeField]
+    bool onTitleScreen = false;
+
+    [SerializeField]
     AudioClip colorSound;
 
     [SerializeField]
@@ -23,6 +26,9 @@ public class GameUI : MonoBehaviour
 
     [SerializeField]
     GameObject healthbar;
+
+    [SerializeField]
+    GameObject healthbarBack;
 
     [SerializeField]
     GameObject colorIndicator;
@@ -66,6 +72,23 @@ public class GameUI : MonoBehaviour
         }
 
         DontDestroyOnLoad(gameObject);
+    }
+
+    void Start()
+    {
+        if (onTitleScreen)
+        {
+            EnableUI(false);
+        }
+    }
+
+    public void EnableUI(bool enable)
+    {
+        healthbar.SetActive(enable);
+        healthbarBack.SetActive(enable);
+        colorIndicator.SetActive(enable);
+        colorText.SetActive(enable);
+        aimModeText.SetActive(enable);
     }
 
     public void SetHealth(int health, int maxhealth)

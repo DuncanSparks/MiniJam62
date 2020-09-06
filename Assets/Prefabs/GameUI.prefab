@@ -365,7 +365,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 25
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!114 &4238289737269184182
 MonoBehaviour:
@@ -452,17 +452,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 95c768595166c85498a271ec74869b0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onTitleScreen: 0
   colorSound: {fileID: 8300000, guid: 2718c7ea701b0de4f9844af7deb6450d, type: 3}
   modeSound: {fileID: 8300000, guid: 7ed6deea7e954f44a82ef71fa94d3dfe, type: 3}
   transitionSoundIn: {fileID: 8300000, guid: 1606b2544a532934cb37f3984ca3713d, type: 3}
   transitionSoundOut: {fileID: 8300000, guid: 2e4b35cedc852594594c6cb8eab8afb9, type: 3}
   healthbar: {fileID: 907809619851483511}
+  healthbarBack: {fileID: 3354146014697208538}
   colorIndicator: {fileID: 4238289738495273054}
   colorText: {fileID: 5839033350143738707}
   aimModeText: {fileID: 7838841338422165307}
   fade: {fileID: 3818835997382885385}
-  transition1: {fileID: 0}
-  transition2: {fileID: 0}
+  transition1: {fileID: 1169554401629581360}
+  transition2: {fileID: 8319326905422138806}
   colors:
   - {r: 1, g: 0, b: 0, a: 1}
   - {r: 0, g: 0.0627451, b: 1, a: 1}
