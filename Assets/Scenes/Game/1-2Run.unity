@@ -4085,7 +4085,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37996566486471966, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: canAttack
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 37996566486471966, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_Enabled

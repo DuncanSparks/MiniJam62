@@ -52,10 +52,10 @@ public class NPC : MonoBehaviour
 
     void Start()
     {
-		interactIndicator = GetComponentInChildren<SpriteRenderer>();
-		interactIndicator.enabled = false;
+        interactIndicator = GetComponentInChildren<SpriteRenderer>();
+        interactIndicator.enabled = false;
 
-        if (!model) model = transform.GetChild(0);
+        if (model)
         startRotation = model.transform.rotation;
     }
 
@@ -75,19 +75,22 @@ public class NPC : MonoBehaviour
 			}
         }
 
-        targetRotation = startRotation;
-        if (playerInRange)
+        if (model)
         {
-            Vector3 diff = Controller.Singleton.player.transform.position - transform.position;
-            diff.y=0;
-            Quaternion lookRotation = Quaternion.LookRotation(diff);
-            float angle = Quaternion.Angle(startRotation, lookRotation);
-            if(angle<maxAngle)
+            targetRotation = startRotation;
+            if (playerInRange)
             {
-                targetRotation = lookRotation;
+                Vector3 diff = Controller.Singleton.player.transform.position - transform.position;
+                diff.y=0;
+                Quaternion lookRotation = Quaternion.LookRotation(diff);
+                float angle = Quaternion.Angle(startRotation, lookRotation);
+                if(angle<maxAngle)
+                {
+                    targetRotation = lookRotation;
+                }
             }
+            model.rotation = Quaternion.Slerp(model.rotation, targetRotation, RotationInterpolateSpeed*Time.deltaTime);
         }
-        model.rotation = Quaternion.Slerp(model.rotation, targetRotation, RotationInterpolateSpeed*Time.deltaTime);
     }
 
     void OnTriggerEnter(Collider collider)

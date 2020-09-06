@@ -2233,7 +2233,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca4b0f2bf318fb45857fa80f143d60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: {fileID: 102900000, guid: 082c04f8987914d1fa2ad92354bfa098, type: 3}
+  targetScene: {fileID: 102900000, guid: 51ff334f3d63442ac80b3a0efe472424, type: 3}
   targetLocationObject: Player
 --- !u!135 &1132135817
 SphereCollider:

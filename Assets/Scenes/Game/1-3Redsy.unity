@@ -940,6 +940,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 483012941, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.6263
+      objectReference: {fileID: 0}
+    - target: {fileID: 483012941, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2011
+      objectReference: {fileID: 0}
     - target: {fileID: 37996566486471961, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.1
@@ -990,7 +998,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37996566486471966, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: canAttack
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 37996566486471960, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
@@ -1743,7 +1751,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dca4b0f2bf318fb45857fa80f143d60a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  targetScene: {fileID: 102900000, guid: 7747d7b2bb84749748dc0fa3bdd8f7b6, type: 3}
+  targetScene: {fileID: 102900000, guid: a1aaffc1459cf4ee6afc6add15ded5fc, type: 3}
   targetLocationObject: Player
 --- !u!4 &1367901221
 Transform:
@@ -2288,7 +2296,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.size
-      value: 4
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogueEndEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
@@ -2324,19 +2332,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.data[0]
-      value: Fighting your inner demons?
+      value: Looks like you're fighting your inner demons
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.data[1]
-      value: Running from em more like
+      value: Here, you're gonna need this
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.data[2]
-      value: Wont get you much of anywhere belive me
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.data[3]
-      value: So what, you gonna fight for yourself?
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900397, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_Name

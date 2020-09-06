@@ -1055,6 +1055,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 483012941, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.636
+      objectReference: {fileID: 0}
+    - target: {fileID: 483012941, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.204
+      objectReference: {fileID: 0}
     - target: {fileID: 37996566486471961, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -3895,10 +3903,24 @@ BoxCollider:
   m_GameObject: {fileID: 1846585921}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.019321548, y: 0.027281523, z: 0.052000314}
   m_Center: {x: 9.313226e-10, y: 0.00006793719, z: 0.00019877497}
+--- !u!64 &1846585926
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1846585921}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -2228417370725966487, guid: 9dc84c83119b8c042a9bc375aea5d3b8, type: 3}
 --- !u!1 &1861065906
 GameObject:
   m_ObjectHideFlags: 0

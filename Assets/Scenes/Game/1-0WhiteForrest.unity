@@ -674,6 +674,14 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 483012941, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 0.7809
+      objectReference: {fileID: 0}
+    - target: {fileID: 483012941, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0.2507
+      objectReference: {fileID: 0}
     - target: {fileID: 37996566486471961, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: m_LocalPosition.x
       value: -2.1
@@ -724,7 +732,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 37996566486471966, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
       propertyPath: canAttack
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 37996566486471960, guid: 9a5886bec140e4c668b7a6d853554e2d, type: 3}
@@ -1523,7 +1531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScene: {fileID: 102900000, guid: 082c04f8987914d1fa2ad92354bfa098, type: 3}
-  targetLocationObject: 
+  targetLocationObject: Player
 --- !u!4 &1051789676
 Transform:
   m_ObjectHideFlags: 0
