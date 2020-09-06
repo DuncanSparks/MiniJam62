@@ -95,9 +95,6 @@ public class Player : MonoBehaviour
     [SerializeField]
     LayerMask collisionMask;
 
-    [SerializeField]
-    bool redMouseAim, blueMouseAim, yellowMouseAim;
-
     void Start()
     {
         camera = GetComponentInChildren<Camera>();
@@ -244,7 +241,7 @@ public class Player : MonoBehaviour
 
     void Aim()
     {
-        if (globalMouseAim) 
+        if (globalMouseAim && currentColor != PaintColor.Yellow) 
         {
             MouseAim();
         }
