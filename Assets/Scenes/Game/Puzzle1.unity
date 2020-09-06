@@ -1377,7 +1377,7 @@ PrefabInstance:
     - target: {fileID: 2757616519593209556, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: targetScene
       value: 
-      objectReference: {fileID: 102900000, guid: f497a1d7db2523d4da7fc5b14111093f, type: 3}
+      objectReference: {fileID: 102900000, guid: 947e8395acc49c848a70d16a4da4f697, type: 3}
     - target: {fileID: 2757616519593209556, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: targetLocationObject
       value: NorthEntrance
@@ -3916,7 +3916,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
       propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
       propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -3940,6 +3940,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
       propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
+      propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_TargetAssemblyTypeName
+      value: PaintPanelDetector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
+      propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
+      propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
+      propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
+      value: 
+      objectReference: {fileID: 336380411}
+    - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
+      propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: SolveAllPanels
+      objectReference: {fileID: 0}
+    - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
+      propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     m_RemovedComponents: []

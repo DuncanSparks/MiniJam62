@@ -120,4 +120,16 @@ public class PaintPanel : MonoBehaviour
 			}
 		}
 	}
+
+	public void Solve()
+	{
+		//Color color = color = colors[(int)requiredAnyColor];
+		foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+        {
+            sprite.gameObject.SetActive(false);
+        }
+
+		MeshRenderer mesh = GetComponent<MeshRenderer>();
+        mesh.material = colorMaterials[(int)requiredAnyColor];
+	}
 }

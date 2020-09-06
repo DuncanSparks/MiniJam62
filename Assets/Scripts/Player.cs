@@ -362,7 +362,7 @@ public class Player : MonoBehaviour
                 break;
         }
 
-        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f, AimRotation);
+        var glob = Instantiate(obj, transform.position + model.transform.forward * 1.5f + (currentColor == PaintColor.Yellow ? Vector3.up * 1.5f : Vector3.zero), AimRotation);
 
         foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
         {
