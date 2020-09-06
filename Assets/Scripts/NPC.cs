@@ -46,6 +46,10 @@ public class NPC : MonoBehaviour
 	[SerializeField]
 	string targetLocationObject;
 
+	[Space(20)]
+    [SerializeField]
+    Event dialogueEndEvent;
+
     void Start()
     {
 		interactIndicator = GetComponentInChildren<SpriteRenderer>();
@@ -108,6 +112,7 @@ public class NPC : MonoBehaviour
 	{
 		dialogueSet = Mathf.Min(++dialogueSet, dialogue.Length - 1);
 		interactIndicator.enabled = true;
+		dialogueEndEvent.Invoke();
 	}
 
     //public int NumSets { get => dialogue.Length; }

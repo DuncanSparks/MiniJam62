@@ -19,14 +19,14 @@ public class AndGate : MonoBehaviour
         conditionBools = new bool[conditions.Length];
     }
 
-    public void SetBool(int index, bool value)
+    public void SetBool(int index)
     {
         if (activated)
         {
             return;
         }
 
-        conditionBools[index] = value;
+        conditionBools[index] = true;
         if (AllTrue())
         {
             conditionsMetEvent.Invoke();
