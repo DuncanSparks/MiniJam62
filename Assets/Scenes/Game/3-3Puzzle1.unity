@@ -1378,7 +1378,7 @@ PrefabInstance:
     - target: {fileID: 2757616519593209556, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: targetScene
       value: 
-      objectReference: {fileID: 102900000, guid: 1afb216ad1aa5cd4b9a7855c28347203, type: 3}
+      objectReference: {fileID: 102900000, guid: 0eacd1abd881a8445abd5c5cc1bd95c6, type: 3}
     - target: {fileID: 2757616519593209556, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: targetLocationObject
       value: SouthEntrance

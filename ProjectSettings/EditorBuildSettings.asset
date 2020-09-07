@@ -21,7 +21,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/3-3Puzzle1.unity
     guid: 537381165223734469c567ad010b6fc5
   - enabled: 1
-    path: Assets/Scenes/Game/3-4PuzzlePlatforming1.unity
+    path: Assets/Scenes/Game/3-5PuzzlePlatforming.unity
     guid: 1afb216ad1aa5cd4b9a7855c28347203
   - enabled: 1
     path: Assets/Scenes/Game/0Intro/0-0HomeLife.unity
