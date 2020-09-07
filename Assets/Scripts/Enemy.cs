@@ -59,6 +59,7 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(transform.position.y<-20)Destroy(gameObject);
         GameObject target = Controller.Singleton.player;
         if(target&&animator.GetBool("InIdleState"))
         {
@@ -92,6 +93,9 @@ public class Enemy : MonoBehaviour
         attackTimer += Time.deltaTime;
         if(attackTimer>attackTime)
         {
+            Vector3 diff = Controller.Singleton.player.transform.position - transform.position;
+            diff.y=0;
+            modelRotation = Quaternion.LookRotation(diff);
             attackTimer=0;
             targetVelocity = Vector3.zero;
             animator.SetBool("Attack", true);

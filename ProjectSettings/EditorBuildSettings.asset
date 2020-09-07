@@ -42,6 +42,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/1CanvasLand/1-5Forrest.unity
     guid: 7c2d49f57a1e049f98bc4471557176c7
   - enabled: 1
+    path: Assets/Scenes/Game/2-0Fight.unity
+    guid: fced4dd6e84df4de983b0213abe26e3d
+  - enabled: 1
     path: Assets/Scenes/Game/2-1hub.unity
     guid: 7747d7b2bb84749748dc0fa3bdd8f7b6
   - enabled: 1

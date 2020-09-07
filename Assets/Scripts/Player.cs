@@ -137,8 +137,13 @@ public class Player : MonoBehaviour
         }
     }
 
+    float lastHit=0;
+    [SerializeField]
+    float invulLength=0.2f;
     void HitboxCollision(GameObject hitbox)
     {
+        if(Time.time-lastHit<invulLength)return;
+        lastHit = Time.time;
         float damage = 1;
         float knockback = 20;
         Damage(damage, -knockback*hitbox.transform.forward);
@@ -148,12 +153,16 @@ public class Player : MonoBehaviour
     void Damage(float amount, Vector3 knockbackDirection)
     {
         Controller.Singleton.PlaySoundOneShot(damageSound, Random.Range(0.95f, 1.05f), 0.75f);
-        animator.SetBool("Hurt", true);
+        health = Mathf.Clamp(--health, 0, maxHealth);
+        if(health>0) {
+            animator.SetBool("Hurt", true);
+        } else {
+            Die();
+        }
         Controller.Singleton.ShowComicText("Splat", transform.position + new Vector3(0, 0.5f, 0), camera);
         knockback = knockbackDirection;
         ModelRotation = Quaternion.LookRotation(-knockback);
         model.transform.rotation = ModelRotation;
-        health = Mathf.Clamp(--health, 0, maxHealth);
         GameUI.Singleton.SetHealth(health, maxHealth);
     }
 
@@ -243,10 +252,31 @@ public class Player : MonoBehaviour
             animator.SetFloat("Jumping", 0);
         }
 
-        if (!respawning && transform.position.y < respawnY)
+        if (transform.position.y < respawnY)
+        {
+            // Die();
+            Respawn();
+        }
+
+        if(animator.GetBool("ShouldRespawn")) {
+            Respawn();
+        }
+    }
+
+    bool dead = false;
+    void Die() {
+        if (dead)return;
+        dead = true;
+        animator.SetBool("Die", true);
+        lockMovement = true;
+    }
+
+    void Respawn()
+    {
+        if(!respawning)
         {
             Controller.Singleton.Respawn();
-			respawning = true;
+            respawning = true;
         }
     }
 

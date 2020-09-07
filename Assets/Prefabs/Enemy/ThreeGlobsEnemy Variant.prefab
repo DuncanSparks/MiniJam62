@@ -46,13 +46,33 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2118131498555163425, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889832902587714759, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2889832903142643192, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5239042358137074554, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
       propertyPath: m_TagString
       value: EnemyHitbox
       objectReference: {fileID: 0}
+    - target: {fileID: 5239042358137074554, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 5239042358557518405, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
       propertyPath: m_TagString
       value: EnemyHitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 5239042358557518405, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8145351752191238942, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
       propertyPath: m_LocalPosition.x
@@ -100,11 +120,23 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
       propertyPath: m_Name
-      value: ThreeGlobsEnemy
+      value: ThreeGlobsEnemy Variant
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 8145351752191238943, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_TagString
+      value: EnemyHitbox
       objectReference: {fileID: 0}
     - target: {fileID: 9064465748549952931, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
       propertyPath: m_TagString
       value: EnemyHitbox
+      objectReference: {fileID: 0}
+    - target: {fileID: 9064465748549952931, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 82354ba726d7a9241ab5a8c22a383525, type: 3}
