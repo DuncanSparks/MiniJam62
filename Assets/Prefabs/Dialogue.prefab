@@ -68,8 +68,8 @@ MonoBehaviour:
   m_text: 'Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello Hello
     Hello Hello Hello Hello Hello Hello '
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 915dae2ffc6d01c4f806b7208d2f1fdc, type: 2}
-  m_sharedMaterial: {fileID: 2010016481816168488, guid: 915dae2ffc6d01c4f806b7208d2f1fdc, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: dc1c8d96c0bc7c740aa8e4216e6c304d, type: 2}
+  m_sharedMaterial: {fileID: 3957247975367808496, guid: dc1c8d96c0bc7c740aa8e4216e6c304d, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []

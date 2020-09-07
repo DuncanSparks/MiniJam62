@@ -60,7 +60,6 @@ public class Dialogue : MonoBehaviour
 				{
 					if (dialoguePage < dialogueText.Length - 1)
 					{
-						//Controller.Singleton.PlaySoundOneShot(advanceSound, Random.Range(0.98f, 1.02f), 0.7f);
 						visibleCharacters = 0;
 						dialoguePage++;
 						text.text = dialogueText[dialoguePage];
