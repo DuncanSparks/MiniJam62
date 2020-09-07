@@ -30,7 +30,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/0Intro/0-1BlankStudio.unity
     guid: 8a6c8cf29aa1648efa0ffed58d434f93
   - enabled: 1
-    path: Assets/Scenes/Game/0Intro/0-2StudioCutScene.unity
+    path: Assets/Scenes/Game/0Intro/0-3EndScene.unity
     guid: 0834f6367a110482c973d5802ede302a
   - enabled: 1
     path: Assets/Scenes/Game/1CanvasLand/1-1WhiteForrest.unity
