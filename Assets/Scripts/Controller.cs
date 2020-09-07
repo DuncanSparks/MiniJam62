@@ -41,6 +41,10 @@ public class Controller : MonoBehaviour
     [SerializeField]
     bool onTitleScreen = false;
 
+	int playerHealth = 4;
+	public int PlayerHealth { set => playerHealth = value; }
+	bool healPlayer = false;
+
     // ======================================================
 
     void Awake()
@@ -138,12 +142,8 @@ public class Controller : MonoBehaviour
 
     public void Respawn()
     {
-        /*var pl = player.GetComponent<Player>();
-        player.transform.position = targetScenePosition;
-        player.transform.rotation = targetSceneRotation;
-        pl.ModelRotation = targetSceneRotation;
-        pl.AimRotation = targetSceneRotation;*/
 		ChangeScene(SceneManager.GetActiveScene().name, targetLocationObject);
+		healPlayer = true;
     }
 
     public void ChangeScene(string scene, string locationObject)
@@ -168,11 +168,6 @@ public class Controller : MonoBehaviour
 
     void ChangeScene3()
     {
-        if (onTitleScreen)
-        {
-            GameUI.Singleton.EnableUI(true);
-        }
-        
 		if (targetLocationObject != string.Empty)
 		{
 			GameObject obj = GameObject.Find(targetLocationObject);
@@ -186,6 +181,15 @@ public class Controller : MonoBehaviour
         player.transform.rotation = targetSceneRotation;
         pl.ModelRotation = targetSceneRotation;
         pl.AimRotation = targetSceneRotation;
+		if (healPlayer)
+		{
+			playerHealth = 4;
+			pl.Health = 4;
+			healPlayer = false;
+		}
+
+
+		GameUI.Singleton.SetHealth(playerHealth, 4);
         GameUI.Singleton.Transition(false, playSound: true);
         pl.GetComponent<Player>().LockMovement = true;
         pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
