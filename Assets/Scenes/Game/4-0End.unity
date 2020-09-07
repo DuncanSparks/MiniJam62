@@ -729,7 +729,11 @@ PrefabInstance:
       objectReference: {fileID: 102900000, guid: 60374f5e0ea6a473297a04163bb32379, type: 3}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: targetLocationObject
-      value: Player
+      value: Target
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
+      propertyPath: targetSceneName
+      value: 0-3EndScene
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900397, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_Name
