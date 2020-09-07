@@ -73,6 +73,9 @@ public class Controller : MonoBehaviour
 
 	void Update()
 	{
+		if (Input.GetKeyDown(KeyCode.Escape))
+			Cursor.lockState = CursorLockMode.None;
+
 		if (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.F11))
 		{
 			Screen.fullScreenMode = Screen.fullScreenMode == FullScreenMode.Windowed ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
