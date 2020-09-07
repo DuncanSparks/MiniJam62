@@ -72,6 +72,6 @@ EditorBuildSettings:
     path: Assets/Scenes/Game/9-2BuckFight.unity
     guid: 0255a661ea6f14ed4857cf518852cf9a
   - enabled: 1
-    path: Assets/Scenes/Game/0Intro/0-3EndScene 1.unity
+    path: Assets/Scenes/Game/0-3EndScene 1.unity
     guid: 60374f5e0ea6a473297a04163bb32379
   m_configObjects: {}
