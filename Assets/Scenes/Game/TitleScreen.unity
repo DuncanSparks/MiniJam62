@@ -854,22 +854,23 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: '<color=red>Brian Dizon:</color> : Programming, level design, enemy models
+  m_text: '<color=red>Brian Dizon:</color> : Programming, Level design, Enemy models,
+    Animation
 
 
-    <color=#0010ff>Duncan
-    Sparks:</color> Programming, UI, Player/Environment Models, Sound
+    <color=#0010ff>Duncan Sparks:</color> Programming, UI, Player/Environment
+    Models, Sound
 
 
-    <color=#fa9000>Riley
-    Park:</color>  Particle Design
+    <color=#fa9000>Riley Park:</color>  Particle Design
 
 
-    <color=red>Rami Shreim:</color> Title Artwork
+    <color=red>Rami
+    Shreim:</color> Title Artwork
 
 
-    Music
-    by <color=#0010ff>Eric Matyas</color> - www.soundimage.org'
+    Music by <color=#0010ff>Eric Matyas</color>
+    - www.soundimage.org'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ca3468d32533809428101892ed5bd88a, type: 2}
   m_sharedMaterial: {fileID: 5156315957910898866, guid: ca3468d32533809428101892ed5bd88a, type: 2}

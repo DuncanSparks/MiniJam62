@@ -168,10 +168,10 @@ public class Controller : MonoBehaviour
 
     void ChangeScene3()
     {
-        if (onTitleScreen)
+        /*if (onTitleScreen)
         {
             GameUI.Singleton.EnableUI(true);
-        }
+        }*/
         
 		if (targetLocationObject != string.Empty)
 		{
