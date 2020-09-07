@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-	const float MotionInterpolateSpeed = 10.0f;
-	const float RotationInterpolateSpeed = 10.0f;
+    const float MotionInterpolateSpeed = 10.0f;
+    const float RotationInterpolateSpeed = 10.0f;
 
     [SerializeField]
-	GameObject model = null;
+    GameObject model = null;
     [SerializeField]
     float maxHealth;
-	[SerializeField]
+    [SerializeField]
     float attackRange;
-	[SerializeField]
+    [SerializeField]
     float minimumFollowDistance;
-	[SerializeField]
+    [SerializeField]
     float maximumFollowDistance;
     [SerializeField]
     float speed;
@@ -24,34 +24,34 @@ public class Enemy : MonoBehaviour
     [SerializeField]
     Transform projectileSpawnLocation;
     
-	[SerializeField]
-	AudioClip attackSound;
+    [SerializeField]
+    AudioClip attackSound;
 
-	[SerializeField]
-	float attackSoundVolume = 1;
+    [SerializeField]
+    float attackSoundVolume = 1;
 
-	[SerializeField]
-	AudioClip deathSound;
+    [SerializeField]
+    AudioClip deathSound;
 
-	[SerializeField]
-	float deathSoundVolume = 1;
+    [SerializeField]
+    float deathSoundVolume = 1;
 
     float health;
     Quaternion modelRotation = Quaternion.identity;
     new Camera camera;
-	new Rigidbody rigidbody;
-	Animator animator;
+    new Rigidbody rigidbody;
+    Animator animator;
     Vector3 velocity = Vector3.zero;
     Vector3 targetVelocity = Vector3.zero;
 
-	[Space(20)]
+    [Space(20)]
     [SerializeField]
     Event deathEvent;
 
     // Start is called before the first frame update
     void Start()
     {
-		rigidbody = GetComponent<Rigidbody>();
+        rigidbody = GetComponent<Rigidbody>();
         animator = GetComponentInChildren<Animator>();
         health = maxHealth;
     }
@@ -59,7 +59,11 @@ public class Enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(transform.position.y<-20)Destroy(gameObject);
+        if(transform.position.y<-20)
+        {
+            DestroySelf();
+        }
+        
         GameObject target = Controller.Singleton.player;
         if(target&&animator.GetBool("InIdleState"))
         {
@@ -106,10 +110,10 @@ public class Enemy : MonoBehaviour
 
     public void SpawnAttack()
     {
-		if (attackSound)
-		{
-			Controller.Singleton.PlaySoundOneShot(attackSound, Random.Range(0.95f, 1.05f), attackSoundVolume);
-		}
+        if (attackSound)
+        {
+            Controller.Singleton.PlaySoundOneShot(attackSound, Random.Range(0.95f, 1.05f), attackSoundVolume);
+        }
         var glob = Instantiate(projectile, projectileSpawnLocation.position, model.transform.rotation);
         foreach (PaintGlob comp in glob.GetComponentsInChildren<PaintGlob>())
         {
@@ -135,10 +139,10 @@ public class Enemy : MonoBehaviour
         {
             animator.SetBool("Hurt", true);
         } else {
-			Controller.Singleton.PlaySoundOneShot(deathSound, Random.Range(0.95f, 1.05f), deathSoundVolume);
+            Controller.Singleton.PlaySoundOneShot(deathSound, Random.Range(0.95f, 1.05f), deathSoundVolume);
             animator.SetBool("Die", true);
             dead = true;
-            Destroy(gameObject, 1f);
+            Invoke(nameof(DestroySelf), 1f);
         }
     }
 
@@ -154,8 +158,9 @@ public class Enemy : MonoBehaviour
         }
     }
 
-	void OnDestroy()
-	{
-		deathEvent.Invoke();
-	}
+    void DestroySelf()
+    {
+        deathEvent.Invoke();
+        Destroy(gameObject);
+    }
 }
