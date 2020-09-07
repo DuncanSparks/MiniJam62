@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
+using TMPro;
 
 
 public class TitleScreen : MonoBehaviour
@@ -35,6 +35,7 @@ public class TitleScreen : MonoBehaviour
 
     void Start()
     {
+		Controller.Singleton.GameStarted = false;
         Invoke(nameof(Fadein), 1f);
     }
 
@@ -103,10 +104,10 @@ public class TitleScreen : MonoBehaviour
     void ClickExit2()
     {
         #if UNITY_EDITOR
-             UnityEditor.EditorApplication.isPlaying = false;
-         #else
-             Application.Quit();
-         #endif
+            UnityEditor.EditorApplication.isPlaying = false;
+        #else
+            Application.Quit();
+        #endif
     }
 
     void OpenCredits(bool open)
@@ -115,4 +116,12 @@ public class TitleScreen : MonoBehaviour
         creditsText.SetActive(open);
         creditsOpen = open;
     }
+
+	public void ClickColorblindMode()
+	{
+		Controller.Singleton.PlaySoundOneShot(clickSound, Random.Range(0.95f, 1.05f));
+		Controller.Singleton.ColorblindMode ^= true;
+		GameUI.Singleton.SetColorblindMode(Controller.Singleton.ColorblindMode);
+		buttons[3].GetComponentInChildren<TextMeshProUGUI>().text = $"Colorblind\nMode: {(Controller.Singleton.ColorblindMode ? "On" : "Off")}";
+	}
 }

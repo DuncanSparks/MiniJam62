@@ -15,12 +15,12 @@ public class Controller : MonoBehaviour
 
     int audioSourceIndex = 0;
 
-	Dictionary<string, bool> clearedScenes = new Dictionary<string, bool>(){};
+    Dictionary<string, bool> clearedScenes = new Dictionary<string, bool>(){};
 
     // ======================================================
 
-	[SerializeField]
-	float masterVolume = 1f;
+    [SerializeField]
+    float masterVolume = 1f;
 
     [SerializeField]
     GameObject dialogueObj = null;
@@ -35,15 +35,24 @@ public class Controller : MonoBehaviour
     Vector3 targetScenePosition;
     Quaternion targetSceneRotation;
 
-	AudioSource music;
-	bool musicStarted = false;
+    AudioSource music;
+    bool musicStarted = false;
 
     [SerializeField]
     bool onTitleScreen = false;
 
-	int playerHealth = 4;
-	public int PlayerHealth { set => playerHealth = value; }
-	bool healPlayer = false;
+    int playerHealth = 4;
+    public int PlayerHealth { set => playerHealth = value; }
+    bool healPlayer = false;
+
+    bool gameStarted = true;
+    public bool GameStarted { set => gameStarted = value; }
+
+    bool gamePaused = false;
+    public bool GamePaused { get => gamePaused; set => gamePaused = value; }
+
+    bool colorblindMode = false;
+    public bool ColorblindMode { get => colorblindMode; set => colorblindMode = value; }
 
     // ======================================================
 
@@ -59,7 +68,7 @@ public class Controller : MonoBehaviour
 
     void Start()
     {
-		AudioListener.volume = masterVolume;
+        AudioListener.volume = masterVolume;
 
         if (!onTitleScreen)
         {
@@ -68,47 +77,56 @@ public class Controller : MonoBehaviour
             Cursor.lockState = CursorLockMode.Locked;
         }
 
-		music = GetComponents<AudioSource>()[8];
+        music = GetComponents<AudioSource>()[8];
     }
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.Escape))
-			Cursor.lockState = CursorLockMode.None;
+    void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+            Cursor.lockState = CursorLockMode.None;
 
-		if (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.F11))
-		{
-			Screen.fullScreenMode = Screen.fullScreenMode == FullScreenMode.Windowed ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
-			//Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
-		}
+        if (gameStarted && (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1)))
+            Cursor.lockState = CursorLockMode.Locked;
 
-		if (musicStarted && !music.isPlaying)
-		{
-			music.time = 7.626f;
-			music.Play();
-		}
-	}
+        if (gameStarted && Input.GetButtonDown("ColorblindMode"))
+        {
+            colorblindMode ^= true;
+            GameUI.Singleton.SetColorblindMode(colorblindMode);
+        }
 
-	public void PlayMusic(AudioClip mus)
-	{
-		music.clip = mus;
-		music.Play();
-	}
+        if (Input.GetKeyDown(KeyCode.F4) || Input.GetKeyDown(KeyCode.F11))
+        {
+            Screen.fullScreenMode = Screen.fullScreenMode == FullScreenMode.Windowed ? FullScreenMode.FullScreenWindow : FullScreenMode.Windowed;
+            //Screen.fullScreenMode = FullScreenMode.ExclusiveFullScreen;
+        }
 
-	public void StopMusic()
-	{
-		music.Stop();
-	}
+        if (musicStarted && !music.isPlaying)
+        {
+            music.time = 7.626f;
+            music.Play();
+        }
+    }
 
-	public void AddClearedScene(string name)
-	{
-		clearedScenes.Add(name, true);
-	}
+    public void PlayMusic(AudioClip mus)
+    {
+        music.clip = mus;
+        music.Play();
+    }
 
-	public bool IsSceneCleared(string name)
-	{
-		return clearedScenes.ContainsKey(name);
-	}
+    public void StopMusic()
+    {
+        music.Stop();
+    }
+
+    public void AddClearedScene(string name)
+    {
+        clearedScenes.Add(name, true);
+    }
+
+    public bool IsSceneCleared(string name)
+    {
+        return clearedScenes.ContainsKey(name);
+    }
 
     public void Dialogue(string[] text, float pitch, NPC host)
     {
@@ -117,7 +135,7 @@ public class Controller : MonoBehaviour
 
         var dlg = Instantiate(dialogueObj, Vector3.zero, Quaternion.identity);
         Dialogue dlgScript = dlg.GetComponent<Dialogue>();
-		dlgScript.SoundPitch = pitch;
+        dlgScript.SoundPitch = pitch;
         dlgScript.Host = host;
         dlgScript.DialogueText = text;
         dlgScript.StartDialogue();
@@ -145,15 +163,15 @@ public class Controller : MonoBehaviour
 
     public void Respawn()
     {
-		ChangeScene(SceneManager.GetActiveScene().name, targetLocationObject);
-		healPlayer = true;
+        ChangeScene(SceneManager.GetActiveScene().name, targetLocationObject);
+        healPlayer = true;
     }
 
     public void ChangeScene(string scene, string locationObject)
     {
         if (!onTitleScreen)
         {
-			var pl = player.GetComponent<Player>();
+            var pl = player.GetComponent<Player>();
             pl.LockMovement = true;
         }
         
@@ -171,12 +189,12 @@ public class Controller : MonoBehaviour
 
     void ChangeScene3()
     {
-		if (targetLocationObject != string.Empty)
-		{
-			GameObject obj = GameObject.Find(targetLocationObject);
-        	targetScenePosition = obj.transform.position;
-       		targetSceneRotation = obj.transform.rotation;
-		}
+        if (targetLocationObject != string.Empty)
+        {
+            GameObject obj = GameObject.Find(targetLocationObject);
+            targetScenePosition = obj.transform.position;
+               targetSceneRotation = obj.transform.rotation;
+        }
         
         player = FindObjectOfType<Player>().gameObject;
         var pl = player.GetComponent<Player>();
@@ -184,15 +202,15 @@ public class Controller : MonoBehaviour
         player.transform.rotation = targetSceneRotation;
         pl.ModelRotation = targetSceneRotation;
         pl.AimRotation = targetSceneRotation;
-		if (healPlayer)
-		{
-			playerHealth = 4;
-			pl.Health = 4;
-			healPlayer = false;
-		}
+        if (healPlayer)
+        {
+            playerHealth = 4;
+            pl.Health = 4;
+            healPlayer = false;
+        }
 
 
-		GameUI.Singleton.SetHealth(playerHealth, 4);
+        GameUI.Singleton.SetHealth(playerHealth, 4);
         GameUI.Singleton.Transition(false, playSound: true);
         pl.GetComponent<Player>().LockMovement = true;
         pl.GetComponent<Player>().CurrentColor = GameUI.Singleton.CurrentColor;
@@ -202,16 +220,17 @@ public class Controller : MonoBehaviour
 
     void ChangeScene4()
     {
-		var pl = player.GetComponent<Player>();
+        var pl = player.GetComponent<Player>();
         pl.LockMovement = false;
-		if (pl.Respawning)
-		{
-			pl.Respawning = false;
-		}
+        if (pl.Respawning)
+        {
+            pl.Respawning = false;
+        }
 
         if (onTitleScreen)
         {
             Cursor.lockState = CursorLockMode.Locked;
+            gameStarted = true;
             onTitleScreen = false;
         }
     }

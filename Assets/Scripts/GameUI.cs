@@ -39,6 +39,9 @@ public class GameUI : MonoBehaviour
     [SerializeField]
     GameObject aimModeText;
 
+	[SerializeField]
+	GameObject colorblindModeText;
+
     [SerializeField]
     GameObject fade;
 
@@ -89,6 +92,7 @@ public class GameUI : MonoBehaviour
         colorIndicator.SetActive(enable);
         colorText.SetActive(enable);
         aimModeText.SetActive(enable);
+		colorblindModeText.SetActive(enable);
     }
 
     public void SetHealth(int health, int maxhealth)
@@ -112,6 +116,12 @@ public class GameUI : MonoBehaviour
         Controller.Singleton.PlaySoundOneShot(modeSound);
         aimModeText.GetComponent<TextMeshProUGUI>().text = $"Aim mode: {(mouse ? "Mouse" : "Direction")}";
     }
+
+	public void SetColorblindMode(bool enabled)
+	{
+		Controller.Singleton.PlaySoundOneShot(modeSound);
+		colorblindModeText.GetComponent<TextMeshProUGUI>().text = $"Colorblind mode: {(enabled ? "On" : "Off")}";
+	}
 
     public void Fade(Color color, float duration, bool fadeout)
     {

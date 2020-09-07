@@ -26,7 +26,13 @@ public class PaintPanel : MonoBehaviour
 	Color[] colors;
 
 	[SerializeField]
+	Sprite[] colorLetters;
+
+	[SerializeField]
 	Material[] colorMaterials;
+
+	[SerializeField]
+	Color[] letterColors;
 
 	int currentColor = -1;
 	public int CurrentColor { get => currentColor; }
@@ -41,6 +47,7 @@ public class PaintPanel : MonoBehaviour
     void Start()
     {
         sprites = GetComponentsInChildren<SpriteRenderer>();
+		sprites[0].sprite = colorLetters[(int)requiredAnyColor];
         if (!displayTargetColor)
         {
             Color color =  anyColor ? Color.white : colors[(int)requiredAnyColor];
@@ -48,21 +55,49 @@ public class PaintPanel : MonoBehaviour
         }
     }
 
+	void Update()
+	{
+		if (!Controller.Singleton.ColorblindMode)
+		{
+			sprites[0].gameObject.SetActive(false);
+			return;
+		}
+
+		sprites[0].color = displayOnly || (displayTargetColor && currentColor != -1) || (!displayTargetColor) ? letterColors[1] : letterColors[0];
+		
+		if (displayTargetColor || displayOnly)
+		{
+			sprites[0].gameObject.SetActive(currentColor != (int)requiredAnyColor);
+		}
+		else if (currentColor != -1)
+		{
+			sprites[0].gameObject.SetActive(true);
+			sprites[0].sprite = colorLetters[currentColor];
+		}
+		else
+		{
+			sprites[0].gameObject.SetActive(false);
+		}
+	}
+
     void SetChildColors(Color color) {
-        foreach (var sprite in sprites)
-        {
-            sprite.color = color;
-        }
+		for (int i = 1; i < sprites.Length; i++)
+		{
+			sprites[i].color = color;
+		}
     }
 
     void UpdateChildColors()
     {
         Color color = colors[(int)requiredAnyColor];
         if(color == null)return;
-        foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
+
+		var _sprites = GetComponentsInChildren<SpriteRenderer>();
+        for (int i = 1; i < _sprites.Length; i++)
         {
-            sprite.color = color;
+            _sprites[i].color = color;
         }
+
         if(displayOnly)
         {
 			MeshRenderer mesh = GetComponent<MeshRenderer>();
@@ -96,11 +131,12 @@ public class PaintPanel : MonoBehaviour
 					mesh.material = colorMaterials[colorIndex];
                     Color color = color = colors[colorIndex];
                     int requiredIndex = (int)requiredAnyColor;
-                    // color = colorIndex == requiredIndex ? Color.clear : colors[requiredIndex];
-                    foreach (var sprite in sprites)
-                    {
-                        sprite.gameObject.SetActive(requiredIndex != colorIndex);
-                    }
+
+					for (int i = 1; i < sprites.Length; i++)
+					{
+						sprites[i].gameObject.SetActive(requiredIndex != colorIndex);
+					}
+
                     if(!displayTargetColor)
                     {
                         SetChildColors(color);
@@ -123,11 +159,11 @@ public class PaintPanel : MonoBehaviour
 
 	public void Solve()
 	{
-		//Color color = color = colors[(int)requiredAnyColor];
-		foreach (var sprite in GetComponentsInChildren<SpriteRenderer>())
-        {
-            sprite.gameObject.SetActive(false);
-        }
+		var _sprites = GetComponentsInChildren<SpriteRenderer>();
+		for (int i = 1; i < _sprites.Length; i++)
+		{
+			sprites[i].gameObject.SetActive(false);
+		}
 
 		MeshRenderer mesh = GetComponent<MeshRenderer>();
         mesh.material = colorMaterials[(int)requiredAnyColor];

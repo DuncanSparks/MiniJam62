@@ -4,13 +4,17 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    const float CameraMouseRotationSpeed = 3.4f;
-    const float CameraControllerRotationSpeed = 3.0f;
+	#if UNITY_EDITOR
+		const float CameraMouseRotationSpeed = 10f;
+	#else
+		const float CameraMouseRotationSpeed = 3.4f;
+	#endif
+
+	const float DashCooldownTime = 0.2f;
+
     const float CameraXRotMin = -26.0f;
     const float CameraXRotMax = 30.0f;
 
-    const float DirectionInterpolateSpeed = 1.0f;
-    const float MotionInterpolateSpeed = 10.0f;
     const float RotationInterpolateSpeed = 10.0f;
 
     const float Speed = 12.0f;
@@ -45,6 +49,7 @@ public class Player : MonoBehaviour
     bool attacking = false;
     bool dashing = false;
     bool hurt = false;
+	bool dashCooldown = false;
 
     bool globalMouseAim = true;
 
@@ -185,7 +190,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (!dashing && Input.GetButtonDown("Fire3"))
+            if (!dashing && !dashCooldown && Input.GetButtonDown("Fire3"))
             {
                 Controller.Singleton.PlaySoundOneShot(dashSound, Random.Range(0.95f, 1.05f));
                 Controller.Singleton.ShowComicText("Whoosh", transform.position + new Vector3(0, 0.5f, 0), camera);
@@ -362,7 +367,14 @@ public class Player : MonoBehaviour
         animator.SetBool("Dash", true);
         model.transform.rotation = ModelRotation;
         knockback = model.transform.forward * dashSpeed;
+		dashCooldown = true;
+		Invoke(nameof(RefreshDash), DashCooldownTime);
     }
+	
+	void RefreshDash()
+	{
+		dashCooldown = false;
+	}
 
     public void UpdateColorInfo()
     {
