@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    const float CameraMouseRotationSpeed = 6f;
+    const float CameraMouseRotationSpeed = 3.4f;
     const float CameraControllerRotationSpeed = 3.0f;
     const float CameraXRotMin = -26.0f;
     const float CameraXRotMax = 30.0f;
