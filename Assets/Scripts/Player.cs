@@ -39,6 +39,7 @@ public class Player : MonoBehaviour
 
     const int maxHealth = 4;
     int health = maxHealth;
+	public int Health { get => health; set => health = value; }
 
     bool onGround = false;
     bool attacking = false;
@@ -168,6 +169,7 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+		Controller.Singleton.PlayerHealth = health;
 
         horizontal = Input.GetAxisRaw("Horizontal");
         vertical = Input.GetAxisRaw("Vertical");
