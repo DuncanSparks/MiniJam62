@@ -188,7 +188,11 @@ PrefabInstance:
       objectReference: {fileID: 102900000, guid: 48fff65feeaa141759b31d287f311f2d, type: 3}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: targetLocationObject
-      value: Player
+      value: Yeet
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
+      propertyPath: targetSceneName
+      value: 0-2StudioCutScene
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900397, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_Name
@@ -2445,6 +2449,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetScene: {fileID: 102900000, guid: 0834f6367a110482c973d5802ede302a, type: 3}
+  targetSceneName: 
   targetLocationObject: 
 --- !u!135 &2031157701
 SphereCollider:

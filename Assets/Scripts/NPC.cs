@@ -42,6 +42,8 @@ public class NPC : MonoBehaviour
 
 	[SerializeField]
 	Object targetScene;
+    [SerializeField]
+    string targetSceneName;
 
 	[SerializeField]
 	string targetLocationObject;
@@ -49,6 +51,11 @@ public class NPC : MonoBehaviour
 	[Space(20)]
     [SerializeField]
     Event dialogueEndEvent;
+
+    void OnValidate() {
+      if (targetScene)
+        targetSceneName = targetScene.name;
+    }
 
     void Start()
     {
@@ -71,7 +78,7 @@ public class NPC : MonoBehaviour
 			}
 			else
 			{
-				Controller.Singleton.ChangeScene(targetScene.name, targetLocationObject);
+				Controller.Singleton.ChangeScene(targetSceneName, targetLocationObject);
 			}
         }
 

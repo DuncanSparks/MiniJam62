@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
+
 
 public class TitleScreen : MonoBehaviour
 {
     [SerializeField]
-    Object startScene;
+    string startScene;
 
     [SerializeField]
     AudioClip titleMusic;
@@ -81,7 +83,7 @@ public class TitleScreen : MonoBehaviour
     void ClickStart2()
     {
         Controller.Singleton.StopMusic();
-        Controller.Singleton.ChangeScene(startScene.name, "StartEntrance");
+        Controller.Singleton.ChangeScene(startScene, "StartEntrance");
     }
 
     public void ClickCredits()
