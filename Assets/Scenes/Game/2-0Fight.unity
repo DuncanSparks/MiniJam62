@@ -2901,6 +2901,14 @@ PrefabInstance:
       propertyPath: targetScene
       value: 
       objectReference: {fileID: 102900000, guid: 74422e1a87745dc44b88070fa3c03aa8, type: 3}
+    - target: {fileID: 2757616519593209556, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
+      propertyPath: targetSceneName
+      value: 3-1Platforming1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729782493837810959, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
 --- !u!4 &1346297025 stripped
@@ -2981,6 +2989,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 139660152}
     m_Modifications:
+    - target: {fileID: 601469811, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: m_RootOrder
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 111598885135337296, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
       propertyPath: m_Enabled
       value: 1
@@ -3566,6 +3578,14 @@ PrefabInstance:
       propertyPath: targetLocationObject
       value: NorthEntrance
       objectReference: {fileID: 0}
+    - target: {fileID: 3398162200732126815, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
+      propertyPath: targetSceneName
+      value: 1-5Forrest
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228720019090587012, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
 --- !u!4 &1941481155 stripped

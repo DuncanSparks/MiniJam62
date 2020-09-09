@@ -190,6 +190,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Platform1 (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}
+      propertyPath: m_Layer
+      value: 12
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}
 --- !u!1 &139660151
@@ -2304,6 +2308,14 @@ PrefabInstance:
       propertyPath: targetScene
       value: 
       objectReference: {fileID: 102900000, guid: 048720a8edd672843938aa09ba752a35, type: 3}
+    - target: {fileID: 2757616519593209556, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
+      propertyPath: targetSceneName
+      value: 3-7PuzzleFight
+      objectReference: {fileID: 0}
+    - target: {fileID: 3729782493837810959, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
 --- !u!4 &1346297025 stripped
@@ -2473,6 +2485,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}
       propertyPath: m_Name
       value: Platform1 (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}
@@ -2866,6 +2882,14 @@ PrefabInstance:
       propertyPath: targetLocationObject
       value: NorthEntrance
       objectReference: {fileID: 0}
+    - target: {fileID: 3398162200732126815, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
+      propertyPath: targetSceneName
+      value: 3-5PuzzlePlatforming
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228720019090587012, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7633a6160dbb34dd59fad7c3704eeaa6, type: 3}
 --- !u!4 &1941481155 stripped
@@ -2935,6 +2959,10 @@ PrefabInstance:
     - target: {fileID: 919132149155446097, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}
       propertyPath: m_Name
       value: Platform1
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}
+      propertyPath: m_Layer
+      value: 12
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5a51ae298a29ba8478d4379f7b4b7683, type: 3}

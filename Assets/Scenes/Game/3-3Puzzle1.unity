@@ -893,6 +893,18 @@ PrefabInstance:
       propertyPath: m_Name
       value: PaintPanel (7)
       objectReference: {fileID: 0}
+    - target: {fileID: 3104196004268239193, guid: 2033ed648ac1b714a8403af327f836c5, type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104196004268239193, guid: 2033ed648ac1b714a8403af327f836c5, type: 3}
+      propertyPath: m_Color.g
+      value: 0.0627451
+      objectReference: {fileID: 0}
+    - target: {fileID: 3104196004268239193, guid: 2033ed648ac1b714a8403af327f836c5, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8254044299246801520, guid: 2033ed648ac1b714a8403af327f836c5, type: 3}
       propertyPath: panelColor
       value: 1
@@ -1386,7 +1398,7 @@ PrefabInstance:
     - target: {fileID: 3729782493837810959, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 369e0e001f40e446299ef31f105fc607, type: 2}
+      objectReference: {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
 --- !u!4 &657140679 stripped
@@ -3123,7 +3135,7 @@ PrefabInstance:
     - target: {fileID: 3729782493837810959, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 2100000, guid: 369e0e001f40e446299ef31f105fc607, type: 2}
+      objectReference: {fileID: 2100000, guid: 52435edbb0bf3404388d5cba3af7de68, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 43a46f9768c384aef8eb35f9a19f4993, type: 3}
 --- !u!4 &1634516892 stripped
