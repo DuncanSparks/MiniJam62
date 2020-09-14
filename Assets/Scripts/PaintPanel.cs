@@ -162,10 +162,11 @@ public class PaintPanel : MonoBehaviour
 		var _sprites = GetComponentsInChildren<SpriteRenderer>();
 		for (int i = 1; i < _sprites.Length; i++)
 		{
-			sprites[i].gameObject.SetActive(false);
+			_sprites[i].gameObject.SetActive(false);
 		}
 
 		MeshRenderer mesh = GetComponent<MeshRenderer>();
         mesh.material = colorMaterials[(int)requiredAnyColor];
+		currentColor = (int)requiredAnyColor;
 	}
 }

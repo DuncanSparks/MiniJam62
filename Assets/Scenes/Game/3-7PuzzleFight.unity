@@ -993,6 +993,18 @@ PrefabInstance:
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: attackRange
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5473475894406412929, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 53.98213

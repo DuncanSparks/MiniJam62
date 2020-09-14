@@ -475,6 +475,14 @@ PrefabInstance:
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 5
       objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5473475894406412929, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 1.9
@@ -697,6 +705,14 @@ PrefabInstance:
     - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
       objectReference: {fileID: 0}
     - target: {fileID: 5473475894406412929, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
       propertyPath: m_LocalPosition.x
@@ -1055,6 +1071,14 @@ PrefabInstance:
     - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
       propertyPath: attackTime
       value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
@@ -2042,6 +2066,14 @@ PrefabInstance:
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 9
       objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
 --- !u!4 &874776866 stripped
@@ -2450,6 +2482,14 @@ PrefabInstance:
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 6
       objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 5473475894406412928, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
+      objectReference: {fileID: 0}
     - target: {fileID: 5473475894406412929, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 15.4
@@ -2832,6 +2872,14 @@ PrefabInstance:
     - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
@@ -3525,6 +3573,14 @@ PrefabInstance:
     - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
       propertyPath: deathEvent.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_IntArgument
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: minimumFollowDistance
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 2264441502886725323, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}
+      propertyPath: maximumFollowDistance
+      value: 40
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8569cd3ccda9d466abcbfa26530847e2, type: 3}

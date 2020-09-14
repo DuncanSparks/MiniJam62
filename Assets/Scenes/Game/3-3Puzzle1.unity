@@ -1844,11 +1844,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.size
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.data[0]
       value: Match the pattern!
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
+      propertyPath: dialogue.Array.data[0].array.Array.data[1]
+      value: '(Remember: Left click to paint, and right click to change color!)'
+      objectReference: {fileID: 0}
+    - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
+      propertyPath: dialogue.Array.data[0].array.Array.data[2]
+      value: (Also, Q to change your aiming mode and C to toggle colorblind mode!)
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900397, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_Name

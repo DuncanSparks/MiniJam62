@@ -409,6 +409,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 7191520109240221265, guid: 8c51cfa2acecf4b378c1ff8043ce5a07, type: 3}
   m_PrefabInstance: {fileID: 151554421}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &151554423 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7191520109240221229, guid: 8c51cfa2acecf4b378c1ff8043ce5a07, type: 3}
+  m_PrefabInstance: {fileID: 151554421}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &259797008
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +610,11 @@ PrefabInstance:
 --- !u!4 &297427151 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5473475894406412929, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+  m_PrefabInstance: {fileID: 297427150}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &297427152 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5473475894406413053, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
   m_PrefabInstance: {fileID: 297427150}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &333227128 stripped
@@ -1650,15 +1660,15 @@ PrefabInstance:
     - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
       propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 1754404410}
     - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
       propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[2].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 297427152}
     - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
       propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[3].m_Target
       value: 
-      objectReference: {fileID: 0}
+      objectReference: {fileID: 151554423}
     - target: {fileID: 1363474967555630626, guid: f12ba548c2378fc48ab6fe0eadfbe25f, type: 3}
       propertyPath: sceneClearedEvent.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
       value: SetActive
@@ -2600,6 +2610,11 @@ PrefabInstance:
 --- !u!4 &1754404409 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5473475894406412929, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
+  m_PrefabInstance: {fileID: 1754404408}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1754404410 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5473475894406413053, guid: 60fd1c0b6ebae4f428d86cdf585f03bf, type: 3}
   m_PrefabInstance: {fileID: 1754404408}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1764765753

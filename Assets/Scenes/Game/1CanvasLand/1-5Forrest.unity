@@ -447,7 +447,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &365025866
 MonoBehaviour:
@@ -488,7 +488,8 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -9.453862, y: -1.6329346, z: -1.7160482}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 428146598}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -497,7 +498,7 @@ PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Modification:
-    m_TransformParent: {fileID: 0}
+    m_TransformParent: {fileID: 420563450}
     m_Modifications:
     - target: {fileID: 1111439957260121583, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_LocalPosition.y
@@ -505,15 +506,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900385, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.1
+      value: 9.553863
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900385, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 2.51
+      value: 4.142935
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900385, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 63.46
+      value: 65.17605
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900385, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_LocalRotation.x
@@ -533,7 +534,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900385, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_RootOrder
-      value: 12
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900385, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -613,8 +614,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.data[2]
-      value: Q or middle click swaps between aiming toward the mouse or where you're
-        facing.
+      value: Q swaps between aiming toward the mouse or where you're facing.
       objectReference: {fileID: 0}
     - target: {fileID: 1897213236191900396, guid: 8dbbf993102ccbf4ea6ac33ed90b35c7, type: 3}
       propertyPath: dialogue.Array.data[0].array.Array.data[3]
@@ -1415,7 +1415,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7505383713387712295, guid: 9870d0c4c47e743138861aa8dc990ae5, type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 7505383713387712295, guid: 9870d0c4c47e743138861aa8dc990ae5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -2248,7 +2248,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7505383713387712295, guid: 9870d0c4c47e743138861aa8dc990ae5, type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 7505383713387712295, guid: 9870d0c4c47e743138861aa8dc990ae5, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
